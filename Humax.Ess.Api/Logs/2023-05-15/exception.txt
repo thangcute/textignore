@@ -1,0 +1,76 @@
+Start - 2023-05-15 11:09:48 - 
+20230515110948 - 2023-05-15 11:09:48: The operation was canceled.
+20230515154328 - 2023-05-15 15:43:28: Object reference not set to an instance of an object.
+20230515154328 - 2023-05-15 15:43:28: Object reference not set to an instance of an object.
+20230515154338 - 2023-05-15 15:43:38: Object reference not set to an instance of an object.
+20230515154338 - 2023-05-15 15:43:38: Object reference not set to an instance of an object.
+20230515165713 - 2023-05-15 16:57:13: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515165713 - 2023-05-15 16:57:13: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515170249 - 2023-05-15 17:02:49: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515170249 - 2023-05-15 17:02:49: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515201458 - 2023-05-15 20:14:58: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515201458 - 2023-05-15 20:14:58: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515201621 - 2023-05-15 20:16:21: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515201621 - 2023-05-15 20:16:21: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515201651 - 2023-05-15 20:16:51: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515201652 - 2023-05-15 20:16:52: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515201919 - 2023-05-15 20:19:19: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515201919 - 2023-05-15 20:19:19: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204354 - 2023-05-15 20:43:54: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204354 - 2023-05-15 20:43:54: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204515 - 2023-05-15 20:45:15: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204515 - 2023-05-15 20:45:15: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204630 - 2023-05-15 20:46:30: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204630 - 2023-05-15 20:46:30: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204717 - 2023-05-15 20:47:17: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204717 - 2023-05-15 20:47:17: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204833 - 2023-05-15 20:48:33: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204833 - 2023-05-15 20:48:33: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204937 - 2023-05-15 20:49:37: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515204937 - 2023-05-15 20:49:37: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515205103 - 2023-05-15 20:51:03: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515205103 - 2023-05-15 20:51:03: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515205201 - 2023-05-15 20:52:01: A task was canceled.
+20230515205202 - 2023-05-15 20:52:02: A task was canceled.
+20230515205212 - 2023-05-15 20:52:12: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515205212 - 2023-05-15 20:52:12: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515205247 - 2023-05-15 20:52:47: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515205247 - 2023-05-15 20:52:47: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515205821 - 2023-05-15 20:58:21: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515205821 - 2023-05-15 20:58:21: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515210115 - 2023-05-15 21:01:15: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515210115 - 2023-05-15 21:01:15: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515210444 - 2023-05-15 21:04:44: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515210444 - 2023-05-15 21:04:44: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515210641 - 2023-05-15 21:06:41: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515210641 - 2023-05-15 21:06:41: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211102 - 2023-05-15 21:11:02: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211102 - 2023-05-15 21:11:02: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211358 - 2023-05-15 21:13:58: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211358 - 2023-05-15 21:13:58: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211408 - 2023-05-15 21:14:08: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211408 - 2023-05-15 21:14:08: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211422 - 2023-05-15 21:14:22: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211422 - 2023-05-15 21:14:22: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211425 - 2023-05-15 21:14:25: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211425 - 2023-05-15 21:14:25: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211759 - 2023-05-15 21:17:59: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515211759 - 2023-05-15 21:17:59: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515212003 - 2023-05-15 21:20:03: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515212003 - 2023-05-15 21:20:03: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515213806 - 2023-05-15 21:38:06: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515213806 - 2023-05-15 21:38:06: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515213842 - 2023-05-15 21:38:42: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515213842 - 2023-05-15 21:38:42: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515215823 - 2023-05-15 21:58:23: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515215823 - 2023-05-15 21:58:23: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515220252 - 2023-05-15 22:02:52: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515220252 - 2023-05-15 22:02:52: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515220258 - 2023-05-15 22:02:58: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515220258 - 2023-05-15 22:02:58: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515220720 - 2023-05-15 22:07:20: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515220720 - 2023-05-15 22:07:20: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515220737 - 2023-05-15 22:07:37: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515220737 - 2023-05-15 22:07:37: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515220809 - 2023-05-15 22:08:09: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230515220809 - 2023-05-15 22:08:09: Invalid object name 'dbo.TSK_DuAn_TrangThai'.

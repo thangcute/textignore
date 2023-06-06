@@ -1,0 +1,96 @@
+﻿@model int
+<script type="text/javascript">
+    var currentDay = "";
+    var NgayThang = "";
+    var FieldName = "";
+    var value = 0;
+    var frmLostFingerID = 0;
+
+    function OnClickFilter() {
+        OOSDialog.ShowLoadingPanel();
+        NgayThang = dtNgayThang.GetText();
+
+        var url = '@Url.Action("GetChamCong", "Home")';
+        var data = { NhanVienID:@Model, ThangNam: dtNgayThang.GetText() };
+
+        OOSCore.Call_Ajax_Function_POST(url, data, function (result) {
+            OOSDialog.HideLoadingPanel();
+            $('#idTimesheetDetailsHTML').html(result);
+        });
+    }
+    function ShowLostFinger(nhanvienid, tonghopcongid) {
+        frmLostFingerID = tonghopcongid;
+        frmLostFinger.Show();
+    }
+    function Show_LyDo(day, f, v) {
+        currentDay = day;
+        FieldName = f;
+        value = v;
+        frmLyDo.Show();
+    }
+    function frmLostFinger_Submit() {
+        var lydo = LyDoGiaiTrinh.GetText();
+        if (lydo == '') {
+            showErrorMessage('@T("Bạn phải nhập lý do giải trình !").Text');
+            return;
+        }
+        var url = '@Url.Action("SS_ThemGio", "Home")';
+        var data = {
+            GioDen: GioDen.GetText(), GioVe: GioVe.GetText(), GioRa: GioRa.GetText(), GioVao: GioVao.GetText(),
+            LyDo: lydo, ID: frmLostFingerID, NhanVienID:@Model };
+
+        OOSDialog.ShowLoadingPanel();
+        OOSCore.Call_Ajax_Function_POST(url, data, function (res) {
+            frmLostFinger.Hide();
+            showSuccessMessage(res.mess);
+            dtNgayThang.SetText(NgayThang);
+            OOSDialog.HideLoadingPanel();
+        });
+    }
+    function frmLyDo_Submit() {
+        var lydo = val_frmLyDo.GetText();
+        if (lydo == '') {
+            showErrorMessage('@T("Bạn phải nhập lý do giải trình đi muộn !").Text');
+            return;
+        }
+        var url = '@Url.Action("SS_GiaiTrinh", "Home")';
+        var data = { NgayThang: currentDay, LyDo: lydo, FieldName: FieldName, Value: value };
+
+        OOSDialog.ShowLoadingPanel();
+        OOSCore.Call_Ajax_Function_POST(url, data, function (res) {
+            frmLyDo.Hide();
+            showSuccessMessage(res.mess);
+            dtNgayThang.SetText(NgayThang);
+            OnClickFilter();
+            OOSDialog.HideLoadingPanel();
+        });
+    }
+</script>
+<div class="portlet light" style="max-width:1024px">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            <span class="caption-subject font-blue-madison bold uppercase"><i class="fa fa-calendar-alt"></i> @T("BẢNG CÔNG CHI TIẾT THÁNG")</span>
+        </div>
+        <div class="actions">
+            <div style="padding-top:10px; float:left; font-weight:600">@T("Chọn tháng:")</div>
+            <div style="float:right; padding-left:5px; ">
+                <button type="button" class="btn blue-steel" onclick="OnClickFilter();"><i class='fa fa-check-square-o'></i> @T("Xem")</button>
+            </div>
+            <div style="float:right;padding-left:5px; ">
+                @Html.DevExpress().DateEdit(settings =>
+                    {
+                        settings.Name = "dtNgayThang";
+                        settings.Properties.EditFormat = EditFormat.Custom;
+                        settings.Properties.EditFormatString = "MM/yyyy";
+                        settings.Date = DateTime.Now;
+                        settings.Width = 120;
+                    }).GetHtml()
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body" style="min-height:300px">
+        <div id="idTimesheetDetailsHTML"></div>
+    </div>
+</div>
+@Html.Partial("UserForm\\XForm", OOS.GHR.Master.Models.XFormModel.InputStringModel(T("Giải trình lý do Đi muộn / Về sớm").Text, "frmLyDo"))
+@Html.Partial("UserForm\\XForm", OOS.GHR.SelfService.Models.DayAttendance_SelfServiceInfo.LostFingerModel(0))

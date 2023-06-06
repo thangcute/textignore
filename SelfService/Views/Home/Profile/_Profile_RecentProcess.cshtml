@@ -1,0 +1,29 @@
+﻿@using System.Data
+@model OOS.GHR.HRIS.Models.ProfilePreviewModel
+<div class="portlet light ">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            @Html.DevExpress().Image(st => { st.Properties.EmptyImage.IconID = IconID.BusinessobjectsBoresume32x32; }).GetHtml()
+            <span class="caption-subject font-blue-madison bold uppercase">@T("QUÁ TRÌNH NHÂN SỰ")</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="OOSScroller" style="max-height: 500px; width: auto;">
+            @for(int Index = 0; Index < Model.Timeline.RowCount; Index++)
+            {
+                <div>
+                    <span class="timeline-body-title font-blue-madison" style="font-weight:600"><i class="fa fa-info-circle"></i> @T(Model.Timeline.GetProfileInfo("NoiDung", Index))</span>
+                    <span class="timeline-body-time font-grey-cascade">@Model.Timeline.GetProfileInfo("NgayThayDoi", Index)</span>
+                </div>
+                <div style="padding-bottom:5px; padding-left:15px; border-bottom:1px solid whitesmoke; margin-bottom:5px">
+                    <div>@T("Số quyết định:") @Model.Timeline.GetProfileInfo("SoQuyetDinh", Index)</div>
+                    <div>@T("Nội dung:") @Model.Timeline.GetProfileInfo("Mota", Index)</div>
+                    @if (Model.Timeline.GetProfileInfo("Nguoitao", Index) != "")
+                    {
+                    <div>@T("Người thực hiện:") @Model.Timeline.GetProfileInfo("Nguoitao", Index)</div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>

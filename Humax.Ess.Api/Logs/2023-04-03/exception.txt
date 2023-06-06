@@ -1,0 +1,13 @@
+Start - 2023-04-03 13:51:21 - 
+20230403135121 - 2023-04-03 13:51:21: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230403135124 - 2023-04-03 13:51:24: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230403143005 - 2023-04-03 14:30:05: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230403143005 - 2023-04-03 14:30:05: Invalid object name 'dbo.TSK_DuAn_TrangThai'.

@@ -1,0 +1,12 @@
+﻿@model OOS.GHR.SelfService.Models.ElearningModel
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-speech"></i>
+            <span class="caption-subject bold uppercase"> @T("Khóa đào tạo đã tham gia")</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Html.Partial("_FinishedList", Model.DaThamGia)
+    </div>
+</div>

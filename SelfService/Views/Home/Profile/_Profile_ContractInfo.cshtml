@@ -1,0 +1,180 @@
+﻿@using System.Data
+@model OOS.GHR.HRIS.Models.ProfilePreviewModel
+<div class="portlet light">
+    <div class="portlet-title tabbable-line">
+        <div class="caption caption-md">
+            @Html.DevExpress().Image(st => { st.Properties.EmptyImage.IconID = IconID.ViewEmployees32x32devav; }).GetHtml()
+            <span class="caption-subject font-blue-madison bold uppercase">@T("THÔNG TIN CÔNG VIỆC / HỢP ĐỒNG")</span>
+        </div>
+        @if (Model.IsPortalPage)
+        {
+            <div class="actions" style="padding-top:10px !important">
+                <div class="btn-group">
+                    <a class="todo-username-btn btn btn-circle btn-default btn-xs" href="@Url.Action("CVPreview", "Profile", new { Area = "HRIS", ID = Model.MaNhanVien })">
+                        <i class="fa fa-print"></i> @T("Preview")
+                    </a>
+                    @*@<a class="btn blue btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            @T("Qúa trình nhân sự") <i class="fa fa-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu pull-right">
+            <li>
+                <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Profile" })">@T("Cập nhật thông tin cá nhân").Text</a>
+            </li>
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Trainning", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Trainning" })">@T("Quá trình đào tạo").Text</a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Experiences", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Experiences" })">@T("Kinh nghiệm làm việc").Text</a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_RelationShip", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Relationship" })">@T("Quan hệ nhân thân").Text</a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_ChildReward", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "ChildReward" })">@T("Khen thưởng con").Text</a>
+                </li>
+            }
+        </ul>*@
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="actions" style="padding-top:10px !important">
+                <div class="btn-group">
+                    <a class="todo-username-btn btn btn-circle btn-default btn-xs" href="@Url.Action("CVPreview", "Profile", new { Area = "HRIS", ID = Model.MaNhanVien })">
+                        <i class="fa fa-search"></i> @T("CV Preview")
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="portlet-body">
+        <div class="OOSScroller" style="height: 500px; width: auto;">
+            <table width="100%">
+                <tr>
+                    <td class="td_content_text_name" width="35%">@T("Trạng thái:")</td>
+                    <td class="td_content_text_value"><span class="label label-success" style="font-weight:600;">@Model.GetProfileInfo("TrangThaiNV")</span> @Model.GetProfileInfo("NgayNghiViec")</td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Phòng ban:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("PhongBan")</td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Chức vụ:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("ChucVu")</td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Chức danh:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("ChucDanh")</td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Thời gian giữ chức vụ:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("TimePosition")  (@T("Năm/Tháng"))</td>
+                </tr>
+            </table>
+            <div class="qtns-form-section" style="padding-left:5px">@T("Thông tin Hợp đồng")</div>
+            <table width="100%">
+                <tr>
+                    <td class="td_content_text_name" width="35%">@T("Ngày ký Hợp đồng:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("NgayKyHopDongLD") - @Model.GetProfileInfo("NgayHetHanHopDong")</td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Loại Hợp đồng:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("LoaiHopDong")</td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Ngày vào làm:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("NgayBatDauLam") - @Model.GetProfileInfo("ServiceYear")  (@T("Năm/Tháng"))</td>
+                </tr>
+            </table>
+            <div class="qtns-form-section" style="padding-left:5px">@T("Thông tin nghỉ phép")</div>
+            <table width="100%">
+                <tr>
+                    <td class="td_content_text_name" width="35%">@T("Số phép theo quy định:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("SoPhepTheoQuyDinh", "n2") - @T("Phép tồn:") @Model.GetProfileInfo("SoPhepChuyenTuNamTruoc", "n2")</td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Số phép đã nghỉ:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("SoPhepDaNghi", "n2") - @T("Còn lại:") @Model.GetProfileInfo("SoPhepConLai", "n2")</td>
+                </tr>
+            </table>
+            <div class="qtns-form-section" style="padding-left:5px">@T("Thông tin trình độ")</div>
+            <table width="100%">
+                @if (Model.Exits("TruongDaoTao"))
+                {
+                    <tr>
+                        <td class="td_content_text_name" width="35%">@T("Trường đào tạo:")</td>
+                        <td class="td_content_text_value">@Model.GetProfileInfo("TruongDaoTao")</td>
+                    </tr>
+                }
+                @if (Model.Exits("HeDaoTao"))
+                {
+                    <tr>
+                        <td class="td_content_text_name" width="35%">@T("Hệ đào tạo:")</td>
+                        <td class="td_content_text_value">@Model.GetProfileInfo("HeDaoTao")</td>
+                    </tr>
+                }
+                @if (Model.Exits("ChuyenNganh"))
+                {
+                    <tr>
+                        <td class="td_content_text_name" width="35%">@T("Chuyên ngành:")</td>
+                        <td class="td_content_text_value">@Model.GetProfileInfo("ChuyenNganh")</td>
+                    </tr>
+                }
+                @if (Model.Exits("NganhHoc"))
+                {
+                    <tr>
+                        <td class="td_content_text_name" width="35%">@T("Ngành Học:")</td>
+                        <td class="td_content_text_value">@Model.GetProfileInfo("NganhHoc")</td>
+                    </tr>
+                }
+                @if (Model.Exits("TrinhDo"))
+                {
+                    <tr>
+                        <td class="td_content_text_name" width="35%">@T("Trình độ:")</td>
+                        <td class="td_content_text_value">@Model.GetProfileInfo("TrinhDo")</td>
+                    </tr>
+                }
+                @if (Model.Exits("HocHam"))
+                {
+                    <tr>
+                        <td class="td_content_text_name" width="35%">@T("Học hàm:")</td>
+                        <td class="td_content_text_value">@Model.GetProfileInfo("HocHam")</td>
+                    </tr>
+                }
+                @if (Model.Exits("HocVi"))
+                {
+                    <tr>
+                        <td class="td_content_text_name" width="35%">@T("Học vị:")</td>
+                        <td class="td_content_text_value">@Model.GetProfileInfo("HocVi")</td>
+                    </tr>
+                }
+                @if (Model.Exits("NgoaiNgu"))
+                {
+                    <tr>
+                        <td class="td_content_text_name" width="35%">@T("Trình độ ngoại ngữ:")</td>
+                        <td class="td_content_text_value">@Model.GetProfileInfo("NgoaiNgu")</td>
+                    </tr>
+                }
+                @if (Model.Exits("TinHoc"))
+                {
+                    <tr>
+                        <td class="td_content_text_name" width="35%">@T("Trình độ tin học:")</td>
+                        <td class="td_content_text_value">@Model.GetProfileInfo("TinHoc")</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,138 @@
+﻿@model OOS.GHR.HRIS.Models.ProfilePreviewModel
+<script type="text/javascript">
+    function ValueChanged(s, e)
+    {
+        $.ajax({
+            type: "POST",
+            traditional: true,
+            dataType: 'json',
+            url: "@Url.Action("SavePhotoImage", "Home")",
+            data: $("Form#frmPhoto").serialize()+"&NhanVienID="+@Model.NhanVienID,
+            success: function (data) {
+            }
+        });
+    }
+</script>
+
+<div class="portlet light profile-sidebar-portlet" style="background-color:transparent !important; margin:10px 0px 0px 10px; padding:0px 0px 10px 0px; ">
+    <!-- SIDEBAR USERPIC -->
+    <div style="text-align:center; display:inline">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { Id = "frmPhoto" }))
+        {
+            Html.DevExpress().BinaryImage(st =>
+            {
+                st.Name = "imgProfileImage";
+                st.ContentBytes = Model.ProfilePicture;
+                st.CallbackRouteValues = new { Action = "BinaryImageColumnPhotoUpdate", Controller = "Home", NhanVienID = Model.NhanVienID };
+                st.Properties.ClientSideEvents.ValueChanged = "ValueChanged";
+                st.Properties.EditingSettings.Enabled = true;
+                st.Properties.EditingSettings.AllowDropOnPreview = true;
+                st.Properties.EditingSettings.UploadSettings.UploadValidationSettings.MaxFileSize = OOS.GHR.FileManagement.MaxFileUpload;
+                st.Properties.EditingSettings.ButtonPanelSettings.Visibility = ElementVisibilityMode.OnMouseOver;
+            }).GetHtml();
+        }
+    </div>
+    <!-- END SIDEBAR USERPIC -->
+    <!-- SIDEBAR USER TITLE -->
+    <div class="profile-usertitle">
+        <div class="profile-usertitle-name" style="text-align:center">
+            @Model.GetProfileInfo("HoVaTen").ToUpper()
+        </div>
+        <div class="profile-usertitle-job" style="text-align:center">
+            @Model.GetProfileInfo("ChucVu").ToUpper()
+        </div>
+    </div>
+    <!-- END SIDEBAR USER TITLE -->
+    <!-- SIDEBAR BUTTONS -->
+    <div class="profile-userbuttons">
+        @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_SELFSRV"))
+        {
+            if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Leave"))
+            {
+                <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Leave" })"><button type="button" class="btn btn-circle green-haze btn-sm">@T("Nghỉ phép")</button></a>
+            }
+            if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_OT"))
+            {
+                <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "OT" })"><button type="button" class="btn btn-circle btn-danger btn-sm">@T("Đăng ký OT")</button></a>
+            }
+            if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Mission"))
+            {
+                <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "CT" })"><button type="button" class="btn btn-circle blue btn-sm">@T("Công tác")</button></a>
+            }
+        }
+    </div>
+    @*<div class="profile-usertitle">
+            <div class="profile-usertitle-info"><i class="fa fa-phone-square"></i> @Model.GetProfileInfo("DienThoai")</div>
+            <div class="profile-usertitle-info"><i class="fa fa-envelope"></i> @Model.GetProfileInfo("Email")</div>
+        </div>*@
+    <!-- END SIDEBAR BUTTONS -->
+    <!-- SIDEBAR MENU -->
+    <div class="profile-usermenu">
+        <ul class="nav">
+            <li class="active">
+                <a href="@Url.Action("Index","Home", new { Area="SelfService" })">
+                    <i class="icon-home"></i>
+                    @T("Thông tin chung")
+                </a>
+            </li>
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Attendance", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "TimeSheet" })">
+                        <i class="fa fa-calendar-alt"></i>
+                        @T("Bảng công tháng")
+                    </a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Payslip", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Payslip" })">
+                        <i class="fa fa-dollar-sign"></i>
+                        @T("Bảng lương tháng")
+                    </a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Evaluation", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "RegisterEvaluation" })">
+                        <i class="fa fa-edit"></i>
+                        @T("Đăng ký chỉ tiêu đánh giá")
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "SelfEvaluation" })">
+                        <i class="fa fa-check-square"></i>
+                        @T("Tự đánh giá")
+                    </a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Trainning", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "ELearning" })">
+                        <i class="fa fa-chalkboard-teacher"></i>
+                        @T("Đào tạo")
+                    </a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("1100", false))
+            {
+                <li>
+                    <a href="@Url.Action("Index", "Employee", new { Area = "HRIS" })">
+                        <i class="fa fa-users"></i>
+                        @T("Nhân Viên")
+                    </a>
+                </li>
+            }
+            <li id="liLogOut">
+                <a href="@Url.Action("LogOff","Account", new { Area="" })">
+                    <i class="fa fa-sign-out-alt"></i>
+                    @T("Đăng xuất")
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- END MENU -->
+</div>

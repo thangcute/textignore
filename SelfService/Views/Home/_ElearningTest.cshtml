@@ -1,0 +1,82 @@
+﻿@model System.Data.DataTable
+
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        settings.Name = "grTesting";
+        settings.KeyFieldName = "CauHoiTracNghiemID";
+        settings.Width = Unit.Pixel(800);
+
+        settings.SettingsPager.Mode = GridViewPagerMode.ShowAllRecords;
+        settings.Settings.VerticalScrollableHeight = 500;
+        settings.Settings.HorizontalScrollBarMode = ScrollBarMode.Auto;
+
+        settings.Settings.GridLines = System.Web.UI.WebControls.GridLines.Both;
+
+        settings.SettingsBehavior.AllowFocusedRow = true;
+
+        settings.Styles.Cell.Font.Size = 10;
+
+        settings.Settings.ShowFooter = true;
+        settings.Settings.ShowTitlePanel = true;
+        settings.SettingsBehavior.ColumnResizeMode = ColumnResizeMode.Control;
+
+        settings.Styles.TitlePanel.Paddings.Padding = 0;
+        settings.SetTitlePanelTemplateContent(c =>
+        {
+            c.Visible = true;
+            ViewContext.Writer.Write("<div class='qtnsGridViewCaption'>" + ViewData["Title"].ToString() + "</div>");
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "TenCauHoi";
+            column.Caption = T("Câu hỏi").Text;
+            column.Width = 100;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.Width = 230;
+            column.Caption = T("Đáp án 1").Text;
+            column.SetDataItemTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(DataBinder.Eval(c.DataItem, "DapAn1").ToString()+ "</br>");
+                ViewContext.Writer.Write(Html.DevExpress().RadioButton(st =>
+                {
+                    st.Name = Guid.NewGuid().ToString();
+                    st.GroupName = DataBinder.Eval(c.DataItem, "CauHoiTracNghiemID").ToString();
+                }).GetHtml());
+            });
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.Width = 230;
+            column.Caption = T("Đáp án 2").Text;
+            column.SetDataItemTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(DataBinder.Eval(c.DataItem, "DapAn2").ToString() + "</br>");
+                ViewContext.Writer.Write(Html.DevExpress().RadioButton(st =>
+                {
+                    st.Name = Guid.NewGuid().ToString();
+                    st.GroupName = DataBinder.Eval(c.DataItem, "CauHoiTracNghiemID").ToString();
+                }).GetHtml());
+            });
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.Width = 230;
+            column.Caption = T("Đáp án 3").Text;
+            column.SetDataItemTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(DataBinder.Eval(c.DataItem, "DapAn3").ToString() + "</br>");
+                ViewContext.Writer.Write(Html.DevExpress().RadioButton(st =>
+                {
+                    st.Name = Guid.NewGuid().ToString();
+                    st.GroupName = DataBinder.Eval(c.DataItem, "CauHoiTracNghiemID").ToString();
+                }).GetHtml());
+            });
+        });
+    }).Bind(Model).GetHtml()

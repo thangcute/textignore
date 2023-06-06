@@ -1,0 +1,56 @@
+Start - 2021-09-21 10:12:56 - 
+20210921101256 - 2021-09-21 10:12:56: The 'Distinct' operation cannot be applied to the collection ResultType of the specified argument.
+Parameter name: argument
+20210921101256 - 2021-09-21 10:12:56: The 'Distinct' operation cannot be applied to the collection ResultType of the specified argument.
+Parameter name: argument
+20210921102343 - 2021-09-21 10:23:43: LINQ to Entities does not recognize the method 'Int32 GetValueOrDefault(Int32)' method, and this method cannot be translated into a store expression.
+20210921102343 - 2021-09-21 10:23:43: LINQ to Entities does not recognize the method 'Int32 GetValueOrDefault(Int32)' method, and this method cannot be translated into a store expression.
+20210921102525 - 2021-09-21 10:25:25: The key selector type for the call to the 'GroupBy' method is not comparable in the underlying store provider.
+20210921102525 - 2021-09-21 10:25:25: The key selector type for the call to the 'GroupBy' method is not comparable in the underlying store provider.
+20210921103009 - 2021-09-21 10:30:09: The 'Distinct' operation cannot be applied to the collection ResultType of the specified argument.
+Parameter name: argument
+20210921103009 - 2021-09-21 10:30:09: The 'Distinct' operation cannot be applied to the collection ResultType of the specified argument.
+Parameter name: argument
+20210921104201 - 2021-09-21 10:42:01: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921104201 - 2021-09-21 10:42:01: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921104640 - 2021-09-21 10:46:40: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921104640 - 2021-09-21 10:46:40: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921104825 - 2021-09-21 10:48:25: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921104825 - 2021-09-21 10:48:25: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921105111 - 2021-09-21 10:51:11: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921105111 - 2021-09-21 10:51:11: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921105649 - 2021-09-21 10:56:49: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921105649 - 2021-09-21 10:56:49: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921105814 - 2021-09-21 10:58:14: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921105814 - 2021-09-21 10:58:14: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921105954 - 2021-09-21 10:59:54: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921105954 - 2021-09-21 10:59:54: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921110150 - 2021-09-21 11:01:50: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921110150 - 2021-09-21 11:01:50: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921110908 - 2021-09-21 11:09:08: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921110908 - 2021-09-21 11:09:08: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921111019 - 2021-09-21 11:10:19: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921111019 - 2021-09-21 11:10:19: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921111021 - 2021-09-21 11:10:21: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921111021 - 2021-09-21 11:10:21: Unable to create a constant value of type 'System.Object'. Only primitive types or enumeration types are supported in this context.
+20210921111418 - 2021-09-21 11:14:18: The 'Distinct' operation cannot be applied to the collection ResultType of the specified argument.
+Parameter name: argument
+20210921111418 - 2021-09-21 11:14:18: The 'Distinct' operation cannot be applied to the collection ResultType of the specified argument.
+Parameter name: argument
+20210921111706 - 2021-09-21 11:17:06: The 'Distinct' operation cannot be applied to the collection ResultType of the specified argument.
+Parameter name: argument
+20210921111706 - 2021-09-21 11:17:06: The 'Distinct' operation cannot be applied to the collection ResultType of the specified argument.
+Parameter name: argument
+20210921112616 - 2021-09-21 11:26:16: Unable to create a null constant value of type 'System.Object'. Only entity types, enumeration types or primitive types are supported in this context.
+20210921112616 - 2021-09-21 11:26:16: Unable to create a null constant value of type 'System.Object'. Only entity types, enumeration types or primitive types are supported in this context.
+20210921113956 - 2021-09-21 11:39:56: The 'Distinct' operation cannot be applied to the collection ResultType of the specified argument.
+Parameter name: argument
+20210921113956 - 2021-09-21 11:39:56: The 'Distinct' operation cannot be applied to the collection ResultType of the specified argument.
+Parameter name: argument
+20210921114447 - 2021-09-21 11:44:47: An error occurred while executing the command definition. See the inner exception for details.
+20210921114447 - 2021-09-21 11:44:47: An error occurred while executing the command definition. See the inner exception for details.
+20210921114516 - 2021-09-21 11:45:16: An error occurred while executing the command definition. See the inner exception for details.
+20210921114516 - 2021-09-21 11:45:16: An error occurred while executing the command definition. See the inner exception for details.
+20210921114936 - 2021-09-21 11:49:36: An error occurred while executing the command definition. See the inner exception for details.
+20210921114936 - 2021-09-21 11:49:36: An error occurred while executing the command definition. See the inner exception for details.
+20210921165114 - 2021-09-21 16:51:14: DataPortal_Fetch method call failed

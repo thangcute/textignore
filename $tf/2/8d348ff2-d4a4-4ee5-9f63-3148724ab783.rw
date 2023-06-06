@@ -1,0 +1,5 @@
+﻿@model OOS.GHR.SelfService.Models.OnBoardingModel
+
+<div id="Finished" style="display:none">
+    FINISHED
+</div>

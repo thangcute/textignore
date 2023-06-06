@@ -1,0 +1,12 @@
+Start - 2023-04-04 11:29:18 - 
+20230404112918 - 2023-04-04 11:29:18: A task was canceled.
+20230404112918 - 2023-04-04 11:29:18: A task was canceled.
+20230404114533 - 2023-04-04 11:45:33: DataPortal_Fetch method call failed
+20230404114538 - 2023-04-04 11:45:38: DataPortal_Fetch method call failed
+20230404114541 - 2023-04-04 11:45:41: DataPortal_Fetch method call failed
+20230404114606 - 2023-04-04 11:46:06: DataPortal_Fetch method call failed
+20230404114701 - 2023-04-04 11:47:01: DataPortal_Fetch method call failed
+20230404114905 - 2023-04-04 11:48:46: DataPortal_Fetch method call failed
+20230404115053 - 2023-04-04 11:50:53: DataPortal_Fetch method call failed
+20230404115717 - 2023-04-04 11:57:17: Object reference not set to an instance of an object.
+20230404115717 - 2023-04-04 11:57:17: Object reference not set to an instance of an object.

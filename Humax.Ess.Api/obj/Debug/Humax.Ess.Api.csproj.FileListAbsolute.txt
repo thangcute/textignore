@@ -1,0 +1,348 @@
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.csproj.AssemblyReference.cache
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.csproj.CoreCompileInputs.cache
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x64\msvcr120.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x86\msvcr120.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Csla.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Data.v18.1.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Docs.v18.1.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Office.v18.1.Core.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Pdf.v18.1.Core.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Pdf.v18.1.Drawing.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Printing.v18.1.Core.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.RichEdit.v18.1.Core.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Spreadsheet.v18.1.Core.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Web.Mvc5.v18.1.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.SqlServer.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\log4net.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.CSharp.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.SqlServer.Types.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.Web.Infrastructure.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Newtonsoft.Json.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Admin.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.BACongLuong.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.BusinessAdapter.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.EntityFramework.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Framework.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.HRIS.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Library.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Master.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Payroll.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Plugins.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.SelfService.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Services.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.Humax.Core.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.Humax.ESSService.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.Humax.HRISService.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\RestSharp.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Swashbuckle.Core.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.ComponentModel.DataAnnotations.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Configuration.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Data.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Drawing.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.EnterpriseServices.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Net.Http.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Net.Http.Formatting.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Net.Http.WebRequest.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Runtime.Caching.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.ApplicationServices.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.DynamicData.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Entity.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Http.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Http.WebHost.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Mvc.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Services.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.WebPages.Razor.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Xml.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\WebActivatorEx.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\EngineBaseClass.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Antlr3.Runtime.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Mail.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\HtmlAgilityPack.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\LumiSoft.Net.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.WebPages.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Recruit.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.WebPages.Deployment.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.EntityFramework.pdb
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.EntityFramework.dll.config
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Services.pdb
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Services.dll.config
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.xml
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.SqlServer.xml
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Newtonsoft.Json.xml
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\RestSharp.xml
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Library.XmlSerializers.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.csproj.CopyComplete
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.pdb
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Humax.Ess.Api.dll.config
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Humax.Ess.Api.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\Humax.Ess.Api.pdb
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csc.exe
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csc.exe.config
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csc.rsp
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csi.exe
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csi.exe.config
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csi.rsp
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.Managed.Core.targets
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Buffers.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Collections.Immutable.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Memory.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Numerics.Vectors.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Reflection.Metadata.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\vbc.exe
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\vbc.exe.config
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\vbc.rsp
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\VBCSCompiler.exe
+D:\DATA\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\VBCSCompiler.exe.config
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x64\msvcr120.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x86\msvcr120.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Humax.Ess.Api.dll.config
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Humax.Ess.Api.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Humax.Ess.Api.pdb
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csc.exe
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csc.exe.config
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csc.rsp
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csi.exe
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csi.exe.config
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csi.rsp
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.Managed.Core.targets
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Buffers.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Collections.Immutable.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Memory.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Numerics.Vectors.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Reflection.Metadata.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\vbc.exe
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\vbc.exe.config
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\vbc.rsp
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\VBCSCompiler.exe
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\VBCSCompiler.exe.config
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Csla.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Data.v18.1.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Docs.v18.1.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Office.v18.1.Core.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Pdf.v18.1.Core.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Pdf.v18.1.Drawing.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Printing.v18.1.Core.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.RichEdit.v18.1.Core.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Spreadsheet.v18.1.Core.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Web.Mvc5.v18.1.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.SqlServer.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\log4net.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.CSharp.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.SqlServer.Types.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.Web.Infrastructure.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Newtonsoft.Json.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Admin.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.BACongLuong.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.BusinessAdapter.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.EntityFramework.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Framework.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.HRIS.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Library.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Master.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Payroll.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Plugins.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.SelfService.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Services.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.Humax.Core.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.Humax.ESSService.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.Humax.HRISService.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\RestSharp.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Swashbuckle.Core.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.ComponentModel.DataAnnotations.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Configuration.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Data.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Drawing.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.EnterpriseServices.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Net.Http.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Net.Http.Formatting.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Net.Http.WebRequest.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Runtime.Caching.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.ApplicationServices.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.DynamicData.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Entity.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Http.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Http.WebHost.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Mvc.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Services.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.WebPages.Razor.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Xml.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\WebActivatorEx.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\EngineBaseClass.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Antlr3.Runtime.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Mail.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\HtmlAgilityPack.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\LumiSoft.Net.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.WebPages.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Recruit.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.WebPages.Deployment.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.EntityFramework.pdb
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.EntityFramework.dll.config
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Services.pdb
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Services.dll.config
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.xml
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.SqlServer.xml
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\Newtonsoft.Json.xml
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\RestSharp.xml
+D:\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Library.XmlSerializers.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.csproj.AssemblyReference.cache
+D:\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.csproj.CoreCompileInputs.cache
+D:\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.csproj.CopyComplete
+D:\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.dll
+D:\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.pdb
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x64\msvcr120.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x86\msvcr120.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Humax.Ess.Api.dll.config
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Humax.Ess.Api.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Humax.Ess.Api.pdb
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csc.exe
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csc.exe.config
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csc.rsp
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csi.exe
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csi.exe.config
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\csi.rsp
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.Managed.Core.targets
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Buffers.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Collections.Immutable.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Memory.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Numerics.Vectors.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Reflection.Metadata.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\vbc.exe
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\vbc.exe.config
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\vbc.rsp
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\VBCSCompiler.exe
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\roslyn\VBCSCompiler.exe.config
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Csla.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Data.v18.1.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Docs.v18.1.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Office.v18.1.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Pdf.v18.1.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Pdf.v18.1.Drawing.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Printing.v18.1.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.RichEdit.v18.1.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Spreadsheet.v18.1.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\DevExpress.Web.Mvc5.v18.1.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.SqlServer.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\log4net.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.CSharp.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.SqlServer.Types.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.Web.Infrastructure.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Newtonsoft.Json.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Admin.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.BACongLuong.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.BusinessAdapter.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.EntityFramework.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Framework.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.HRIS.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Library.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Master.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Payroll.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Plugins.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.SelfService.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Services.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.Humax.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.Humax.ESSService.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.Humax.HRISService.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\RestSharp.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Swashbuckle.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.ComponentModel.DataAnnotations.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Configuration.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Data.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Drawing.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.EnterpriseServices.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Net.Http.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Net.Http.Formatting.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Net.Http.WebRequest.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Runtime.Caching.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.ApplicationServices.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.DynamicData.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Entity.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Http.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Http.WebHost.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Mvc.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.Services.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.WebPages.Razor.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Xml.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\WebActivatorEx.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\EngineBaseClass.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Antlr3.Runtime.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Mail.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\HtmlAgilityPack.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\LumiSoft.Net.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.WebPages.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Recruit.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\System.Web.WebPages.Deployment.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.EntityFramework.pdb
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.EntityFramework.dll.config
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Services.pdb
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Services.dll.config
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.xml
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\EntityFramework.SqlServer.xml
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\Newtonsoft.Json.xml
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\RestSharp.xml
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\bin\OOS.GHR.Library.XmlSerializers.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.csproj.AssemblyReference.cache
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.csproj.CoreCompileInputs.cache
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.csproj.CopyComplete
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\Humax.Ess.Api\obj\Debug\Humax.Ess.Api.pdb

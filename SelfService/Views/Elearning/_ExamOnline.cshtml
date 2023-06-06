@@ -1,0 +1,257 @@
+﻿@model OOS.GHR.SelfService.Models.ExamOnlineModel
+@using OOS.GHR.Framework.DynamicUI;
+<style type="text/css">
+    .exam_base_text {
+        font-size: 15px
+    }
+    .exam_base_text.statusinfo {
+        color: #e12d2d;
+        background-color: #f9d8d8;
+        font-weight: 600;
+        padding: 5px;
+        border-radius: 3px !important;
+    }
+    .td_left_border {
+        border-left-style: solid;
+        border-left-color: gainsboro;
+        border-left-width: 2px;
+        padding-left:10px;
+    }
+    .td_bottom_border {
+        border-bottom-style: solid;
+        border-bottom-color: gainsboro;
+        border-bottom-width: 2px;
+    }
+</style>
+<script type="text/javascript">
+    var xTimer;
+    var isfinished = 0;
+    var prevID = 0;
+
+    function ViewOldQuestion(preID) {
+        if (isfinished == 0 || preID!=0) {
+            var url = '@Url.Action("ViewOldQuestion", "Elearning", new { Area = "SelfService" })' + '?IDPre=' + preID;
+            $("#divExamOnlineItem").load(url, function () {
+                if (xTimer == null)
+                    StartRunningTime();
+
+                url = '@Url.Action("ExamOnlineFinished", "Elearning", new { Area = "SelfService" })';
+                $("#divExamOnlineFinished").load(url, function () {
+                    StartGetInfo();
+                });
+            });
+        }
+    }
+
+    function NextQuestion(preID) {
+        if (isfinished == 0 || preID!=0) {
+            var ID = $("#TraLoiTracNghiemID").val();
+            console.log('1. ' + prevID + ' ' + preID);
+            var DapAnID = 0;
+            if (ID > 0)
+                DapAnID = cbExamItem.GetValue();
+            var url = '@Url.Action("NextQuestion", "Elearning", new { Area = "SelfService" })' + '?IDD=' + ID + '&DapAnID=' + DapAnID + '&IDPre=' + preID;
+            $("#divExamOnlineItem").load(url, function () {
+                if (xTimer == null)
+                    StartRunningTime();
+
+                url = '@Url.Action("ExamOnlineFinished", "Elearning", new { Area = "SelfService" })';
+                $("#divExamOnlineFinished").load(url, function () {
+                    StartGetInfo();
+                });
+
+                if ($('#TotalAnswers').val() >= $('#TotalCount').val()) {
+                    prevID = preID;
+                    console.log('2. ' + prevID + ' ' + preID);
+                }
+            });
+        }
+    }
+
+    function StartGetInfo() {
+        $('#divGroupButton').show();
+        var ff = $('#IsFinished').val();
+        if (ff==1) {
+            $("#btNextContinue").html('<i class="far fa-save"></i> @T("Lưu kết quả")');
+            isfinished = 1;
+        }
+    }
+
+    function StartRunningTime() {
+        var timestart = new Date(new Date().getTime() - @Model.TGSuDung.TotalMinutes* 60000);
+        var timeend = new Date(new Date().getTime() + @Model.ThoiGianHoanThanh* 60000);
+        xTimer = setInterval(function ()
+        {
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = now - timestart;
+
+            var hours   = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString();
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString();
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000).toString();
+            if (hours.length <= 1)
+                hours = '0' + hours;
+            if (minutes.length <= 1)
+                minutes = '0' + minutes;
+            if (seconds.length <= 1)
+                seconds = '0' + seconds;
+            document.getElementById("lbTGDaSuDung").innerHTML = hours + ':' + minutes + ':' + seconds;
+
+            distance = timeend - now;
+            hours   = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString();
+            minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString();
+            seconds = Math.floor((distance % (1000 * 60)) / 1000).toString();
+            if (hours.length <= 1)
+                hours = '0' + hours;
+            if (minutes.length <= 1)
+                minutes = '0' + minutes;
+            if (seconds.length <= 1)
+                seconds = '0' + seconds;
+            document.getElementById("lbTGConLai").innerHTML = hours + ':' + minutes + ':' + seconds;
+
+            //Nếu thời gian > Thời gian hoàn thành => Kết thúc
+            if (distance <= 0) {
+                document.getElementById("lbTGConLai").innerHTML = '00:00:00';
+                clearInterval(xTimer);
+                ExamOnline_Finished();
+                OOSDialog.ShowPopupMessage('@T("Thời gian trắc nghiệm đã hết !")');
+            }
+
+        }, 1000);
+    }
+
+    function ExamOnline_Finished() {
+        OOSDialog.ClosePopupMessage();
+        ExamOnline_Stop();
+        isfinished = 1;
+        var url = '@Url.Action("ExamFinished", "Elearning", new { Area = "SelfService" })';
+        var data = {};
+        OOSCore.Call_Ajax_Function_POST(url, data, function (res) {
+            ExamOnlinePopup(@Model.NoiDungDaoTaoID, @Model.DotDaoTaoID);
+        });
+    }
+
+    function RequireFinish() {
+        OOSDialog.ShowQuestion('@T("Bạn có chắc chắn muốn hoàn thành bài trắc nghiệm ?").Text', 'ExamOnline_Finished');
+    }
+
+    function RequireReset() {
+        OOSDialog.ShowQuestion('@T("Bạn có chắc chắn muốn RESET bài trắc nghiệm ?").Text', 'ResetResult');
+    }
+
+    function ResetResult() {
+        ExamOnline_Stop();
+        OOSDialog.ClosePopupMessage();
+        var url = '@Url.Action("ResetResult", "Elearning", new { Area = "SelfService" })';
+        var data = {};
+        OOSCore.Call_Ajax_Function_POST(url, data, function (res) {
+            ExamOnlinePopup(@Model.NoiDungDaoTaoID, @Model.DotDaoTaoID);
+        });
+    }
+
+    function ExamOnline_Stop() {
+        clearInterval(xTimer);
+        xTimer = null;
+    }
+
+    $(document).ready(function () {
+        if (@Model.Status!= 1) {
+            $('#divGroupButton').hide();
+        }
+        else {
+            NextQuestion(-1);
+        }
+        if (@Model.Status== 2) {
+            isfinished = 1;
+        }
+        $('#dlgExamOnline').on('hidden.bs.modal', function () {
+            ExamOnline_Stop();
+        });
+
+    });
+</script>
+<table style="width:100%;">
+    <tr>
+        <td class="td_bottom_border" valign="middle">
+            <div>
+                @Html.OOSSystemImage("scheduling_switchtimescalesto_32x32office2013")
+                <span class="exam_base_text" style="font-weight:600">@Model.TenDotDaoTao</span>
+                <span class="exam_base_text" style="float:right; padding:10px;">@T("Tổng thời gian:")<span style="font-weight:600;"> @Model.ThoiGianHoanThanh @T("Phút")</span></span>
+            </div>
+        </td>
+        <td width="30%" class="td_left_border">
+            @if (Model.Status != 2)
+            {
+                <span class="exam_base_text">@T("Thời gian còn lại:")</span>
+            }
+            else
+            {
+                <span class="exam_base_text">@T("Kết quả:") <span class="status_badge waitting">@(Model.TongDiem.ToString() + " / " + Model.TotalAnswers.ToString())</span></span>
+                @*<button id="btNextContinue" type="button" onclick="RequireReset(0);" class="btn btn-sm green pull-right">
+                    <i class="fa fa-sync-alt"></i> @T("Làm lại").Text
+                </button>*@
+            }
+        </td>
+    </tr>
+    <tr>
+        <td class="@(Model.Status != 2?"td_bottom_border":"")" valign="top" colspan="@(Model.Status!=2?"":"2")" style="padding-right:10px;">
+            <div id="divExamOnlineItem" style="min-height:400px;">
+                @if (Model.Status != 2)
+                {
+                    @Html.Partial("_ExamOnlineItem", Model.Item);
+                }
+                else
+                {
+                    foreach (OOS.GHR.SelfService.Models.ExamOnlineItemModel EI in Model.AnswerList)
+                    {
+                        <div>
+                            @Html.Partial("_ExamOnlineItem", EI)
+                        </div>
+                    }
+                }
+            </div>
+        </td>
+        @if (Model.Status != 2)
+        {
+        <td  class="td_left_border" valign="top">
+            <div style="text-align:center; padding-top:20px;">
+                <span id="lbTGConLai" style="font-size:50px; color:forestgreen; margin:5px; border-radius:5px !important">00:00:00</span>
+            </div>
+            <div class="exam_base_text" style="padding-top:20px; padding-bottom:10px;">
+                <span>@T("Thời gian đã sử dụng:")</span>
+                <span id="lbTGDaSuDung" style="float:right; font-weight:600">00:00:00</span>
+            </div>
+            <div class="exam_base_text" style="padding-top:10px; border-top-style:solid; border-top-color:gainsboro; border-top-width:2px;">
+                <span>@T("Câu hỏi đã hoàn thành:")</span>
+                <div id="divExamOnlineFinished">
+                </div>
+            </div>
+        </td>
+        }
+    </tr>
+    @if (Model.Status != 2)
+    {
+        <tr>
+            <td align="center">
+                <div style="padding:20px;" id="divGroupButton">
+                    <button id="btRemoveResult" type="button" onclick="cbExamItem.SetValue(0);" class="btn btn-default">
+                        <i class="fa fa-times" style="font-size:15px; color:red;"></i> @T("Xóa đáp án").Text 
+                    </button>
+                    <button id="btNextContinue" type="button" onclick="NextQuestion(prevID);" class="btn blue">
+                        @T("Lưu kết quả & Tiếp tục").Text <i class="fa fa-arrow-right" style="font-size:15px;"></i>
+                    </button>
+                </div>
+            </td>
+            <td class="td_left_border" align="center">
+                @if (Model.Status<=1)
+                {
+                <button type="button" id="btHoanThanh" onclick="RequireFinish();" class="btn red">
+                    @T("Hoàn Thành & Kết thúc").Text
+                </button>
+                }
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,5 @@
+Start - 2021-09-16 10:59:05 - 
+20210916105905 - 2021-09-16 10:59:05: LINQ to Entities does not recognize the method 'System.DateTime AddMonths(Int32)' method, and this method cannot be translated into a store expression.
+20210916105905 - 2021-09-16 10:59:05: LINQ to Entities does not recognize the method 'System.DateTime AddMonths(Int32)' method, and this method cannot be translated into a store expression.
+20210916161535 - 2021-09-16 16:15:35: Object reference not set to an instance of an object.
+20210916161535 - 2021-09-16 16:15:35: Object reference not set to an instance of an object.

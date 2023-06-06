@@ -1,0 +1,21 @@
+﻿@model OOS.GHR.HRIS.Models.SelfService_ActivityInfo
+<div style="padding-right:5px">
+    @if (Model.HotNews.Count > 0)
+    {
+        @Html.Partial("NotifyTemplate/_Notify_News", Model)
+    }
+    @Html.Partial("NotifyTemplate/_Notify_Info")
+    @if (Model.NewEmployeeList.Count > 0)
+    {
+        @Html.Partial("NotifyTemplate/_Notify_NewEmployee", Model)
+    }
+    @if ((Model.LeaveList.Count + Model.LeaveTomorrowList.Count) > 0)
+    {
+        @Html.Partial("NotifyTemplate/_Notify_Employee_Leave", Model)
+    }
+    @Html.Partial("NotifyTemplate/_Notify_OtherFunctions", Model)
+    @if (Model.PromoteList.Count > 0)
+    {
+        @Html.Partial("NotifyTemplate/_Promote", Model)
+    }
+</div>

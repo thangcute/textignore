@@ -1,0 +1,30 @@
+﻿@model OOS.GHR.HRIS.Models.SchedulerDataObject
+@{
+    var scheduler = Html.DevExpress().Scheduler(
+        settings =>
+        {
+            settings.Name = "scheduler";
+            settings.CallbackRouteValues = new { Controller = "Home", Action = "GetAppointment", NhanVienID = 0 };
+            settings.ActiveViewType = SchedulerViewType.Month;
+            settings.Width = Unit.Percentage(100);
+            settings.Start = DateTime.Today;
+
+            settings.OptionsView.ShowOnlyResourceAppointments = true;
+
+            settings.Storage.Appointments.Assign(OOS.GHR.HRIS.Models.AppointmentModel.CreateStorage());
+
+            settings.Views.DayView.ResourcesPerPage = 2;
+            settings.Views.DayView.Styles.ScrollAreaHeight = Unit.Pixel(400);
+            settings.Views.WorkWeekView.ResourcesPerPage = 2;
+            settings.Views.WorkWeekView.Styles.ScrollAreaHeight = Unit.Pixel(400);
+            settings.Views.WeekView.Enabled = false;
+            settings.Views.FullWeekView.ResourcesPerPage = 2;
+            settings.Views.FullWeekView.Styles.ScrollAreaHeight = Unit.Pixel(400);
+            settings.Views.MonthView.Enabled = true;
+            settings.Views.MonthView.ResourcesPerPage = 2;
+            settings.Views.TimelineView.ResourcesPerPage = 2;
+
+            settings.ClientSideEvents.Init = "function (s,e) { scheduler.Refresh(); }";
+        }).Bind(Model.Appointments);
+}
+@scheduler.GetHtml()

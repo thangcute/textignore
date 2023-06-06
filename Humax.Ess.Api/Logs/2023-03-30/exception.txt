@@ -1,0 +1,63 @@
+Start - 2023-03-30 15:00:04 - 
+20230330150005 - 2023-03-30 14:59:56: Object reference not set to an instance of an object.
+20230330150012 - 2023-03-30 15:00:10: Object reference not set to an instance of an object.
+20230330151235 - 2023-03-30 15:11:58: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230330151257 - 2023-03-30 15:12:52: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230330152756 - 2023-03-30 15:27:37: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230330152927 - 2023-03-30 15:29:17: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230330153923 - 2023-03-30 15:39:23: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230330153923 - 2023-03-30 15:39:23: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230330154352 - 2023-03-30 15:43:26: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230330154432 - 2023-03-30 15:44:32: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230330155245 - 2023-03-30 15:52:45: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230330155245 - 2023-03-30 15:52:45: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230330155343 - 2023-03-30 15:53:43: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.
+20230330155343 - 2023-03-30 15:53:43: Invalid column name 'PhongBanChucVuID'.
+Invalid column name 'CanNang'.
+Invalid column name 'ChieuCao'.
+Invalid column name 'TenChuTaiKhoan'.
+Invalid column name 'GhiChu_TrinhDoChuyenMon'.

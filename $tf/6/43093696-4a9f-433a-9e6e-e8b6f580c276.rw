@@ -1,0 +1,7 @@
+﻿.details__tag{
+    border: 0px;
+}
+
+.entry__form{
+    padding: 0px;
+}

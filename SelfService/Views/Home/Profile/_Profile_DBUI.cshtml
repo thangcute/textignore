@@ -1,0 +1,15 @@
+﻿@using System.Data
+@model OOS.GHR.HRIS.Models.ProfilePreviewModel
+<div class="portlet light ">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            @Html.DevExpress().Image(st => { st.Properties.EmptyImage.IconID = IconID.BusinessobjectsBoresume32x32; }).GetHtml()
+            <span class="caption-subject font-blue-madison bold uppercase">@T("THÔNG TIN THÊM")</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+            <table width="100%">
+                @Html.Raw(Model.HSNS.GetHTMLDisplayView())
+            </table>
+    </div>
+</div>

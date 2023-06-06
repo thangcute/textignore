@@ -1,0 +1,2 @@
+﻿@model object 
+<p class="form-control-static">@Model</p>

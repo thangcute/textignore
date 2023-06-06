@@ -1,0 +1,2 @@
+﻿@model OOS.GHR.Payroll.Models.AttendanceSymbolModel
+@Html.Partial("_AttendanceTop", Model.SoDo)

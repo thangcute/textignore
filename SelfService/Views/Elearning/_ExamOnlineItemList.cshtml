@@ -1,0 +1,7 @@
+﻿@model List<OOS.GHR.SelfService.Models.ExamOnlineItemModel>
+@foreach(OOS.GHR.SelfService.Models.ExamOnlineItemModel EI in Model)
+{
+    <div>
+        @Html.Partial("_ExamOnlineItem", EI)
+    </div>
+}

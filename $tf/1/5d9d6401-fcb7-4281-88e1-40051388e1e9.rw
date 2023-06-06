@@ -1,0 +1,2 @@
+﻿@using OOS.GHR.HRIS.Models
+@model QTChuyenCanBoModel

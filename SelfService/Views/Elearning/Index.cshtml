@@ -1,0 +1,132 @@
+﻿@model OOS.GHR.SelfService.Models.ElearningModel
+@{
+    Layout = null;
+}
+<style type="text/css">
+    .trainning_evaluation td {
+        padding: 5px;
+        border: 1px solid gainsboro
+    }
+
+    .trainning_evaluation table {
+        border: 1px solid gainsboro
+    }
+
+    .trainning_evaluation tr {
+        border: 1px solid gainsboro
+    }
+
+    .trainning_evaluation.tr_group {
+        background-color: whitesmoke;
+        font-weight: 600;
+    }
+</style>
+<script type="text/javascript">
+    var rateTitles = ["","Rất kém", "Kém", "Đạt", "Tốt", "Rất tốt"];
+    var ciID = 0;
+    function myRating_ItemClick(s, e) {
+        $("#H" + s.name).val(s.GetValue());
+        $("#lb" + s.name).html(rateTitles[s.GetValue()]);
+    }
+    function TuChoi_ThamGia(id) {
+        ciID = id;
+        frmLyDoTuChoi.Show();
+    }
+    function frmLyDoTuChoi_Submit() {
+        var lydo = val_frmLyDoTuChoi.GetText();
+        if (lydo == '') {
+            showErrorMessage('@T("Bạn phải nhập lý do từ chối tham gia !").Text');
+            return;
+        }
+        var url = '@Url.Action("Reject_Joinning", "Elearning")';
+        var data = { LyDo: lydo, DotDaoTaoID: ciID };
+
+        OOSCore.Call_Ajax_Function_POST(url, data, function (res) {
+            showSuccessMessage('@T("Đã từ chối tham gia khóa học thành công, chờ phê duyệt !").Text');
+            LoadModule('ELearning');
+        });
+    }
+
+    function DangKyThamGia(id) {
+        OOSDialog.ShowQuestion_WID('@T("Bạn có chắc chắn muốn đăng ký tham gia khóa học này?")', "DangKyThamGia_OK", id);
+    }
+    function DangKyThamGia_OK(id) {
+        var action = "@Url.Action("Register_TrainningCourse", "Elearning", new { Area = "SelfService" })";
+        var data = { DotDaoTaoID: id };
+        OOSCore.Call_Ajax_Function_POST(action, data, function (res) {
+            OOSDialog.ClosePopup();
+            showSuccessMessage('@T("Đăng ký tham gia thành công, chờ phê duyệt !").Text');
+            LoadModule('ELearning');
+        });
+    }
+
+    function AddNewTab(code, text) {
+        var action = "@Url.Action("", "Elearning", new { Area = "SelfService" })" + "/" + code;
+        var data = { };
+        OOSDialog.ShowLoadingPanel();
+        OOSCore.Call_Ajax_Function_POST(action, data, function (res) {
+            addTab(code, text, res);
+            Select2Init();
+        });
+    }
+    function addTab(name, text, result) {
+        $("#pContent").html(result);
+        OOSDialog.HideLoadingPanel();
+    }
+    function ExamOnlinePopup(ID, IDD) {
+        var url = '@Url.Action("ExamOnline", "Elearning", new { Area = "SelfService" })' + '?NoiDungDaoTaoID=' + ID+'&DotDaoTaoID='+IDD;
+        $('#divExamOnlineDiv').html('LOADING ... ');
+        $('#dlgExamOnline').find('#divExamOnlineDiv').load(url, function () {
+            $('#dlgExamOnline').modal('show');
+        });
+    }
+    function LoadEvaluation(id, ndID, readonly) {
+        var action = "@Url.Action("Course_Evaluation", "Elearning", new { Area = "SelfService" })";
+        var data = { DotDaoTaoID: id, NoiDungID: ndID, ReadOnly: readonly };
+        OOSCore.Call_Ajax_Function(action, data, function (res) {
+            $("#evaluationForm" + id).html(res);
+        });
+    }
+    function SaveRating(formID) {
+        var action = "@Url.Action("SaveRating", "Elearning", new { Area = "SelfService" })";
+        OOSCore.Call_Ajax_Post_Form(action, formID, function (res) {
+            showSuccessMessage('@T("Lưu đánh giá thành công !").Text');
+        });
+    }
+    $(document).ready(function () {
+        AddNewTab('Openning');
+    });
+</script>
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            <i class="fa fa-edit" style="font-size:20px"></i>
+            <span class="caption-subject font-blue-madison bold uppercase">@T("ĐĂNG KÝ KHÓA HỌC / XEM BÀI GIẢNG TRỰC TUYẾN")</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div style="padding-top:5px">
+            <button data-toggle="button" aria-pressed="true" type="button" onclick="AddNewTab('Openning');" class="btn blue"><i class="fa fa-sign-in"></i> @T("Các khóa đang mở").Text</button>
+            <button data-toggle="button" aria-pressed="false" type="button" onclick="AddNewTab('Joinning');" class="btn blue"><i class="fa fa-copy"></i> @T("Đang tham gia").Text</button>
+            <button data-toggle="button" aria-pressed="false" type="button" onclick="AddNewTab('Finished');" class="btn blue"><i class="fa fa-history"></i> @T("Lịch sử đào tạo").Text</button>
+        </div>
+        <div id="pContent"></div>
+    </div>
+</div>
+<div id="dlgExamOnline" class="modal fade draggable-modal ui-draggable">
+    <div class="modal-dialog" style="max-width:1000px; width:95%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn default" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="sViewInfo" class="modal-title"><i class="fa fa-edit"></i> @T("Thi trắc nghiệm")</h4>
+            </div>
+            <div class="modal-body">
+                <div id="divExamOnlineDiv" style="min-height:150px;"> Loading...</div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger pull-left" onclick="$('#dlgExamOnline').modal('hide'); $('#divExamOnlineDiv').html('');" id="btnOTTuChoi"><i class="fa fa-times"></i> @T("Đóng")</button>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("UserForm\\XForm", OOS.GHR.Master.Models.XFormModel.InputStringModel(T("Lý do từ chối:").Text, "frmLyDoTuChoi"))

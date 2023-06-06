@@ -1,0 +1,161 @@
+﻿@using OOS.GHR.BusinessAdapter.iSign
+@model OOS.GHR.SelfService.Models.eContractModel
+@{
+    Layout = null;
+}
+<style type="text/css">
+    .eContract_Item_Style {
+        padding-bottom: 5px;
+    }
+</style>
+<script type="text/javascript">
+    var npid = 0;
+
+    function SignContractInfo(id) {
+        var url = '@Url.Action("EmployeeSignContractInfo", "eContract", new { Area = "SelfService"})';
+        $('#contractInfo').modal('show').find('.modal-body').load(url +'?eContractID=' + id);
+    }
+
+    function DoEmployeeSignContract(id) {
+        var mapin = $('#PinCode').val();
+        if (mapin == '' || mapin == null) {
+            OOSDialog.ShowMessage('@T("Bạn phải nhập mã pin trước khi ký Hợp đồng !").Text');
+            return;
+        }
+        OOSDialog.ShowQuestion_WID('@T("Bạn có chắc chắn muốn ký Hợp đồng điện tử ?").Text','DoEmployeeSignContract_OK',id);
+    }
+
+    function DoEmployeeSignContract_OK(id) {
+        OOSDialog.ClosePopupMessage();
+
+        var url = '@Url.Action("EmployeeSignContract", "eContract", new { Area = "SelfService" })';
+        var params = { ID: id, Code: $('#PinCode').val() };
+
+        OOSDialog.ShowLoadingPanel();
+        OOSCore.Call_Ajax_Function_POST(url, params, function (res) {
+            OOSDialog.HideLoadingPanel();
+            if (res.errtype == 0) {
+                showSuccessMessage('@T("Thực hiện ký hợp đồng thành công !").Text');
+                window.setTimeout(function () {
+                    LoadModule('eContract');
+                }, 500);
+            }
+            else {
+                OOSDialog.ShowMessage(res.mess);
+            }
+        });
+    }
+
+    function DoSignerSignContract(id) {
+        var mapin = $('#PinCode').val();
+        if (mapin == '' || mapin == null) {
+            OOSDialog.ShowMessage('@T("Bạn phải nhập mã pin trước khi ký Hợp đồng !").Text');
+            return;
+        }
+        OOSDialog.ShowQuestion_WID('@T("Bạn có chắc chắn muốn ký Hợp đồng điện tử ?").Text', 'DoSignerSignContract_OK', id);
+    }
+
+    function DoSignerSignContract_OK(id) {
+        OOSDialog.ClosePopupMessage();
+
+        var url = '@Url.Action("SignerSignContract", "eContract", new { Area = "SelfService" })';
+        var params = { ID: id, Code: $('#PinCode').val() };
+
+        OOSDialog.ShowLoadingPanel();
+        OOSCore.Call_Ajax_Function_POST(url, params, function (res) {
+            OOSDialog.HideLoadingPanel();
+            if (res.errtype == 0) {
+                showSuccessMessage('@T("Thực hiện ký hợp đồng thành công !").Text');
+                window.setTimeout(function () {
+                    LoadModule('eContract');
+                }, 500);
+            }
+            else {
+                OOSDialog.ShowMessage(res.mess);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        $('#btnTuChoi').on('click', function (e) {
+            e.preventDefault();
+            $('#dexuatInfo').modal('hide');
+        });
+    });
+</script>
+<div class="portlet light" style="max-width:1024px; text-align:left">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            <span class="caption-subject font-blue-madison bold uppercase">
+                <i class="fa fa-file" style="font-size:20px"></i>
+                @T("HỢP ĐỒNG ĐIỆN TỬ")
+            </span>
+        </div>
+        <div style="float:right; padding-top:5px">
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div>
+            @if (Model.CKSNhanVienID > 0)
+            {
+                <h3>@T("Thông tin chữ ký số")</h3>
+                <table width="100%">
+                    <tr>
+                        <td class="td_content_text_name" width="100px"><i class="fa fa-calendar"></i> @T("Ngày hết hạn:")</td>
+                        <td class="td_content_text_value">@Model.SignatureInfo.CKS_ToiNgay.Value.ToShortDateString()</td>
+                    </tr>
+                    <tr>
+                        <td class="td_content_text_name"><i class="fa fa-barcode"></i> @T("Số Serial:")</td>
+                        <td class="td_content_text_value">@Model.SignatureInfo.CKS_Serial</td>
+                    </tr>
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-danger">
+                    <strong>@T("Bạn chưa đăng ký chữ ký số ! Hãy liên hệ với HR để đăng ký chữ ký số !")</strong>
+                </div>
+            }
+        </div>
+        <div style="margin-bottom:10px; padding-top:20px;">
+            <div class="tabbable-line">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a style="padding:0px 15px 5px 15px;" href="#waitting" data-toggle="tab" aria-expanded="true">
+                            <span id="recruit_tab_name">@T("Hợp đồng đang chờ ký")</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a style="padding:0px 15px 5px 15px;" href="#signed" data-toggle="tab" aria-expanded="true">
+                            <span id="recruit_tab_name">@T("Hợp đồng đã ký")</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="waitting" name="thong-tin">
+                    @Html.Partial("_Waitting", Model)
+                </div>
+                <div class="tab-pane" id="signed" name="thong-tin">
+                    @Html.Partial("_Signed", Model)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="contractInfo" class="modal right fade">
+    <div class="modal-dialog" style="width:750px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn default" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">@T("Thông tin Hợp đồng điện tử")</h4>
+            </div>
+            <div class="modal-body">
+                <p>Loading...</p>
+            </div>
+            <div class="modal-footer fixed">
+                <button class="btn btn-danger pull-right" id="btnTuChoi"><i class="fa fa-times"></i> @T("Đóng")</button>
+            </div>
+        </div>
+    </div>
+</div>

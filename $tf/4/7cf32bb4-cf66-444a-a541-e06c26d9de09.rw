@@ -1,0 +1,8 @@
+﻿using System;
+
+namespace OOS.Humax.RecruitService
+{
+    public class Class1
+    {
+    }
+}

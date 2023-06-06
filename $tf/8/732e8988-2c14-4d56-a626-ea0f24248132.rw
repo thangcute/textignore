@@ -1,0 +1,6 @@
+﻿@model string
+@Html.DevExpress().MemoFor(m => m, st=>
+{
+    st.Width = Unit.Percentage(100);
+    st.Height = Unit.Pixel(75);
+}).GetHtml()

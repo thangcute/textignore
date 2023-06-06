@@ -1,0 +1,5 @@
+﻿@using OOS.GHR.HRIS.Models
+@model QTNghiPhepModel
+<form id="frmLeaveAddItems" method="post" enctype="multipart/form-data">
+    @Html.Partial("_Edit", Model)
+</form>

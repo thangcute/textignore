@@ -1,0 +1,227 @@
+﻿@using System.Data
+@model OOS.GHR.HRIS.Models.ProfilePreviewModel
+@{
+    string NgaySinh = Model.GetProfileInfo("NgaySinh");
+    if (NgaySinh == "")
+    {
+        NgaySinh = T("Nhập ngày sinh").Text;
+    }
+    bool IsPortalPage = Request.Url.ToString().ToLower().Contains("selfservice/home/");
+}
+<script type="text/javascript">
+    function follow(id, bt) {
+        $.ajax({
+            type: "POST",
+            cache: false,
+            url: '@Url.Action("Follow","Profile",new { Area="HRIS", ID=Model.NhanVienID })',
+            data: { ID:@Model.NhanVienID },
+            dataType: "json",
+            success: function (a) {
+                if (a.num > 0) {
+                    showSuccessMessage("@T("Bạn đã bỏ theo dõi thành công !")");
+                    document.getElementById("btFollow").innerHTML = "@T("Theo dõi")";
+                }
+                else {
+                    showSuccessMessage("@T("Bạn đã thiết lập theo dõi thành công !")");
+                    document.getElementById("btFollow").innerHTML = "@T("Bỏ theo dõi")";
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                showErrorMessage("@T("Lỗi khi thực hiện chức năng này !")");
+            }
+        });
+    }
+</script>
+<div class="portlet light ">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            @Html.DevExpress().Image(st => { st.Properties.EmptyImage.IconID = IconID.MailContact32x32; }).GetHtml()
+            <span class="caption-subject font-blue-madison bold uppercase">@T("THÔNG TIN CÁ NHÂN")</span>
+        </div>
+        <div class="actions" style="padding-top:10px">
+            @if ((Model.IsOKPermission("PORTAL_Info") || Model.IsOKPermission("1321")) && IsPortalPage)
+            {
+                if (Model.AllowEdit)
+                {
+                    <div class="actions" style="padding-top:10px !important">
+                        <div class="btn-group">
+                            <a class="btn blue btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            @T("Chỉnh sửa thông tin") <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a href="javascript:LoadModule('EditProfile');"><i class="fa fa-edit"></i> @T("Cập nhật thông tin cá nhân").Text</a>
+                            </li>
+                            @if (Model.IsOKPermission("PORTAL_Trainning"))
+                            {
+                                <li>
+                                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Trainning" })">@T("Quá trình đào tạo").Text</a>
+                                </li>
+                            }
+                            @if (Model.IsOKPermission("PORTAL_Experiences"))
+                            {
+                                <li>
+                                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Experiences" })">@T("Kinh nghiệm làm việc").Text</a>
+                                </li>
+                            }
+                            @if (Model.IsOKPermission("PORTAL_RelationShip"))
+                            {
+                                <li>
+                                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Relationship" })">@T("Quan hệ nhân thân").Text</a>
+                                </li>
+                            }
+                            @if (Model.IsOKPermission("PORTAL_ChildReward"))
+                            {
+                                <li>
+                                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "ChildReward" })">@T("Khen thưởng con").Text</a>
+                                </li>
+                            }
+                        </ul>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <span class="label label-danger" style="font-weight:600">@T("Đang chờ phê duyệt thay đổi thông tin").Text</span>
+                }
+            }
+            @if (!Model.IsPortalAccount && !IsPortalPage)
+            {
+                <a class="todo-username-btn btn btn-circle btn-default btn-xs" href="@Url.Action("Edit", "Profile", new { Area = "HRIS", ID = Model.NhanVienID })">
+                    <i class="fa fa-pencil-alt"></i> @T("Chỉnh sửa")
+                </a>
+                if (Model.IsFollowing)
+                {
+                    <button onclick="javascript:follow(@Model.NhanVienID, this)" type="button" class="todo-username-btn btn btn-circle btn-default btn-xs">
+                        <i class="fa fa-star" style="color:yellowgreen !important"></i> <div id="btFollow" style="float:right; padding-left:5px">@T("Bỏ theo dõi")</div>
+                    </button>
+                }
+                else
+                {
+                    <button onclick="javascript:follow(@Model.NhanVienID, this)" type="button" class="todo-username-btn btn btn-circle btn-default btn-xs">
+                        <i class="fa fa-star" style="color:yellowgreen !important"></i> <div id="btFollow" style="float:right; padding-left:5px">@T("Theo dõi")</div>
+                    </button>
+                }
+            }
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="OOSScroller" style="height: 500px; width: auto;">
+            <table width="100%" style="padding:0" border="0">
+                <tr>
+                    <td class="td_content_text_name" width="35%">@T("Mã nhân viên:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("MaNhanVien")</td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Họ và tên:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("HoVaTen").ToUpper()</td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Ngày sinh:")</td>
+                    <td class="td_content_text_value">
+                        <a href="javascript:;" id="ngaysinh" data-type="combodate"
+                           data-viewformat="DD/MM/YYYY" data-pk="1" data-format="YYYY-MM-DD" data-template="D / MMM / YYYY"
+                           data-original-title="@T("Chọn ngày sinh").Text" class="editable editable-click">@Model.GetProfileInfo("NgaySinh", "", "Nhập ngày sinh")</a>
+                        - @T("Tuổi:") @Model.GetProfileInfo("Tuoi")
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("CMTND:")</td>
+                    <td class="td_content_text_value">
+                        <a href="javascript:;" id="cmtnd" data-type="text" data-pk="1"
+                           data-original-title="@T("Nhập CMTND").Text" class="editable editable-click">@Model.GetProfileInfo("CMTND", "", "Nhập CMTND")</a> -
+                        <a href="javascript:;" id="ngaycapcmt" data-type="combodate"
+                           data-viewformat="DD/MM/YYYY" data-pk="1" data-format="YYYY-MM-DD" data-template="D / MMM / YYYY"
+                           data-original-title="@T("Nhập ngày cấp CMTND").Text" class="editable editable-click">@Model.GetProfileInfo("NgayCapCMT", "", "Nhập ngày cấp CMTND")</a> -
+                        <a href="javascript:;" id="noicapcmt" data-type="select2" data-pk="1"  data-value="BS"
+                           data-original-title="@T("Nhập nơi cấp").Text" class="editable editable-click">@Model.GetProfileInfo("NoiCapCMT", "", "Nhập nơi cấp")</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Tình trạng hôn nhân:")</td>
+                    <td class="td_content_text_value">
+                        <a href="javascript:;" id="tthonnhan" data-type="select2" data-pk="1" data-value="BS"
+                           data-original-title="@T("Tình trạng hôn nhân").Text" class="editable editable-click">@Model.GetProfileInfo("TinhTrangHonNhan", "", "Nhập tình trạng hôn nhân")</a>
+                    </td>
+                </tr>
+            </table>
+            <div class="qtns-form-section" style="padding-left:5px">@T("Thông tin liên lạc")</div>
+            <table width="100%">
+                <tr>
+                    <td class="td_content_text_name" width="35%">@T("Điện thoại:")</td>
+                    <td class="td_content_text_value">
+                        <a href="javascript:;" id="dienthoai" data-type="text" data-pk="1"
+                           data-original-title="@T("Nhập điện thoại").Text" class="editable editable-click">@Model.GetProfileInfo("DienThoai", "", "Nhập điện thoại")</a>
+                        - Email:
+                        <a href="javascript:;" id="email" data-type="text" data-pk="1"
+                           data-original-title="@T("Nhập Email").Text" class="editable editable-click">@Model.GetProfileInfo("Email", "", "Nhập Email")</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Địa chỉ:")</td>
+                    <td class="td_content_text_value">
+                        <a href="javascript:;" id="diachi" data-type="text" data-pk="1"
+                           data-original-title="@T("Nhập địa chỉ").Text" class="editable editable-click">@Model.GetProfileInfo("DiaChi", "", "Nhập địa chỉ")</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Địa chỉ thường trú:")</td>
+                    <td class="td_content_text_value">
+                        <a href="javascript:;" id="diachitt" data-type="text" data-pk="1"
+                           data-original-title="@T("Nhập địa chỉ thường trú").Text" class="editable editable-click">@Model.GetProfileInfo("DiaChiThuongTru", "", "Nhập địa chỉ thường trú")</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Nguyên quán:")</td>
+                    <td class="td_content_text_value">
+                        <a href="javascript:;" id="quequan" data-type="select2" data-pk="1" data-value="BS"
+                           data-original-title="@T("Nhập nguyên quán").Text" class="editable editable-click">@Model.GetProfileInfo("QueQuan", "", "Nhập nguyên quán")</a>
+                        - @T("Nơi sinh:")
+                        <a href="javascript:;" id="noisinh" data-type="select2" data-pk="1" data-value="BS"
+                           data-original-title="@T("Nhập nơi sinh").Text" class="editable editable-click">@Model.GetProfileInfo("NoiSinh", "", "Nhập nơi sinh")</a>
+                    </td>
+                </tr>
+            </table>
+            <div class="qtns-form-section" style="padding-left:5px">@T("Thông tin khác")</div>
+            <table width="100%">
+                <tr>
+                    <td class="td_content_text_name" width="35%">@T("Số tài khoản:")</td>
+                    <td class="td_content_text_value">
+                        <a href="javascript:;" id="sotaikhoan" data-type="text" data-pk="1"
+                           data-original-title="@T("Nhập số tài khoản").Text" class="editable editable-click">@Model.GetProfileInfo("TaiKhoanNganHang", "", "Số tài khoản")</a> -
+                        <a href="javascript:;" id="nganhang" data-type="text" data-pk="1"
+                           data-original-title="@T("Nhập ngân hàng").Text" class="editable editable-click">@Model.GetProfileInfo("TenNganHang", "", "Tên ngân hàng")</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Mã số thuế:")</td>
+                    <td class="td_content_text_value">@Model.GetProfileInfo("MaSoThue")</td>
+                </tr>
+                <tr>
+                    <td class="td_content_text_name">@T("Hộ chiếu:")</td>
+                    <td class="td_content_text_value">
+                        <a href="javascript:;" id="sohochieu" data-type="text" data-pk="1"
+                           data-original-title="@T("Nhập số hộ chiếu").Text" class="editable editable-click">@Model.GetProfileInfo("SoHoChieu", "", "Số hộ chiếu")</a> -
+                        <a href="javascript:;" id="ngayhethanhc" data-type="combodate"
+                           data-viewformat="DD/MM/YYYY" data-pk="1" data-format="yyyy-mm-dd" data-template="D / MMM / YYYY"
+                           data-original-title="@T("Nhập ngày hết hạn hộ chiếu").Text" class="editable editable-click">@Model.GetProfileInfo("NgayHetHan_HoChieu", "", "Ngày hết hạn hộ chiếu")</a>
+                    </td>
+                </tr>
+                @if (Model.Exits("BCTrucTiep"))
+                {
+                    <tr>
+                        <td class="td_content_text_name">@T("Người báo cáo trực tiếp:")</td>
+                        <td class="td_content_text_value">@Model.GetProfileInfo("BCTrucTiep")</td>
+                    </tr>
+                }
+                @if (Model.Exits("BCGianTiep"))
+                {
+                    <tr>
+                        <td class="td_content_text_name">@T("Người báo cáo gián tiếp:")</td>
+                        <td class="td_content_text_value">@Model.GetProfileInfo("BCGianTiep")</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

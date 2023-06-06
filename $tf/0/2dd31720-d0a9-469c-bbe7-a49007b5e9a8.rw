@@ -1,0 +1,4 @@
+﻿@model OOS.GHR.Master.Models.ListModel
+@Html.Partial("~/Areas/Master/Views/ListManagement/_ItemsView.cshtml", Model)
+<div id="idPopupXacNhanXoa"></div>
+

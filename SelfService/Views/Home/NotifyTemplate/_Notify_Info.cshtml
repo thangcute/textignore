@@ -1,0 +1,36 @@
+﻿<div class="notify_box">
+    <div class="notify_box_caption">
+        <span>@T("Cập nhật thông tin cá nhân").Text</span>
+    </div>
+    <div class="notify_box_content">
+        <ul style="list-style:square">
+            <li>
+                <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Profile" })">@T("Thông tin cá nhân").Text</a>
+            </li>
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Trainning", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Trainning" })">@T("Quá trình đào tạo").Text</a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Experiences", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Experiences" })">@T("Kinh nghiệm làm việc").Text</a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_RelationShip", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Relationship" })">@T("Quan hệ nhân thân").Text</a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_ChildReward", false))
+            {
+                <li>
+                    <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "ChildReward" })">@T("Khen thưởng con").Text</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

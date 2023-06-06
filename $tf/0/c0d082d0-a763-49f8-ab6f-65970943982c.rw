@@ -1,0 +1,2 @@
+﻿@model string 
+@Html.TextAreaFor(model => model, new { @class = "form-control", style = "height:75px;position:initial;" })

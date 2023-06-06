@@ -1,0 +1,23 @@
+﻿@model OOS.GHR.HRIS.Models.SelfService_ActivityInfo
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnUngTuyen").on("click", function () {
+        });
+    });
+</script>
+@if (Model.HotNews.Count > 0)
+{
+    <div class="notify_box">
+        <div class="notify_box_caption" style="padding-bottom:5px">
+            <span>@T("Tuyển Dụng Nội Bộ").Text</span>
+        </div>
+        <div class="notify_box_content">
+            @foreach (OOS.GHR.Library.ObjectID id in Model.PromoteList)
+            {
+                <div style="padding:5px">
+                    <button id="btnUngTuyen" class="btn green btn-sm"><i class="fa fa-plus"></i> @id.Name</button>
+                </div>
+            }
+        </div>
+    </div>
+}

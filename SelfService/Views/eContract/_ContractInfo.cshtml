@@ -1,0 +1,101 @@
+﻿@model OOS.GHR.BusinessAdapter.iSign.CKSeContractInfo
+@Html.HiddenFor(m => m.eContractID)
+@Html.HiddenFor(m => m.NhanVienID)
+<div class="form-horizontal form-bordered">
+        @if (Model.TrangThai != 1)
+        {
+            <div class="alert alert-danger">
+                <strong>@T("Trạng Thái:").Text @T("Chưa hoàn thành ký !")</strong>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info">
+                <strong>@T("Trạng Thái:").Text @T("Đã ký !")</strong>
+            </div>
+        }
+        <div class="form-body">
+            <h4 class="form-section">@T("Thông tin Hợp đồng")</h4>
+            <div class="form-group">
+                <label class="col-md-4 control-label">@T("Số Hợp đồng:")</label>
+                <div class="col-md-8 boldcaption">@Model.SoHopDong</div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">@T("Loại hợp đồng:")</label>
+                <div class="col-md-8 boldcaption">@Model.LoaiHopDong</div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">@T("Ngày trình ký:")</label>
+                <div class="col-md-8 boldcaption">@(Model.NgayKyHopDongStr)</div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">@T("Người lao động ký:")</label>
+                <div class="col-md-8 boldcaption">@(Model.NhanVien_NgayKyHopDong)</div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">@T("Người sử dụng lao động ký:")</label>
+                <div class="col-md-8 boldcaption">@(Model.LanhDao_NgayKyHopDong)</div>
+            </div>
+            @if (Model.IsNguoiSuDungLaoDong)
+            {
+                if (!Model.IsLanhDaoDaKy)
+                {
+                    <h4 class="form-section">@T("Thực hiện ký số")</h4>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">@T("Mã pin thực hiện ký số:")</label>
+                        <div class="col-md-8">
+                            @Html.EditorFor(m => m.PinCode)
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                if (!Model.IsNhanVienDaKy)
+                {
+                    <h4 class="form-section">@T("Thực hiện ký số")</h4>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">@T("Mã pin thực hiện ký số:")</label>
+                        <div class="col-md-8">
+                            @Html.EditorFor(m => m.PinCode)
+                        </div>
+                    </div>
+                }
+            }
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    @if (Model.IsNguoiSuDungLaoDong)
+                    {
+                        if (!Model.IsLanhDaoDaKy)
+                        {
+                            <button onclick="DoSignerSignContract(@Model.eContractID);" class="btn blue btn-sm">
+                                <i class="fa fa-edit"></i> @T("Thực hiện Ký hợp đồng điện tử")
+                            </button>
+                        }
+                    }
+                    else
+                    {
+                        if (!Model.IsNhanVienDaKy)
+                        {
+                            <button onclick="DoEmployeeSignContract(@Model.eContractID);" class="btn blue btn-sm">
+                                <i class="fa fa-edit"></i> @T("Thực hiện Ký hợp đồng điện tử")
+                            </button>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12" style="padding:0px !important">
+                    @if (Model.URLDownloadFile == "")
+                    {
+                        <a target="_blank" href="/FileManagement/ViewPDFFile?FileStoreID=@Model.FileStoreID">@T("Xem file Hợp đồng").Text</a>
+                    }
+                    else
+                    {
+                        <a target="_blank" href="@Model.URLDownloadFile">@T("Xem file Hợp đồng").Text</a>
+                    }
+                </div>
+            </div>
+        </div>
+</div>

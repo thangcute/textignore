@@ -1,0 +1,327 @@
+﻿@using OOS.GHR.Library
+@using OOS.GHR.HRIS.Models
+@using OOS.GHR.Master.Models
+@model NhanVienEditModel
+<script>
+    function SubmitSaveProfile() {
+        OOSDialog.ShowLoadingPanel();
+        var url = '@Url.Action("SubmitSaveProfile", "Home")';
+        OOSCore.Call_Ajax_Post_Form(url, "frmEditProfile", function (res) {
+            OOSDialog.HideLoadingPanel();
+            if (res.error == 1) {
+                showErrorMessage(res.mess);
+            }
+            else {
+                showSuccessMessage(res.mess);
+            }
+        });
+    }
+</script>
+<div class="portlet light" style="max-width:800px">
+    <div class="portlet-title tabbable-line">
+        <div class="caption caption-md">
+            @Html.DevExpress().Image(st => { st.Properties.EmptyImage.IconID = IconID.MailContact32x32; }).GetHtml()
+            <span class="caption-subject font-blue-madison bold uppercase">@T("CHỈNH SỬA THÔNG TIN CÁ NHÂN")</span>
+        </div>
+        <div class="actions">
+            <button onclick="SubmitSaveProfile();" type="button" width="250" id="btnSavePersonalInfo" class="btn blue"><i class="far fa-save"></i> @T("Cập nhật thông tin")</button>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <form id="frmEditProfile">
+            @Html.HiddenFor(p => p.NhanVienID)
+            <table width="100%" class="tableInfo" align="center">
+                <tr>
+                    <td colspan="3" class="qtns_heading">
+                        @T("Thông tin cá nhân").Text
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_content">
+                        @Html.DevExpress().TextBoxFor(m => m.FullName, i =>
+                        {
+                            i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                            i.Properties.Caption = T("Họ và tên:").Text;
+                            i.Width = Unit.Percentage(100);
+                            i.ReadOnly = true;
+                            i.Enabled = false;
+                        }).GetHtml()
+                    </td>
+                    <td class="td_content">@Html.Partial("UserControl/_ChonTinhTrangHonNhan", Model.TinhTrangHonNhan, new ViewDataDictionary { { "NameControl", "TinhTrangHonNhan" }, { "Caption", T("Tình trạng hôn nhân:").Text } })</td>
+                </tr>
+                <tr>
+                    <td class="td_content">
+                        @Html.DevExpress().DateEditFor(m => m.NgaySinh, i =>
+                        {
+                            i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                            i.Properties.Caption = T("Ngày sinh:").Text;
+                            i.Width = Unit.Percentage(100);
+                        }).GetHtml()
+                    </td>
+                    <td class="td_content">@Html.Partial("UserControl/_ChonGioiTinh", Model.GioiTinh, new ViewDataDictionary { { "NameControl", "GioiTinh" }, { "Caption", T("Giới tính:").Text } })</td>
+                </tr>
+                <tr>
+                    <td class="td_content">
+                        @Html.DevExpress().TextBoxFor(m => m.CMTND, i =>
+                {
+                    i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                    i.Properties.Caption = T("CMTND:").Text;
+                    i.Width = Unit.Percentage(100);
+                }).GetHtml()
+                    </td>
+                    <td class="td_content">
+                        @Html.DevExpress().DateEditFor(m => m.NgayCapCMT, i =>
+                              {
+                                  i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                  i.Properties.Caption = T("Ngày cấp:").Text;
+                                  i.Width = Unit.Percentage(100);
+                              }).GetHtml()
+                    </td>
+                    <td class="td_content">
+                        @Html.EditorFor(m => m.NoiCapCMT, new { Caption = T("Nơi cấp:").Text })
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_content">
+                        @Html.DevExpress().TextBoxFor(m => m.Email, i =>
+                              {
+                                  i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                  i.Properties.Caption = T("Email:").Text;
+                                  i.Width = Unit.Percentage(100);
+                              }).GetHtml()
+                    </td>
+                    <td class="td_content">
+                        @Html.DevExpress().TextBoxFor(m => m.DienThoai, i =>
+                              {
+                                  i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                  i.Properties.Caption = T("Mobile:").Text;
+                                  i.Width = Unit.Percentage(100);
+                              }).GetHtml()
+                    </td>
+                    <td class="td_content">
+                        @Html.DevExpress().TextBoxFor(m => m.DienThoaiNha, i =>
+                              {
+                                  i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                  i.Properties.Caption = T("Điện thoại nhà:").Text;
+                                  i.Width = Unit.Percentage(100);
+                              }).GetHtml()
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="qtns_heading">
+                        @T("Địa chỉ / Thông tin ngân hàng / Mã số thuế").Text
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_content">
+                        @Html.EditorFor(m => m.QueQuan, new { Caption = T("Nguyên quán:").Text })
+                    </td>
+                    <td class="td_content">
+                        @Html.EditorFor(m => m.NoiSinh, new { Caption = T("Nơi sinh:").Text })
+                    </td>
+                    <td class="td_content">
+                        @Html.EditorFor(m => m.QuocTichID)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="td_content">
+                        @Html.EditorFor(m => m.DiaChiHT)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="td_content">
+                        @Html.EditorFor(m => m.DiaChiTT)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_content">
+                        @Html.DevExpress().TextBoxFor(m => m.MaSoThue, i =>
+                              {
+                                  i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                  i.Properties.Caption = T("Mã số thuế:").Text;
+                                  i.Width = Unit.Percentage(100);
+                                  i.ReadOnly = true;
+                              }).GetHtml()
+                    </td>
+                    <td class="td_content">
+                        @Html.DevExpress().TextBoxFor(m => m.TaiKhoanNganHang, i =>
+                                           {
+                                               i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                               i.Properties.Caption = T("Tài khoản ngân hàng:").Text;
+                                               i.Width = Unit.Percentage(100);
+                                               i.ReadOnly = true;
+                                           }).GetHtml()
+                    </td>
+                    <td class="td_content" colspan="2">
+                        @Html.DevExpress().TextBoxFor(m => m.TenNganHang, i =>
+                              {
+                                  i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                  i.Properties.Caption = T("Tại ngân hàng:").Text;
+                                  i.Width = Unit.Percentage(100);
+                                  i.ReadOnly = true;
+                              }).GetHtml()
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_content">@Html.Partial("UserControl/_ChonDanToc", Model.DanTocID, new ViewDataDictionary { { "NameControl", "DanTocID" }, { "Caption", T("Dân tộc:").Text } })</td>
+                    <td class="td_content">@Html.Partial("UserControl/_ChonTonGiao", Model.TonGiaoID, new ViewDataDictionary { { "NameControl", "TonGiaoID" }, { "Caption", T("Tôn giáo:").Text } })</td>
+                </tr>
+                <tr>
+                    <td class="td_content">
+                        @Html.DevExpress().TextBoxFor(m => m.SoBHXH, i =>
+                        {
+                            i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                            i.Properties.Caption = T("Số sổ BHXH:").Text;
+                            i.Width = Unit.Percentage(100);
+                        }).GetHtml()
+                    </td>
+                    <td class="td_content">
+                        @Html.DevExpress().TextBoxFor(m => m.MaBHXH, i =>
+                        {
+                            i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                            i.Properties.Caption = T("Mã BHXH:").Text;
+                            i.Width = Unit.Percentage(100);
+                        }).GetHtml()
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="qtns_heading">
+                        @T("Thông tin Hộ chiếu / Visa / Giấy phép lao động")
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <table class="tableInfo" width="100%">
+                            <tr>
+                                <td class="td_content">
+                                    @Html.DevExpress().TextBoxFor(m => m.SoHoChieu, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Số hộ chiếu:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                                <td class="td_content">
+                                    @Html.DevExpress().DateEditFor(m => m.NgayCap_HoChieu, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Ngày cấp hộ chiếu:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                                <td class="td_content">
+                                    @Html.DevExpress().TextBoxFor(m => m.NoiCap_HoChieu, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Nơi cấp hộ chiếu:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                                <td class="td_content">
+                                    @Html.DevExpress().DateEditFor(m => m.NgayHetHan_HoChieu, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Ngày hết hạn hộ chiếu:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td_content">
+                                    @Html.DevExpress().TextBoxFor(m => m.Visa, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Visa:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                                <td class="td_content">
+                                    @Html.DevExpress().DateEditFor(m => m.NgayCap_Visa, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Ngày cấp Visa:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                                <td class="td_content">
+                                    @Html.DevExpress().TextBoxFor(m => m.NoiCap_Visa, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Nơi cấp Visa:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                                <td class="td_content">
+                                    @Html.DevExpress().DateEditFor(m => m.NgayHetHan_Visa, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Ngày hết hạn Visa:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td_content">
+                                    @Html.DevExpress().TextBoxFor(m => m.GiayPhepLaoDong, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Giấy phép LĐ:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                                <td class="td_content">
+                                    @Html.DevExpress().DateEditFor(m => m.NgayCap_GiayPhepLaoDong, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Ngày cấp GPLĐ:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                                <td class="td_content">
+                                    @Html.DevExpress().TextBoxFor(m => m.NoiCap_GiayPhepLaoDong, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Nơi cấp GPLĐ:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                                <td class="td_content">
+                                    @Html.DevExpress().DateEditFor(m => m.NgayHetHan_GiayPhepLaoDong, i =>
+                                    {
+                                        i.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                                        i.Properties.Caption = T("Ngày hết hạn GPLĐ:").Text;
+                                        i.Width = Unit.Percentage(100);
+                                    }).GetHtml()
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                @if (Model.HSNS.IsOK)
+                {
+                    @Html.Partial("DBUI/_TableDBUI", Model.HSNS)
+                }
+                @if (OOS.GHR.BusinessAdapter.XetDuyet.XetDuyet.XD_Available("XD_SUATTNHANVIEN"))
+                {
+                    <tr>
+                        <td class='td_content'>@T("File đính kèm:")</td>
+                        <td colspan="2" class='td_content'>
+                            @Html.Partial("UserControl/UploadMultiFiles", "SYS_LichSuThayDoiThongTin_FileStore")
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2" class='td_content'>
+                            @Html.Partial("UserControl/FileStoreViewer", "SYS_LichSuThayDoiThongTin|" + Model.NhanVienID.ToString())
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td class="td_content" colspan="3" align="right">
+                        <button onclick="SubmitSaveProfile();" type="button" width="250" id="btnSavePersonalInfo" class="btn blue"><i class="far fa-save"></i> @T("Cập nhật thông tin")</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

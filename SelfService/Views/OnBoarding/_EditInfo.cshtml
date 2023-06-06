@@ -1,0 +1,95 @@
+﻿@model OOS.GHR.SelfService.Models.OnBoardingModel
+<div id="EditInfo" class="onboarding_tablecontent">
+    <h3 style="margin:0px; padding-bottom:10px;">@T("Chỉnh sửa thông tin cá nhân")</h3>
+    <span>@T("Kiểm tra chính xác thông tin cá nhân của bạn. Thực hiện việc điều chỉnh nếu có sai sót !")</span>
+    <div style="padding-top:10px;">
+        <table width="100%" class="tableInfo">
+            <tr>
+                <td class="tt_name">@Html.LabelFor(m=>m.EditInfo.FullName)</td>
+                <td class="tt_name">@Html.LabelFor(m => m.EditInfo.NgaySinh)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DevExpress().TextBox(st =>
+                           {
+                               st.Name = "FullName";
+                               st.Width = Unit.Percentage(100);
+                           }).Bind(Model.EditInfo.FullName).GetHtml()
+                </td>
+                <td>
+                    @Html.DevExpress().DateEdit(st =>
+           {
+               st.Name = "NgaySinh";
+           }).Bind(Model.EditInfo.NgaySinh).GetHtml()
+            </td>
+            </tr>
+            <tr>
+                <td class="tt_name">@Html.LabelFor(m => m.EditInfo.CMTND)</td>
+                <td class="tt_name">@Html.LabelFor(m => m.EditInfo.NgayCapCMT)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DevExpress().TextBox(st =>
+                           {
+                               st.Name = "CTMND";
+                               st.Width = Unit.Percentage(100);
+                           }).Bind(Model.EditInfo.CMTND).GetHtml()
+                </td>
+                <td>@Html.DevExpress().DateEdit(st =>
+               {
+                   st.Name = "NgayCapCMT";
+               }).Bind(Model.EditInfo.NgayCapCMT).GetHtml()
+                </td>
+            </tr>
+            <tr>
+                <td class="tt_name">@Html.LabelFor(m => m.EditInfo.NoiCapCMT)</td>
+                <td class="tt_name">@Html.LabelFor(m => m.EditInfo.TinhTrangHonNhan)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DevExpress().TextBox(st =>
+                           {
+                               st.Name = "NoiCapCMT";
+                               st.Width = Unit.Percentage(100);
+                           }).Bind(Model.EditInfo.NoiCapCMT).GetHtml()
+                </td>
+                <td>@Html.EditorFor(m => m.EditInfo.TinhTrangHonNhan)</td>
+            </tr>
+            <tr>
+                <td class="tt_name">@Html.LabelFor(m => m.EditInfo.DienThoai)</td>
+                <td class="tt_name">@Html.LabelFor(m => m.EditInfo.EmailCaNhan)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DevExpress().TextBox(st =>
+       {
+           st.Name = "DienThoai";
+           st.Width = Unit.Percentage(100);
+       }).Bind(Model.EditInfo.DienThoai).GetHtml()
+                </td>
+                <td>
+                    @Html.DevExpress().TextBox(st =>
+       {
+           st.Name = "EmailCaNhan";
+           st.Width = Unit.Percentage(100);
+       }).Bind(Model.EditInfo.EmailCaNhan).GetHtml()
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    @Html.EditorFor(m => m.EditInfo.DiaChiTT)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    @Html.DevExpress().CheckBox(st =>
+               {
+                   st.Name = "chkDongYTT";
+                   st.Text = T("Tôi đồng ý hiệu chỉnh các thông tin như trên.").Text;
+                   st.ControlStyle.Font.Bold = true;
+               }).GetHtml()
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

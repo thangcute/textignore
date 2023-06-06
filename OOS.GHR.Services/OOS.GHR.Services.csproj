@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C5D393D-B600-43C2-A76B-220669D2643D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OOS.GHR.Services</RootNamespace>
+    <AssemblyName>OOS.GHR.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla, Version=2.1.2.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLS\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Humax.Ess.Api\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OOS.GHR.BACongLuong, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLS\OOS.GHR.BACongLuong.dll</HintPath>
+    </Reference>
+    <Reference Include="OOS.GHR.BusinessAdapter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLS\OOS.GHR.BusinessAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="OOS.GHR.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLS\OOS.GHR.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="OOS.GHR.HRIS">
+      <HintPath>..\DLLS\OOS.GHR.HRIS.dll</HintPath>
+    </Reference>
+    <Reference Include="OOS.GHR.Library, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLS\OOS.GHR.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="OOS.Humax.Core">
+      <HintPath>..\DLLS\OOS.Humax.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="OOS.Humax.ESSService">
+      <HintPath>..\DLLS\OOS.Humax.ESSService.dll</HintPath>
+    </Reference>
+    <Reference Include="OOS.Humax.HRISService">
+      <HintPath>..\DLLS\OOS.Humax.HRISService.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\CacheHelper.cs" />
+    <Compile Include="Helpers\FileSizeHelpers.cs" />
+    <Compile Include="Interfaces\IBase.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\Core\Sys_FileStore.cs" />
+    <Compile Include="Models\DefaultModel.cs" />
+    <Compile Include="Models\Ess\BusinessTripModel.cs" />
+    <Compile Include="Models\Ess\ExperienceModel.cs" />
+    <Compile Include="Models\Ess\ProfilePutModel.cs" />
+    <Compile Include="Models\Ess\RelationshipModel.cs" />
+    <Compile Include="Models\Ess\RequestModel.cs" />
+    <Compile Include="Models\Ess\TimeSheetModel.cs" />
+    <Compile Include="Models\Ess\TrainingModel.cs" />
+    <Compile Include="Models\Ess\TrainingProcessModel.cs" />
+    <Compile Include="Models\Ess\WorkingModel.cs" />
+    <Compile Include="Models\FilterModel.cs" />
+    <Compile Include="Models\GroupModel.cs" />
+    <Compile Include="Models\News\Enums.cs" />
+    <Compile Include="Models\News\LinkPreviewModel.cs" />
+    <Compile Include="Models\News\NewsModel.cs" />
+    <Compile Include="Models\Social\PrivateMessageModel.cs" />
+    <Compile Include="Models\Task\DependentModel.cs" />
+    <Compile Include="Models\Task\Ds_ProjectModel.cs" />
+    <Compile Include="Models\Task\TaskProgressModel.cs" />
+    <Compile Include="Models\Task\TaskProjectModel.cs" />
+    <Compile Include="Models\Task\TaskReportModel.cs" />
+    <Compile Include="Models\Task\TaskWorkModel.cs" />
+    <Compile Include="Models\Task\TienDoCongViecModel.cs" />
+    <Compile Include="Models\UserInfoModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Acc\EmployeeService.cs" />
+    <Compile Include="Services\ApproveService.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\Conf\CategoryService.cs" />
+    <Compile Include="Services\Conf\LocationService.cs" />
+    <Compile Include="Services\Ess\BusinessTripService.cs" />
+    <Compile Include="Services\Ess\ExperienceService.cs" />
+    <Compile Include="Services\Ess\LeaveService.cs" />
+    <Compile Include="Services\Ess\OvertimeService.cs" />
+    <Compile Include="Services\Ess\ProfileService.cs" />
+    <Compile Include="Services\Ess\RelationshipService.cs" />
+    <Compile Include="Services\Ess\TimeSheetService.cs" />
+    <Compile Include="Services\Ess\TrainingProcessService.cs" />
+    <Compile Include="Services\Ess\TrainningService.cs" />
+    <Compile Include="Services\Ess\WorkingService.cs" />
+    <Compile Include="Services\News\NewsService.cs" />
+    <Compile Include="Services\Social\GroupService.cs" />
+    <Compile Include="Services\Social\MemberService.cs" />
+    <Compile Include="Services\Social\PostService.cs" />
+    <Compile Include="Services\Social\PrivateMessageService.cs" />
+    <Compile Include="Services\StoreService.cs" />
+    <Compile Include="Services\System\UserService.cs" />
+    <Compile Include="Services\Task\ProjectService.cs" />
+    <Compile Include="Services\Task\ProjectStatusService.cs" />
+    <Compile Include="Services\Task\WorkCheckListService.cs" />
+    <Compile Include="Services\Task\WorkReminderService.cs" />
+    <Compile Include="Services\Task\WorkRepeatService.cs" />
+    <Compile Include="Services\Task\WorkService.cs" />
+    <Compile Include="Services\Task\WorkStatusService.cs" />
+    <Compile Include="Services\Task\WorkTypeService.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utilitys\Commons.cs" />
+    <Compile Include="Utilitys\DataConvert.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OOS.GHR.EntityFramework\OOS.GHR.EntityFramework.csproj">
+      <Project>{7b392986-afc6-425c-8304-c501546dc0b6}</Project>
+      <Name>OOS.GHR.EntityFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

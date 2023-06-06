@@ -1,0 +1,32 @@
+﻿@model OOS.GHR.HRIS.Models.SelfService_ActivityInfo
+<script>
+    $(document).ready(function() {
+        $('#new_employee').showMore({
+                minheight: 230,
+        buttontxtmore: 'Xem tất cả',
+        buttontxtless: 'Ẩn bớt',
+        animationspeed: 250
+        });
+        });
+</script>
+<div class="notify_box">
+    <div class="notify_box_caption">
+        <span>
+            <i class="fa fa-star" style="color:indianred"></i>
+            <i class="fa fa-star" style="color:indianred"></i>
+            <i class="fa fa-star" style="color:indianred"></i>
+             @T("Nhân sự mới:") @(Model.NewEmployeeList.Count.ToString()) @T("nhân sự")
+        </span>
+    </div>
+    <div class="notify_box_content">
+        @if (Model.NewEmployeeList.Count > 0)
+        {
+            <div id="@(Model.NewEmployeeList.Count>3?"new_employee":"")" style="height:auto; max-height:none; min-height:unset; overflow:hidden">
+                @for(int i=0; i< Model.NewEmployeeList.Count; i++)
+                {
+                    Html.RenderPartial("UserControl\\Avatar_Image", Model.NewEmployeeList[i]);
+                }
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model OOS.GHR.HRIS.Models.SelfService_ActivityInfo
+<div class="feed_box">
+    <div class="feed_box_caption">
+        <span>@T("Nhân sự nghỉ phép / Công tác")</span>
+    </div>
+    <div class="feed_box_desc">
+        <span>@T("Nhân sự vắng mặt tại Công ty (Nghỉ phép, Hoặc công tác) trong hôm nay và ngày mai:")</span>
+    </div>
+    <div id="employee_leave" style="height:250px; min-height:250px; max-height:250px; overflow:hidden;" class="feed_box_content">
+        @if (Model.LeaveList.Count > 0)
+        {
+            <div>
+                <div style="font-weight:600; padding:5px; color:green !important" class="qtns-form-section"><i class="fa fa-plane"></i> @T("Nhân sự Nghỉ phép / Công tác Hôm nay").Text (@Model.LeaveList.Count.ToString() @T("Nhân sự").Text)</div>
+                @foreach (OOS.GHR.Core.HRIS.PersonalAvatar PI in Model.LeaveList)
+                {
+                    Html.RenderPartial("UserControl\\Avatar", PI);
+                }
+            </div>
+        }
+        @if (Model.LeaveTomorrowList.Count > 0)
+        {
+            <div>
+                <div style="font-weight:600; padding:5px; color:green !important" class="qtns-form-section"><i class="fa fa-plane"></i> @T("Nhân sự Nghỉ phép / Công tác Ngày mai").Text (@Model.LeaveTomorrowList.Count.ToString() @T("Nhân sự").Text)</div>
+                @foreach (OOS.GHR.Core.HRIS.PersonalAvatar PI in Model.LeaveTomorrowList)
+                {
+                    Html.RenderPartial("UserControl\\Avatar", PI);
+                }
+            </div>
+        }
+    </div>
+    <div class="feed_box_title">
+        <h4>Tổng số : @((Model.LeaveList.Count+Model.LeaveTomorrowList.Count).ToString("n0"))</h4>
+    </div>
+</div>

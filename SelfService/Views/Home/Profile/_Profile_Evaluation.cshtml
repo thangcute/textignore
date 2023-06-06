@@ -1,0 +1,31 @@
+﻿@using System.Data
+@using System.Collections;
+@model OOS.GHR.HRIS.Models.ProfilePreviewModel
+<div class="portlet light ">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            @Html.DevExpress().Image(st => { st.Properties.EmptyImage.IconID = IconID.BusinessobjectsBoresume32x32; }).GetHtml()
+            <span class="caption-subject font-blue-madison bold uppercase">@T("KẾT QUẢ ĐÁNH GIÁ")</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @foreach (int Month in Model.evaluationList.Keys)
+        {
+            ArrayList alEva = Model.evaluationList[Month] as ArrayList;
+            <div class="HeaderBoxTopText">
+                <div class="TopTextOrange"></div>
+                <div class="TopTextItems TopTextBoder">Kết quả đánh giá Tháng: @Month.ToString()/@DateTime.Now.Year.ToString()</div>
+            </div>
+            <div class="row">
+                @foreach (OOS.GHR.HRIS.Models.EvaluationInfo EI in alEva)
+                {
+                    <div class="col-sm-6" style="align-content:center; text-align:center">
+                        <h4 style="text-align:center; font-weight:600">@EI.NhomDanhGia</h4>
+                        <input class="knob" data-width="150" data-height="150" readonly="1" data-displayprevious=true value="@EI.DiemSo">
+                        <h4 style="text-align:center;"><span class="label label-primary" style="background-color:brown !important; text-align:center; font-weight:600;">Xếp loại: @EI.XepLoai</span></h4>
+                    </div>
+                }
+            </div>
+         }
+    </div>
+</div>

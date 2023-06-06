@@ -1,0 +1,72 @@
+﻿@using OOS.GHR.Library
+@model OOS.GHR.SelfService.Models.CareerPathModel
+<table width="100%">
+    <tr>
+        <td align="center">
+            <div class="row" style="max-width:1024px; text-align:left">
+                <div class="col-md-12">
+                    <h2 style="font-weight:600; padding:20px 0 20px 0; color: #086cb3; padding-left:18%">
+                        @T("LỘ TRÌNH THĂNG TIẾN")
+                        <div style="font-size:13px; padding-top:10px; color:gray;">@T("VỊ TRÍ HIỆN TẠI:") @Model.TenChucVu.ToUpper()</div>
+                    </h2>
+                    <ul class="timeline">
+                        @for (int Index = 0; Index < Model.CareerPath.Count; Index++)
+                        {
+                            <li class="timeline-@(Model.CareerPath[Index].Color) @(Index==Model.CareerPath.Count-1?"timeline-noline":"")">
+                                <div class="timeline-time">
+                                    <span class="date">
+                                        @(Model.CareerPath[Index].TenNhomChucVu)
+                                    </span>
+                                    <span class="time">
+                                        @(Model.CareerPath[Index].TenChucDanh)
+                                    </span>
+                                </div>
+                                <div class="timeline-icon" style="@(Model.CareerPath[Index].IsCurrent?"background:rgb(18, 121, 192)":"")">
+                                    <i class="fa fa-@(Model.CareerPath[Index].IsTop?"trophy":"chevron-up")"></i>
+                                </div>
+                                <div class="timeline-body">
+                                    <h2>
+                                        @(Model.CareerPath[Index].TenChucVu)
+                                    </h2>
+                                    <div class="timeline-content" style="color:white">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="timeline-note">@T("Mô tả công việc")</div>
+                                                @Html.Raw(Model.CareerPath[Index].MoTaCongViec)
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="timeline-note">@T("Khóa đào tạo")</div>
+                                                @foreach (ObjectID ob in Model.CareerPath[Index].YeuCauDaoTao)
+                                                {
+                                                    <div><i class="fa fa-bookmark"></i> @ob.Name</div>
+                                                }
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="timeline-note">@T("Tiêu chuẩn năng lực")</div>
+                                                @foreach (ObjectID ob in Model.CareerPath[Index].Competency)
+                                                {
+                                                    <div style="padding-top:5px; text-align:justify">
+                                                        <i class="fa fa-star"></i>
+                                                        <span>@(ob.Name): </span>
+                                                    </div>
+                                                    <div style="font-weight:500; text-align:justify">
+                                                        @ob.StrID
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-footer">
+                                        <a href="javascript:;" class="nav-link pull-right">
+                                            @T("Chi tiết") <i class="m-icon-swapright m-icon-white"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

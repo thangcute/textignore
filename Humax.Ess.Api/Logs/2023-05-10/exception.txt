@@ -1,0 +1,7 @@
+Start - 2023-05-10 10:33:27 - 
+20230510103327 - 2023-05-10 10:33:27: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230510103327 - 2023-05-10 10:33:27: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230510122613 - 2023-05-10 12:26:13: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230510122613 - 2023-05-10 12:26:13: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230510132419 - 2023-05-10 13:24:19: Invalid object name 'dbo.TSK_DuAn_TrangThai'.
+20230510132419 - 2023-05-10 13:24:19: Invalid object name 'dbo.TSK_DuAn_TrangThai'.

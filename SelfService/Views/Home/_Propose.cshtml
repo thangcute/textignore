@@ -1,0 +1,142 @@
+﻿@model OOS.GHR.Admin.Models.ProposeInfo
+<style type="text/css">
+    .NghiPhep_Item_Style {
+        padding-bottom: 5px;
+    }
+</style>
+<script type="text/javascript">
+    var npid = 0;
+
+    function ShowNewItemDialog(id) {
+        var url = '@Url.Action("ProposeInfo", "Propose", new { Area = "Admin"})';
+        $('#dexuatInfo').modal('show').find('.modal-body').load(url+'?NhanVienID='+NhanVienID+'&DeXuatID='+id);
+    }
+
+    function Delete(id) {
+        npid = id;
+        OOSDialog.ShowPopupMessageQ('@T("Bạn có chắc chắn muốn xóa ?").Text');
+    }
+
+    function OnPopupQ_DongY() {
+        OOSDialog.ClosePopupMessage();
+
+        var url = '@Url.Action("Delete", "Propose", new { Area = "Admin"})';
+        var params = { id: npid };
+
+        OOSCore.Call_Ajax_Function_POST(url, params, function (res) {
+            showSuccessMessage('@T("Xóa thành công !").Text');
+            window.setTimeout(function () {
+                LoadModule('Propose');
+            }, 500);
+        });
+    }
+
+    $(document).ready(function () {
+        $('#btnTuChoi').on('click', function (e) {
+            e.preventDefault();
+            $('#dexuatInfo').modal('hide');
+        });
+
+        $('#btnDangKy').on('click', function (e) {
+            e.preventDefault();
+            if ($("#NoiDung_I").val() == '') {
+                showErrorMessage('@T("Bạn phải nhập nội dung đề xuất !").Text');
+                return;
+            }
+            var form = $("#frmPropose");
+            OOSDialog.ShowLoadingPanelText('Saving...');
+            OOSCore.Call_Ajax_Function_POST(
+                '@Url.Action("AddAndEdit", "Propose", new { Area = "Admin" })',
+                form.serialize(),
+                function (res) {
+                    if (res.errtype !== -1) {
+                        $('#dexuatInfo').modal('hide');
+                        showSuccessMessage("@T("Đề xuất thành công !")");
+                        window.setTimeout(function () {
+                            LoadModule('Propose');
+                        }, 500);
+                    }
+                    else
+                        showErrorMessage(res.mess);
+                });
+        });
+    });
+</script>
+<div class="portlet light" style="max-width:1024px; text-align:left">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            <i class="fa fa-plane" style="font-size:20px"></i>
+            <span class="caption-subject font-blue-madison bold uppercase">@T("ĐỀ XUẤT")</span>
+        </div>
+        <div style="float:right; padding-top:5px">
+        </div>
+    </div>
+    <div class="portlet-body">
+        <button type="button" id="btThemMoi" onclick="ShowNewItemDialog(0);" class="btn blue-steel"><i class='fa fa-file-o'></i> @T("Đề Xuất Mới")</button>
+        <h3>@T("Danh sách đề xuất")</h3>
+        <div class="OOSScroller" style="height: @(OOS.GHR.Core.DisplayInfo.ScreenHeight-300)px; width: auto;">
+            <table class="table table-striped table-bordered table-advance table-hover">
+                <thead>
+                    <tr>
+                        <th>@T("Ngày / Loại đề xuất")</th>
+                        <th>@T("Nội dung đề xuất")</th>
+                        <th>@T("Người duyệt (Chờ)")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int Index = 0; Index < Model.Info.RowCount; Index++)
+                    {
+                        int XetDuyet = Model.Info.GetInt("XetDuyet", Index);
+                        int ID = Model.Info.GetInt("DeXuatID", Index);
+                        <tr>
+                            <td width="190px">
+                                <div style="text-align:center">
+                                    <div class="timeline-body-time font-grey-cascade">@Model.Info.GetProfileInfo("NgayDeXuat", Index)</div>
+                                    <div class="timeline-body-title font-blue-madison">
+                                        <a href="javascript: OOSDialog.PrintForms(@ID,'HSNS_NGHIPHEP',0)">@Model.Info.GetProfileInfo("TenLoaiDeXuat", Index)</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="NghiPhep_Item_Style">@Model.Info.GetProfileInfo("NoiDung", Index)</div>
+                                <div class="NghiPhep_Item_Style">
+                                    @Html.Raw(OOS.GHR.Master.Models.DataTableSource.GetHTMLStatus(XetDuyet))
+                                    @if (XetDuyet == 0)
+                                    {
+                                        <div style="float:right">
+                                            <button onclick="ShowNewItemDialog(@ID);" class="btn blue btn-sm"><i class="fa fa-edit"></i> @T("Sửa")</button>
+                                            <button onclick="Delete(@ID);" class="btn red btn-sm"><i class="fa fa-times"></i> @T("Xóa")</button>
+                                        </div>
+                                    }
+                                </div>
+                            </td>
+                            <td width="190px">
+                                <div style="text-align:center">
+                                    <div class="timeline-body-title font-blue-madison">@Model.Info.GetProfileInfo("NguoiDangChoDuyet", Index)</div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="dexuatInfo" class="modal fade draggable-modal ui-draggable">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:950px">
+            <div class="modal-header">
+                <button type="button" class="btn default" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">@T("Đề xuất")</h4>
+            </div>
+            <div class="modal-body">
+                <p>Loading...</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger pull-left" id="btnTuChoi"><i class="fa fa-times"></i> @T("Bỏ qua")</button>
+                <button class="btn btn-success" id="btnDangKy"><i class="fa fa-check-circle"></i> @T("Đề Xuất")</button>
+            </div>
+        </div>
+    </div>
+</div>

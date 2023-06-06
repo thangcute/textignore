@@ -1,0 +1,73 @@
+﻿@model string
+<script>
+    function LoadPatrialModule(value) {
+        var url = "";
+        switch (value) {
+            case "Trainning":
+                caption = 'QUÁ TRÌNH ĐÀO TẠO';
+                url = "@Url.Action("Index_Partial", "QTDaoTao", new { Area = "HRIS" })";
+                break;
+            case "Experiences":
+                caption = 'KINH NGHIỆM LÀM VIỆC';
+                url = "@Url.Action("Index_Partial", "QTKinhNghiem", new { Area = "HRIS" })";
+                break;
+            case "Reward":
+                caption = 'QUÁ TRÌNH KHEN THƯỞNG';
+                url = "@Url.Action("Index_Partial", "QTKhenThuong", new { Area = "HRIS" })";
+                break;
+            case "Discipline":
+                caption = 'QUÁ TRÌNH KỶ LUẬT';
+                url = "@Url.Action("Index_Partial", "QTKyLuat", new { Area = "HRIS" })";
+                break;
+            case "ChildReward":
+                caption = 'QUÁ TRÌNH KHEN THƯỞNG CON';
+                url = "@Url.Action("Index_Partial", "QTKhenThuongCon", new { Area = "HRIS" })";
+                break;
+            case "Relationship":
+                caption = 'QUAN HỆ NHÂN THÂN';
+                url = "@Url.Action("Index_Partial", "QTQuanHeGiaDinh", new { Area = "HRIS" })";
+                break;
+        }
+        $("#lbCaptionProcess").html(caption);
+        $.ajax({
+            url: url,
+            type: "GET",
+            data: { "NhanVienID":@OOS.GHR.Library.DatabaseCache.NhanVien.NhanVienID},
+            success: function (result) {
+                $("#ProcessContentHTML").html(result);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                showErrorMessage('Có lỗi xảy ra khi lấy dữ liệu ' + caption);
+            }
+        });
+    }
+    $(document).ready(function () {
+        setTimeout(function () {
+            LoadPatrialModule('@Model');
+        }, 10);
+    });
+</script>
+<div style="display:inline-flex">
+    <div>
+        <div class="portlet light" style="min-width:600px; max-width:1024px; height:@(OOS.GHR.Core.DisplayInfo.ScreenHeight - 90)px; width:@(OOS.GHR.Core.DisplayInfo.ScreenWidth)px">
+            <div class="portlet-title" style="margin-bottom:0px !important">
+                <div class="caption caption-md" style="padding-top:5px !important">
+                    @Html.DevExpress().Image(st => { st.Properties.EmptyImage.IconID = IconID.BusinessobjectsBoresume32x32; }).GetHtml()
+                    <span class="caption-subject font-blue-madison bold uppercase" id='lbCaptionProcess' style="font-size:18px !important;"></span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_" + Model + "_NEW"))
+                {
+                    <button type="button" id="btThemMoi" class="btn blue-steel"><i class='fa fa-plus'></i> @T("Thêm mới")</button>
+                }
+                <div style="padding-top:10px">
+                    <div id="ProcessContentHTML"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div id="rightCol" style="height:300px; padding-left:10px;">
+        @Html.Partial("NotifyTemplate/_NotifyBox", )
+    </div>*@
+</div>

@@ -1,0 +1,305 @@
+﻿@model OOS.GHR.HRIS.Models.ProfilePreviewModel
+@{
+    string imageSrc = (Model.ProfilePicture != null && Model.ProfilePicture.Length > 100) ? string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(Model.ProfilePicture)) : "/Images/no-image.jpg";
+    Layout = "~/Views/Shared/_portalLayout.cshtml";
+}
+<style type="text/css">
+    @@media (min-width: 991px) {
+        .page-content-wrapper .page-content {
+            padding-top: 0px !important;
+            background-color: #E5E5E5 !important;
+            padding-left: 10px;
+        }
+
+        .col-lg-12 {
+            padding-right: 10px;
+        }
+    }
+
+    @@media (max-width: 991px) {
+        .page-content-wrapper .page-content {
+            padding-top: 0px !important;
+            padding-left: 0px;
+        }
+
+        .col-lg-12 {
+            padding-right: 0px;
+        }
+    }
+
+    .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover, .page-sidebar {
+        width: 330px !important;
+    }
+
+    .page-content-wrapper .page-content {
+        margin-left: 330px;
+        transition: margin-left 0.3s;
+    }
+
+    html, body {
+        background: #E5E5E5 !important;
+    }
+
+    .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover, .page-sidebar {
+        background-color: #E5E5E5 !important;
+        color: #5a7391 !important;
+    }
+</style>
+<script type="text/javascript">
+    var NhanVienID = @Model.NhanVienID;
+    var ID = 0;
+    var currentModule;
+    function LoadModule(value)
+    {
+        var str = value;
+        if (/^[a-zA-Z0-9- ]*$/.test(str) == false) {
+            showErrorMessage('@T("Đường dẫn không tồn tại !").Text');
+            return;
+        };
+        currentModule = value;
+        OOSDialog.HideLoadingPanel();
+        if (value == "Index")
+            window.location.href = '@Url.Action("Index", "Home", new { ID = Model })';
+        else
+        {
+            var url = "";
+            switch (value)
+            {
+                case "Profile":
+                    url = "@Url.Action("ProfileOverview", "Home", new { Area= "SelfService", NhanVienID=Model.NhanVienID })";
+                    break;
+                case "Payslip":
+                    url = "@Url.Action("Payslip", "Home", new { Area="SelfService", NhanVienID=Model.NhanVienID })";
+                    break;
+                case "ELearning":
+                    url = "@Url.Action("Index", "Elearning", new { Area= "SelfService", NhanVienID=Model.NhanVienID })";
+                    break;
+                case "TimeSheet":
+                    url = "@Url.Action("TimeSheet", "Home", new { Area= "SelfService", NhanVienID = Model.NhanVienID })";
+                    break;
+                case "RegisterEvaluation":
+                    url = "@Url.Action("Index_Partial", "SelfAssignTarget", new { Area="Evaluation"})";
+                    break;
+                case "SelfEvaluation":
+                    url = "@Url.Action("IndexPartial", "SelfEvaluation", new { Area="Evaluation"})";
+                    break;
+                case "Trainning":
+                    caption = 'QUÁ TRÌNH ĐÀO TẠO';
+                    url = "@Url.Action("GetProfileProcess", "Home", new { module = "Trainning" })";
+                    break;
+                case "Experiences":
+                    caption = 'KINH NGHIỆM LÀM VIỆC';
+                    url = "@Url.Action("GetProfileProcess", "Home", new { module = "Experiences" })";
+                    break;
+                case "Reward":
+                    caption = 'QUÁ TRÌNH KHEN THƯỞNG';
+                    url = "@Url.Action("Index_Partial", "QTKhenThuong")";
+                    break;
+                case "Discipline":
+                    caption = 'QUÁ TRÌNH KỶ LUẬT';
+                    url = "@Url.Action("Index_Partial", "QTKyLuat")";
+                    break;
+                case "Leave":
+                    caption = 'QUÁ TRÌNH NGHỈ PHÉP';
+                    url = "@Url.Action("Leave", "Home", new { Area= "SelfService" })";
+                    break;
+                case "OT":
+                    caption = 'QUÁ TRÌNH NGHỈ PHÉP';
+                    url = "@Url.Action("OT", "Home", new { Area= "SelfService" })";
+                    break;
+                case "Propose":
+                    caption = 'QUẢN LÝ ĐỀ XUẤT';
+                    url = "@Url.Action("Propose", "Home", new { Area= "SelfService" })";
+                    break;
+                case "Request":
+                    caption = 'QUẢN LÝ ĐỀ XUẤT';
+                    url = "@Url.Action("RequestManagement", "Request", new { Area= "SelfService" })";
+                    break;
+                case "CT":
+                    caption = 'QUÁ TRÌNH CÔNG TÁC';
+                    url = "@Url.Action("CT", "Home", new { Area = "SelfService" })";
+                    break;
+                case "ChildReward":
+                    caption = 'QUÁ TRÌNH KHEN THƯỞNG CON';
+                    url = "@Url.Action("GetProfileProcess", "Home", new { module = "ChildReward" })";
+                    break;
+                case "Relationship":
+                    caption = 'QUAN HỆ NHÂN THÂN';
+                    url = "@Url.Action("GetProfileProcess", "Home", new { module = "Relationship" })";
+                    break;
+                case "EditProfile":
+                    caption = 'CHỈNH SỬA THÔNG TIN CÁ NHÂN';
+                    url = "@Url.Action("EditProfile", "Home", new { Area = "SelfService" })";
+                    break;
+                case "iSign":
+                    caption = 'QUẢN LÝ CHỮ KÝ SỐ';
+                    url = "@Url.Action("Index", "iSignSS", new { Area = "SelfService" })";
+                    break;
+                case "eContract":
+                    caption = 'HỢP ĐỒNG ĐIỆN TỬ';
+                    url = "@Url.Action("Index", "eContract", new { Area = "SelfService" })";
+                    break;
+            }
+            if (url != '' && url != null) {
+                OOSDialog.ShowLoadingPanel();
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    data: { "NhanVienID":@Model.NhanVienID},
+                    success: function (result) {
+                        $("#idContent").html(result);
+                        $("#seContent").removeAttr('style');
+                        OOSDialog.HideLoadingPanel();
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        showErrorMessage('Có lỗi xảy ra khi lấy dữ liệu ' + caption);
+                    }
+                });
+            }
+        }
+    }
+    function EmailPayrollNotify_Submit() {
+        OOSAPI_Sys.Do_Function_Form('SENDEMAIL', 'frmXForm_Payroll_Email_Notify', function (res) {
+            if (res.errtype <= 0) {
+                showSuccessMessage(res.mess);
+                EmailPayrollNotify.Hide();
+            }
+            else {
+                showErrorMessage(res.mess);
+            }
+        });
+    }
+    $(document).ready(function()
+    {
+        $("li").click(function () {
+            $(this).toggleClass("active");
+            $(this).siblings().removeClass("active");
+        });
+        setTimeout(LoadModule('@Model.Action'), 10);
+
+        if (currentModule == '' || currentModule == null)
+            currentModule = 'liMain';
+
+        var li = $('#' + currentModule);
+        if (li != null) {
+            li.toggleClass("active");
+            li.siblings().removeClass("active");
+        }
+    })
+</script>
+<div id="idPopup"></div>
+@section SideBar
+{
+    <div class="OOSScroller" style="height:@(OOS.GHR.Core.DisplayInfo.ScreenHeight-50)px">
+        <div class="portlet light profile-sidebar-portlet" style="background-color:transparent !important; margin:10px 0px 0px 10px; padding:0px 0px 10px 0px; ">
+            <!-- SIDEBAR USERPIC -->
+            <div class="profile-userpic">
+                <img src="@imageSrc" class="img-responsive" alt="">
+            </div>
+            <!-- END SIDEBAR USERPIC -->
+            <!-- SIDEBAR USER TITLE -->
+            <div class="profile-usertitle">
+                <div class="profile-usertitle-name" style="text-align:center">
+                    @Model.GetProfileInfo("HoVaTen").ToUpper()
+                </div>
+                <div class="profile-usertitle-job" style="text-align:center">
+                    @Model.GetProfileInfo("ChucVu").ToUpper()
+                </div>
+            </div>
+            <!-- END SIDEBAR USER TITLE -->
+            <!-- SIDEBAR BUTTONS -->
+            <div class="profile-userbuttons">
+                @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Leave"))
+                {
+                    <button type="button" class="btn btn-circle green-haze btn-sm" onclick="javascript:LoadModule('Leave');">@T("Nghỉ phép")</button>
+                }
+                @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_OT"))
+                {
+                    <button type="button" class="btn btn-circle btn-danger btn-sm" onclick="javascript:LoadModule('OT');">@T("Đăng ký OT")</button>
+                }
+                @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Mission"))
+                {
+                    <button type="button" class="btn btn-circle blue btn-sm" onclick="javascript:LoadModule('CT');">@T("Công tác")</button>
+                }
+            </div>
+            <!-- END SIDEBAR BUTTONS -->
+            <!-- SIDEBAR MENU -->
+            <div class="profile-usermenu">
+                <ul class="nav">
+                    <li id="liMain" class="active">
+                        <a href="@Url.Action("Index","Home", new { ID=Model.NhanVienID })">
+                            <i class="icon-home"></i>
+                            @T("Trang Chủ")
+                        </a>
+                    </li>
+                    @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Attendance", false))
+                    {
+                        <li id="TimeSheet">
+                            <a href="javascript:LoadModule('TimeSheet');">
+                                <i class="fa fa-calendar-alt"></i>
+                                @T("Bảng công tháng")
+                            </a>
+                        </li>
+                    }
+                    @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Payslip", false))
+                    {
+                        <li id="Payslip">
+                            <a href="javascript:LoadModule('Payslip');">
+                                <i class="fa fa-dollar-sign"></i>
+                                @T("Payslip")
+                            </a>
+                        </li>
+                    }
+                    @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Evaluation", false))
+                    {
+                        <li id="RegisterEvaluation">
+                            <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "RegisterEvaluation" })">
+                                <i class="fa fa-edit"></i>
+                                @T("Đăng ký chỉ tiêu đánh giá")
+                            </a>
+                        </li>
+                        <li id="SelfEvaluation">
+                            <a href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "SelfEvaluation" })">
+                                <i class="fa fa-check-square"></i>
+                                @T("Tự đánh giá")
+                            </a>
+                        </li>
+                    }
+                    @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Trainning", false))
+                    {
+                        <li id="Trainning">
+                            <a href="javascript:LoadModule('ELearning');">
+                                <i class="fa fa-chalkboard-teacher"></i>
+                                @T("Đào tạo")
+                            </a>
+                        </li>
+                    }
+                    @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("1100", false))
+                    {
+                        <li id="liHRIS">
+                            <a href="@Url.Action("Index", "Employee", new { Area = "HRIS" })">
+                                <i class="fa fa-users"></i>
+                                @T("Nhân Viên")
+                            </a>
+                        </li>
+                    }
+                    <li id="liLogOut">
+                        <a href="@Url.Action("LogOff","Account", new { Area="" })">
+                            <i class="fa fa-sign-out-alt"></i>
+                            @T("Đăng xuất")
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- END MENU -->
+        </div>
+    </div>
+}
+<div style="padding-left:0px; padding-top:10px;">
+    <div class="col-lg-12" style="padding-left:0px !important">
+        <div class="profile-content">
+            <div id="idContent" style="width:100%;"></div>
+        </div>
+    </div>
+</div>
+@Html.Partial("UserForm\\XForm", OOS.GHR.Master.Models.XFormModel.EmailPayrollNotifySender(T("Email Phản Hồi").Text, "EmailPayrollNotify"))

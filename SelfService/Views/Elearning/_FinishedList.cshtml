@@ -1,0 +1,74 @@
+﻿@model List<OOS.GHR.Trainning.Models.TrainningCourseInfoModel>
+@using OOS.GHR.Framework.DynamicUI;
+@foreach (OOS.GHR.Trainning.Models.TrainningCourseInfoModel CI in Model)
+{
+<div style="max-width:800px;">
+    <div style="font-size:16px; font-weight:600; color:darkolivegreen"><i class="fa fa-arrow-circle-right"></i> @CI.Name.ToUpper()</div>
+    <div style="padding:10px 20px 10px;">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th width="50%" class="td_content">
+                    <span>@T("Thông tin đợt đào tạo")</span>
+                </th>
+                <th style="border-left:gainsboro 1px solid" class="td_content">
+                    <span>@T("Nội dung đào tạo / Giáo trình")</span>
+                </th>
+            </tr>
+            <tr>
+                <td class="td_content">
+                    <div style="display:inline-flex; padding-bottom:10px;">
+                        @Html.OOSSystemImage(IconID.SchedulingCalendar32x32)
+                        <div style="padding-left:5px;">
+                            <span style="font-weight:600;">@T("Thời gian:").Text</span> <span>@CI.NgayBatDau.ToShortDateString() - @CI.NgayBatDau.ToShortDateString()</span>
+                            <br />
+                            <span style="font-weight:600;">@T("Ngày tham gia:")</span> <span>@CI.NgayDangKy.ToShortDateString()</span>
+                        </div>
+                    </div>
+                    <span style="float:right">@Html.Raw(OOS.GHR.Framework.UI.HTMLFormat.TrangThaiXetDuyet(CI.XetDuyet))</span>
+                    @if (CI.XetDuyet == 1)
+                    {
+                        <div>
+                            @Html.OOSSystemImage("filterelements_checkbuttons_32x32")
+                        <span style="font-weight:600;">@T("ĐÁNH GIÁ KHÓA ĐÀO TẠO")</span>
+                    </div>
+                    <div style="padding-left:30px; padding-top:10px;">
+                        @Html.DevExpress().ComboBox(st=>
+                   {
+                       st.Name = "cbKhoaDaoTao"+CI.ID;
+                       st.Properties.TextField = "Ten";
+                       st.Properties.ValueField = "ID";
+                       st.Properties.ValueType = typeof(int);
+                       st.Properties.NullText = T("Chọn nội dung đào tạo để đánh giá").Text;
+                       st.Width = Unit.Percentage(100);
+                       st.Properties.ClientSideEvents.SelectedIndexChanged = "function (s,e) { LoadEvaluation(" + CI.ID + ", cbKhoaDaoTao"+CI.ID+".GetValue(), 1); }";
+                   }).BindList(OOS.GHR.Trainning.Models.TrainningCourseInfoModel.CourseContentList(CI.ID)).GetHtml()
+                        <div id="evaluationForm@(CI.ID)" style="padding-top:5px"></div>
+                    </div>
+                }
+                </td>
+                <td style="border-left:gainsboro 1px solid" class="td_content">
+                    @foreach (OOS.GHR.Trainning.Models.TrainningContentInfoModel Content in CI.NoiDungDaoTao)
+                    {
+                    <div style="display:inline-block; padding-bottom:10px; width:100%;">
+                        <div style="font-weight:600; padding-bottom:10px;">@Html.OOSSystemImage(IconID.ContentNotes32x32).ToHtmlString() @Content.TenNoiDung</div>
+                        @Html.Partial("UserControl/FileStoreViewer", "NS_TRAINNING_COURSE_CONTENT|" + Content.ID, new ViewDataDictionary { { "Edit", "0" } })
+                        @if (Content.GiaoTrinhTaiLieu != "")
+                        {
+                            @Html.Raw(Content.GiaoTrinhTaiLieu)
+                        }
+                        <div>
+                            <span>@T("Điểm số:") @(Content.DiemSo.ToString("n0"))</span><br />
+                            <span>@T("Kết quả:") @(Content.KetQua)</span><br />
+                            <span>@T("Nhận xét:") @(Content.NhanXet)</span>
+                        </div>
+                        <button type="button" onclick="ExamOnlinePopup(@Content.ID, @CI.ID);" class="btn blue-hoki btn-sm pull-left">
+                            <i class="fa fa-check-circle"></i> @T("Kết quả thi trắc nghiệm").Text
+                        </button>
+                    </div>
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+}

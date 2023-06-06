@@ -1,0 +1,62 @@
+﻿@model OOS.GHR.HRIS.Models.FeedInfo
+<div class="feed_box">
+    <div class="feed_box_caption">
+        <span>@Model.Caption</span>
+        <div class="feed_box_date">@Model.CreatedDate.ToShortDateString() - @Model.CreatedDate.ToShortTimeString()</div>
+    </div>
+    @if (Model.Title != "")
+    {
+        <div class="feed_box_desc">
+            <span>@Model.Description</span>
+        </div>
+        if (Model.Url != "")
+        {
+            <a target="_parent" href="@Model.Url">
+                <div class="feed_box_img">
+                    <img class="imgNews" src="@Model.Image" style="max-width:100%" />
+                </div>
+            </a>
+        }
+        else
+        {
+            <div class="feed_box_img">
+                <img class="imgNews" src="@Model.Image" style="max-width:100%" />
+            </div>
+        }
+        <div class="feed_box_title">
+            <a target="_parent" href="@Model.Url">
+                <h4>@Model.Title</h4>
+            </a>
+        </div>
+    }
+    else
+    {
+        if (Model.Content.Length <= 100)
+        {
+            <div class="feed_box_desc">
+                <span>@Model.Content</span>
+            </div>
+        }
+        else
+        {
+            <div class="feed_box_desc">
+                <span>
+                    @Html.Raw(HttpUtility.HtmlDecode(Model.Content1))
+                </span><span style="display:none" id="@Model.ID">@Html.Raw(HttpUtility.HtmlDecode(Model.Content2))</span>
+                <a class="clickMore" id="@Model.ID">...Xem thêm</a>
+            </div>
+        }
+        if (Model.Image != "" && Model.Image!=null)
+        {
+            <div class="feed_box_img">
+                <img class="imgNews" src="@Model.Image" style="max-width:100%" />
+            </div>
+        }
+    }
+    <div style="padding:5px;">
+        @Html.Partial("UserControl/FileStoreViewer", "NS_NEWS_ARTICLE|" + Model.ID.ToString(), new ViewDataDictionary { { "Edit", "0" } })
+    </div>
+    @*<div class="feed_comments">
+        @Html.Partial("~/Areas/Admin/Views/Comments/_Comments.cshtml", new OOS.GHR.Admin.Models.CommentsModel(Model.ID, "SS_FEED_NEWS"))
+    </div>*@
+</div>

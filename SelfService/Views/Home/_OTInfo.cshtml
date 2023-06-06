@@ -1,0 +1,105 @@
+﻿@model OOS.GHR.Payroll.Models.OTInfoModel
+@using (Html.BeginForm("DangKyOT", "Home", FormMethod.Post, new { id = "frmDangKyOT" }))
+{
+    @Html.HiddenFor(m => m.NhanVienID)
+    @Html.HiddenFor(m => m.DangKyCongID)
+    <table class="tbRTInfo">
+        <tr style="color:gray !important">
+            <td width="130px" class="td_content_text">@T("Ngày đăng ký")</td>
+            <td class='td_content'>@Html.DevExpress().DateEditFor(m => m.TuNgay, st =>
+                              {
+                                  st.Width = Unit.Pixel(200);
+                              }).GetHtml()</td>
+        </tr>
+        <tr>
+            <td class="td_content_text">@Html.LabelFor(m => m.CaLamViecID)</td>
+            <td class='td_content'>
+                @Html.EditorFor(m => m.CaLamViecID)
+            </td>
+        </tr>
+        <tr>
+            <td class="table_border" style="font-weight:600" colspan="2">@T("Làm thêm trước ca")</td>
+        </tr>
+        <tr id="trGioLamThem">
+            <td class="td_content_text"> @Html.LabelFor(m => m.GioLamThemTruocCa)</td>
+            <td class='td_content'>
+                @Html.DevExpress().SpinEditFor(m => m.GioLamThemTruocCa, st => { st.Width = Unit.Pixel(100); st.Properties.Caption = "Hoặc:"; st.Properties.CaptionSettings.Position = EditorCaptionPosition.Right; }).GetHtml()
+            </td>
+        </tr>
+        <tr>
+            <td class="td_content_text">@Html.LabelFor(m => m.BDLamThemTruocCa)</td>
+            <td>
+                <div style="float:left;padding-left:5px;">
+                    @Html.DevExpress().TimeEditFor(m => m.BDLamThemTruocCa, st =>
+               {
+                   st.Properties.DisplayFormatString = "HH:mm";
+                   st.Properties.EditFormatString = "HH:mm";
+                   st.Width = Unit.Pixel(100);
+                   st.Properties.EditFormat = EditFormat.Time;
+                   st.Properties.Caption = T("Tới giờ:").Text;
+                   st.Properties.CaptionSettings.Position = EditorCaptionPosition.Right;
+               }).GetHtml()</div>
+                <div style="float:left;padding-left:5px;">
+                        @Html.DevExpress().TimeEditFor(m => m.KTLamThemTruocCa, st =>
+                   {
+                       st.Properties.DisplayFormatString = "HH:mm";
+                       st.Properties.EditFormatString = "HH:mm";
+                       st.Width = Unit.Pixel(100);
+                       st.Properties.EditFormat = EditFormat.Time;
+                   }).GetHtml()</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="table_border" style="font-weight:600" colspan="2">@T("Làm thêm sau ca")</td>
+        </tr>
+        <tr id="trGioLamThem">
+            <td class="td_content_text">@Html.LabelFor(m => m.GioLamThem)</td>
+            <td class='td_content'>
+                @Html.DevExpress().SpinEditFor(m => m.GioLamThem, st => { st.Width = Unit.Pixel(100); st.Properties.Caption = T("Hoặc:").Text; st.Properties.CaptionSettings.Position = EditorCaptionPosition.Right; }).GetHtml()
+            </td>
+        </tr>
+        <tr>
+            <td class="td_content_text">@Html.LabelFor(m => m.BDLamThemSauCa)</td>
+            <td>
+                <div style="float:left;padding-left:5px;">
+                    @Html.DevExpress().TimeEditFor(m => m.BDLamThemSauCa, st =>
+               {
+                   st.Properties.DisplayFormatString = "HH:mm";
+                   st.Properties.EditFormatString = "HH:mm";
+                   st.Width = Unit.Pixel(100);
+                   st.Properties.EditFormat = EditFormat.Time;
+                   st.Properties.Caption = T("Tới giờ:").Text;
+                   st.Properties.CaptionSettings.Position = EditorCaptionPosition.Right;
+               }).GetHtml()
+                </div>
+                <div style="float:left;padding-left:5px;">
+                    @Html.DevExpress().TimeEditFor(m => m.KTLamThemSauCa, st =>
+               {
+                   st.Properties.DisplayFormatString = "HH:mm";
+                   st.Properties.EditFormatString = "HH:mm";
+                   st.Width = Unit.Pixel(100);
+                   st.Properties.EditFormat = EditFormat.Time;
+               }).GetHtml()
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td_content_text">@Html.LabelFor(m => m.LyDoTangCaID)</td>
+            <td class='td_content'>
+                @Html.EditorFor(m => m.LyDoTangCaID)
+            </td>
+        </tr>
+        <tr>
+            <td class="td_content_text">@Html.LabelFor(m => m.LyDoTangCa)</td>
+            <td class='td_content'>
+                @Html.EditorFor(m => m.LyDoTangCa)
+            </td>
+        </tr>
+        @if (Model.YKienXetDuyet != "" && Model.YKienXetDuyet != null)
+        {
+            <tr>
+                <td height="35px" colspan="2" style="color:red" align="center">@Model.YKienXetDuyet</td>
+            </tr>
+        }
+    </table>
+}

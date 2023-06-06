@@ -1,0 +1,53 @@
+﻿@using OOS.GHR.BusinessAdapter.iSign
+@model OOS.GHR.SelfService.Models.eContractModel
+<div class="OOSScroller" style="height: @(OOS.GHR.Core.DisplayInfo.ScreenHeight-350)px; width: auto; padding-top:10px;">
+    <table class="table table-striped table-bordered table-advance table-hover">
+        <thead>
+            <tr>
+                <th align="center">@T("Ngày trình ký")</th>
+                <th>@T("Số hợp đồng")</th>
+                <th>@T("Loại hợp đồng")</th>
+                <th>@T("Người lao động")</th>
+                <th>@T("Người sử dụng lao động")</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (CKSeContractInfo CI in Model.SignedList)
+            {
+                <tr>
+                    <td align="center">@CI.NgayKyHopDongStr</td>
+                    <td>
+                        @CI.SoHopDong
+                    </td>
+                    <td>
+                        @CI.LoaiHopDong
+                    </td>
+                    <td align="center">
+                        @if (!CI.IsNguoiSuDungLaoDong)
+                        {
+                            <div>
+                                <button onclick="SignContractInfo(@CI.eContractID);" class="btn blue btn-sm"><i class="fa fa-edit"></i> @T("Xem Hợp Đồng")</button>
+                            </div> 
+                        }
+                        else
+                        {
+                            @CI.NhanVien_HoVaTen
+                        }
+                    </td>
+                    <td align="center">
+                        @if (CI.IsNguoiSuDungLaoDong)
+                        {
+                            <div>
+                                <button onclick="SignContractInfo(@CI.eContractID);" class="btn blue btn-sm"><i class="fa fa-edit"></i> @T("Xem Hợp Đồng")</button>
+                            </div> 
+                        }
+                        else
+                        {
+                            @CI.LanhDao_HoVaTen
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

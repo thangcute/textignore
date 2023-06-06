@@ -1,0 +1,109 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OOS_SERVICE", "OOS_SERVICE", "{92ABC8D5-A8DC-4518-BFFF-395BAB663463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Humax.Ess.Api", "Humax.Ess.Api\Humax.Ess.Api.csproj", "{44E47757-E63B-4234-9D7E-55F0280EDBF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOS.GHR.EntityFramework", "OOS.GHR.EntityFramework\OOS.GHR.EntityFramework.csproj", "{7B392986-AFC6-425C-8304-C501546DC0B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOS.GHR.Services", "OOS.GHR.Services\OOS.GHR.Services.csproj", "{6C5D393D-B600-43C2-A76B-220669D2643D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+		x86|Any CPU = x86|Any CPU
+		x86|x64 = x86|x64
+		x86|x86 = x86|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Debug|x64.Build.0 = Debug|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Debug|x86.Build.0 = Debug|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Release|x64.ActiveCfg = Release|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Release|x64.Build.0 = Release|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Release|x86.ActiveCfg = Release|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.Release|x86.Build.0 = Release|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.x86|x64.ActiveCfg = Debug|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.x86|x64.Build.0 = Debug|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.x86|x86.ActiveCfg = Debug|Any CPU
+		{44E47757-E63B-4234-9D7E-55F0280EDBF5}.x86|x86.Build.0 = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Debug|x64.Build.0 = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Debug|x86.Build.0 = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Release|x64.ActiveCfg = Release|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Release|x64.Build.0 = Release|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Release|x86.ActiveCfg = Release|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.Release|x86.Build.0 = Release|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.x86|x64.ActiveCfg = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.x86|x64.Build.0 = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.x86|x86.ActiveCfg = Debug|Any CPU
+		{7B392986-AFC6-425C-8304-C501546DC0B6}.x86|x86.Build.0 = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Debug|x64.Build.0 = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Debug|x86.Build.0 = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Release|x64.ActiveCfg = Release|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Release|x64.Build.0 = Release|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Release|x86.ActiveCfg = Release|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.Release|x86.Build.0 = Release|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.x86|x64.ActiveCfg = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.x86|x64.Build.0 = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.x86|x86.ActiveCfg = Debug|Any CPU
+		{6C5D393D-B600-43C2-A76B-220669D2643D}.x86|x86.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B392986-AFC6-425C-8304-C501546DC0B6} = {92ABC8D5-A8DC-4518-BFFF-395BAB663463}
+		{6C5D393D-B600-43C2-A76B-220669D2643D} = {92ABC8D5-A8DC-4518-BFFF-395BAB663463}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1CD945FD-3998-46A8-AA10-BFF599E95808}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://oosvn.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Humax.Ess.Api\\Humax.Ess.Api.csproj
+		SccProjectName1 = Humax.Ess.Api
+		SccLocalPath1 = Humax.Ess.Api
+		SccProjectUniqueName2 = OOS.GHR.EntityFramework\\OOS.GHR.EntityFramework.csproj
+		SccProjectTopLevelParentUniqueName2 = OOS_API.sln
+		SccProjectName2 = OOS.GHR.EntityFramework
+		SccLocalPath2 = OOS.GHR.EntityFramework
+		SccProjectUniqueName3 = OOS.GHR.Services\\OOS.GHR.Services.csproj
+		SccProjectTopLevelParentUniqueName3 = OOS_API.sln
+		SccProjectName3 = OOS.GHR.Services
+		SccLocalPath3 = OOS.GHR.Services
+	EndGlobalSection
+EndGlobal

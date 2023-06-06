@@ -1,0 +1,26 @@
+﻿@model List<OOS.GHR.Trainning.Models.TrainningCourseInfoModel>
+@foreach (OOS.GHR.Trainning.Models.TrainningCourseInfoModel CI in Model)
+{
+    <div style="@(CI==Model[Model.Count-1]?"":"border-bottom:gainsboro 2px solid;") padding-top:20px; max-width:800px;">
+        <div  style="font-size:16px; font-weight:600; color:darkolivegreen"><i class="fa fa-arrow-circle-right"></i> @CI.Name.ToUpper()</div>
+        <div style="padding:10px 20px 10px;">
+            <div style="padding-bottom:10px;">
+                <div><i class="fa fa-clock" style="font-size:18px; color:darkgray"></i> <span>@T("Thời gian:").Text</span> @CI.NgayBatDau.ToShortDateString() - @CI.NgayKetThuc.ToShortDateString()</div>
+                @if (CI.MoTa != "" && CI.MoTa != null)
+                {
+                    <div style="font-weight:600; padding-top:10px;"><i class="fa fa-sticky-note" style="font-size:20px; color:darkgray"></i> @T("Mô tả khóa đào tạo"):</div>
+                    <div style="padding-top:10px;">@CI.MoTa</div>
+                }
+            </div>
+            <button type="button" onclick="DangKyThamGia(@CI.ID)" class="btn blue btn-circle">
+                <i class="fa fa-sign-in"></i> @T("Đăng ký tham gia")
+            </button>
+            @if (ViewBag.Required == "1")
+            {
+                <button type="button" onclick="TuChoi_ThamGia(@CI.ID)" class="btn blue btn-circle">
+                    <i class="fa fa-sign-in"></i> @T("Từ chối tham gia")
+                </button>
+            }
+        </div>
+    </div>
+}

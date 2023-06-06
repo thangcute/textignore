@@ -1,0 +1,33 @@
+﻿@model OOS.GHR.SelfService.Models.ElearningModel
+<script type="text/javascript">
+    $(document).ready(function () {
+        // initiate layout and plugins
+        Metronic.init(); // init metronic core components
+        UIConfirmations.init(); // init page demo
+    });
+
+    var last_clicked_id = null;
+    $('.dangky').click(function () {
+        last_clicked_id = $(this).data("id");
+    });
+
+    $('.dangky').confirmation({
+        singleton: true,
+        onConfirm: function (event) {
+            var url = '@Url.Action("Register_TrainningCourse", "Elearning", new { Area = "SelfService" })';
+            var data = { "DotDaoTaoID": last_clicked_id };
+            OOSCore.Call_Ajax_Function_POST(url, data, function (result) { AddNewTab('Openning'); });
+        }
+    });
+</script>
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-speech"></i>
+            <span class="caption-subject bold uppercase"> @T("Khóa đào tạo đang tham gia")</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @Html.Partial("_JoinningList", Model.DangThamGia)
+    </div>
+</div>

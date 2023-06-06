@@ -1,0 +1,111 @@
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.EntityFramework.dll.config
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.EntityFramework.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.EntityFramework.pdb
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.Library.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.Humax.Core.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.Humax.ESSService.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.Humax.HRISService.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Csla.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\log4net.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\LumiSoft.Net.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.BACongLuong.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.BusinessAdapter.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.Plugins.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Antlr3.Runtime.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Mail.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Docs.v18.1.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\HtmlAgilityPack.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Spreadsheet.v18.1.Core.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EngineBaseClass.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Office.v18.1.Core.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Newtonsoft.Json.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Web.Mvc5.v18.1.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Data.v18.1.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Pdf.v18.1.Drawing.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.xml
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.Library.XmlSerializers.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.csproj.CoreCompileInputs.cache
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.csproj.CopyComplete
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.dll
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.pdb
+D:\DATA\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.csproj.AssemblyReference.cache
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.EntityFramework.dll.config
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.EntityFramework.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.EntityFramework.pdb
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.Library.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.Humax.Core.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.Humax.ESSService.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.Humax.HRISService.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Csla.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\log4net.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\LumiSoft.Net.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.BACongLuong.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.BusinessAdapter.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.Plugins.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Antlr3.Runtime.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Mail.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Docs.v18.1.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\HtmlAgilityPack.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Spreadsheet.v18.1.Core.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EngineBaseClass.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Office.v18.1.Core.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Newtonsoft.Json.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Web.Mvc5.v18.1.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Data.v18.1.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Pdf.v18.1.Drawing.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.xml
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.Library.XmlSerializers.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.csproj.AssemblyReference.cache
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.csproj.CoreCompileInputs.cache
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.csproj.CopyComplete
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.dll
+D:\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.pdb
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.EntityFramework.dll.config
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.EntityFramework.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.EntityFramework.pdb
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.Library.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.Humax.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.Humax.ESSService.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.Humax.HRISService.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Csla.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\log4net.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\LumiSoft.Net.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.BACongLuong.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.BusinessAdapter.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.Plugins.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Antlr3.Runtime.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Mail.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Docs.v18.1.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\HtmlAgilityPack.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Spreadsheet.v18.1.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EngineBaseClass.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Office.v18.1.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\Newtonsoft.Json.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Web.Mvc5.v18.1.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Data.v18.1.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\DevExpress.Pdf.v18.1.Drawing.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.xml
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\bin\Debug\OOS.GHR.Library.XmlSerializers.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.csproj.AssemblyReference.cache
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.csproj.CoreCompileInputs.cache
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.csproj.CopyComplete
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.dll
+D:\oos sortware sửa\OOS HUMAX ESS API\OOS.GHR.EntityFramework\obj\Debug\OOS.GHR.EntityFramework.pdb

@@ -1,0 +1,11 @@
+﻿@using OOS.GHR.Framework.DynamicUI
+@model List<ControlModel>
+@foreach (ControlModel CM in Model)
+{
+    <div class="form-group">
+        <label class="col-md-3 control-label @(CM.AllowNull?"":"required")">@CM.Caption</label>
+        <div class="col-md-9">
+            @Html.OOSUIControl(CM)
+        </div>
+    </div>
+}

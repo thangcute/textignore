@@ -1,0 +1,7 @@
+Start - 2023-04-28 10:16:12 - 
+20230428101612 - 2023-04-28 10:16:12: DataPortal_Fetch method call failed
+20230428101613 - 2023-04-28 10:16:13: DataPortal_Fetch method call failed
+20230428101618 - 2023-04-28 10:16:18: DataPortal_Fetch method call failed
+20230428135202 - 2023-04-28 13:52:02: The operation was canceled.
+20230428135202 - 2023-04-28 13:52:02: A task was canceled.
+20230428135202 - 2023-04-28 13:52:02: A task was canceled.

@@ -1,0 +1,49 @@
+﻿@using OOS.GHR.HRIS.Models
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "gvView";
+        settings.KeyFieldName = "ID";
+        settings.Width = Unit.Percentage(100);
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.CallbackRouteValues = new { Controller = "ProfilePreview", Action = "GridView_Activity", NhanVienID=ViewData["NhanVienID"] };
+
+        settings.SettingsBehavior.ColumnResizeMode = ColumnResizeMode.Control;
+        settings.Styles.TitlePanel.Paddings.Padding = 0;
+
+        settings.SetTitlePanelTemplateContent(c =>
+        {
+            c.Visible = true;
+            ViewContext.Writer.Write("<div class='qtnsGridViewCaption'>" + T("Danh sách quá trình công tác").Text + "</div>");
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "NoiDung";
+            column.Caption = T("Tên thay đổi").ToString();
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "SoQuyetDinh";
+            column.Caption = T("Số quyết định").ToString();
+            column.Width = Unit.Pixel(100);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "NgayThayDoi";
+            column.Caption = T("Ngày thực hiện").ToString();
+            column.PropertiesEdit.DisplayFormatString = OOS.GHR.Framework.UI.UIFormat.DateFormat;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Mota";
+            column.Caption = T("Nội dung").ToString();
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Nguoitao";
+            column.Caption = T("Người thực hiện").ToString();
+        });
+    });
+}
+@grid.Bind(Model).GetHtml()

@@ -1,0 +1,23 @@
+﻿@model OOS.GHR.HRIS.Models.SelfService_ActivityInfo
+<div class="feed_box">
+    <div class="feed_box_caption">
+        <span>@T("Nhân sự mới")</span>
+    </div>
+    <div class="feed_box_desc">
+        <span>@T("Chào mừng nhân sự mới gia nhập Công ty")</span>
+    </div>
+    <div id="newemployee" style="height:250px; min-height:250px; max-height:250px; overflow:hidden;" class="feed_box_content">
+        @if (Model.NewEmployeeList.Count > 0)
+        {
+            <div>
+                @foreach (OOS.GHR.Core.HRIS.PersonalAvatar PI in Model.NewEmployeeList)
+                {
+                    Html.RenderPartial("UserControl\\Avatar", PI);
+                }
+            </div>
+        }
+    </div>
+    <div class="feed_box_title">
+        <h4>Tổng số : @((Model.NewEmployeeList.Count).ToString("n0"))</h4>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+﻿@model int
+@{ 
+    OOS.GHR.Master.Models.XFormModel xfEmail = new OOS.GHR.Master.Models.XFormModel();
+    xfEmail.Caption = "Gửi email";
+}
+<script type="text/javascript">
+    function OnClickFilter()
+    {
+        OOSDialog.ShowLoadingPanel();
+        $.ajax({
+            url: "@Url.Action("GetPhieuLuong", "Home")",
+            type: "POST",
+            data: { NhanVienID:@Model, ThangNam:dtNgayThang.GetText() },
+            success: function (result) {
+                OOSDialog.HideLoadingPanel();
+                $('#idPhieuLuongHtml').html(result.html);
+            }
+        });
+    }
+
+    function NotifyRes() {
+        EmailPayrollNotify.Show();
+    }
+</script>
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            <span class="caption-subject font-blue-madison bold uppercase"><i class="fa fa-dollar-sign"></i> @T("PHIẾU LƯƠNG THÁNG")</span>
+        </div>
+        <div class="actions">
+            @if (!Request.Browser.IsMobileDevice)
+            {
+                <div style="padding-top:10px; float:left; font-weight:600">@T("Chọn tháng:")</div>
+                <div style="float:right; padding-left:5px; ">
+                    <button type="button" class="btn blue-steel" onclick="OnClickFilter();"><i class='fa fa-check-square-o'></i> @T("Xem phiếu lương")</button>
+                </div>
+                <div style="float:right;padding-left:5px; ">
+                    @Html.DevExpress().DateEdit(settings =>
+                    {
+                        settings.Name = "dtNgayThang";
+                        settings.Properties.EditFormat = EditFormat.Custom;
+                        settings.Properties.EditFormatString = "MM/yyyy";
+                        settings.Date = DateTime.Now;
+                        settings.Width = 120;
+                    }).GetHtml()
+                </div>
+            }
+            else
+            {
+                <div style="float:left;">
+                    @Html.DevExpress().DateEdit(settings =>
+                    {
+                        settings.Name = "dtNgayThang";
+                        settings.Properties.EditFormat = EditFormat.Custom;
+                        settings.Properties.EditFormatString = "MM/yyyy";
+                        settings.Date = DateTime.Now;
+                        settings.Width = 120;
+                    }).GetHtml()
+                </div>
+                <div style="float:left; padding-left:5px; ">
+                    <button type="button" class="btn blue-steel" onclick="OnClickFilter();"><i class='fa fa-check-square-o'></i> @T("Xem phiếu lương")</button>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="portlet-body" style="min-height:300px">
+        <div id="idPhieuLuongHtml"></div>
+    </div>
+    <div>
+        <button type="button" class="btn blue-steel" onclick="NotifyRes();"><i class='fa fa-check-square-o'></i> @T("Phản hồi thắc mắc")</button>
+    </div>
+</div>

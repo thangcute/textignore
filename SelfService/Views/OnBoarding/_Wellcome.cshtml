@@ -1,0 +1,36 @@
+﻿@model OOS.GHR.SelfService.Models.OnBoardingModel
+@using OOS.GHR.Framework.DynamicUI
+<div id="Wellcome" class="onboarding_tablecontent">
+    <h3 style="margin:0px; padding-bottom:10px;">Welcome Aboard, @(Model.CurrentNhanVien.ToString())</h3>
+    <span>We are excited that you enjoining us here at Your Own Co. We can't wait for you to start. We've included some helpul information and ask that you complete this new employee pecket so you can hit the ground running on your first day. If you have any questions, please don't hesitate to ask.</span>
+    <div style="padding-top:50px;">
+        <table width="100%">
+            <tr>
+                <td width="50%" style="padding-right:50px" valign="top">
+                    <h4>Ngày Đầu Tới Công Ty</h4>
+                    <h5><i class="fa fa-calendar-alt"></i> @(Model.CurrentNhanVien.NgayBatDauLam.Value.ToLongDateString())</h5>
+                    <h5><i class="fa fa-clock"></i> @(Model.caLV.GioBatDau1.ToString()) - @(Model.caLV.TenCa)</h5>
+                    <h5><i class="fa fa-map-marker"></i> @(Model.DiaChiCongTy)</h5>
+                </td>
+                <td style="padding-left:10px" valign="top">
+                    <h4>@T("Quản lý trực tiếp của bạn")</h4>
+                    <table width="100%">
+                        <tr>
+                            <td valign="top" align="left">
+                                <img class='employee-photo-onboarding' src="@Url.Action("EmployeeAvatar","Common", new { Area="", ID = Model.QLTrucTiepID })" />
+                            </td>
+                            <td valign="top" width="100%">
+                                <div style="padding-left:10px; margin-top:-10px;">
+                                    <p class="tt_name">@Model.QLTrucTiep_Ten</p>
+                                    <p class="tt_job">@Model.QLTrucTiep_ChucVu</p>
+                                    <p class="tt_value"><i class="fa fa-phone tt_i"></i> @Model.QLTrucTiep_DienThoai</p>
+                                    <p class="tt_value"><i class="fa fa-envelope tt_i"></i> @Model.QLTrucTiep_Email</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

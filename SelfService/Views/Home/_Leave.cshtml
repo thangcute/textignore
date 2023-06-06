@@ -1,0 +1,194 @@
+﻿@model OOS.GHR.HRIS.Models.LeaveInfo
+<style type="text/css">
+    .NghiPhep_Item_Style {
+        padding-bottom: 5px;
+    }
+</style>
+<script type="text/javascript">
+    var npid = 0;
+
+    function ShowNewItemDialog(id) {
+        var url = '@Url.Action("SS_NP_Info", "QTNghiPhep", new { Area = "HRIS"})';
+        $('#nghiphepInfo').modal('show').find('.modal-body').load(url+'?NhanVienID='+NhanVienID+'&QTNghiPhepID='+id);
+    }
+
+    function Delete(id) {
+        npid = id;
+        OOSDialog.ShowPopupMessageQ('@T("Bạn có chắc chắn muốn hủy ?").Text');
+    }
+
+    function OnPopupQ_DongY() {
+        OOSDialog.ClosePopupMessage();
+
+        var url = '@Url.Action("DeleteLeave", "Home", new { Area = "SelfService"})';
+        var params = { id: npid };
+
+        OOSCore.Call_Ajax_Function_POST(url, params, function (res) {
+            showSuccessMessage('@T("Xóa thành công !").Text');
+            window.setTimeout(function () {
+                LoadModule('Leave');
+            }, 500);
+        });
+    }
+
+    var ciID = 0;
+    function CancelRegistration(id) {
+        ciID = id;
+        val_frmLyDoTuChoi.SetText('');
+        frmLyDoTuChoi.Show();
+    }
+    function frmLyDoTuChoi_Submit() {
+        var lydo = val_frmLyDoTuChoi.GetText();
+        if (lydo == '') {
+            showErrorMessage('@T("Bạn phải nhập lý do hủy đăng ký !").Text');
+            return;
+        }
+        var url = '@Url.Action("DeleteLeave", "Home", new { Area = "SelfService"})';
+        var params = { id: ciID, LyDo: lydo };
+
+        OOSCore.Call_Ajax_Function_POST(url, params, function (res) {
+            showSuccessMessage(res.mess);
+            window.setTimeout(function () {
+                LoadModule('Leave');
+            }, 500);
+        });
+    }
+    $(document).ready(function () {
+        $('#btnTuChoi').on('click', function (e) {
+            e.preventDefault();
+            $('#nghiphepInfo').modal('hide');
+        });
+
+        $('#btnDangKy').on('click', function (e) {
+            e.preventDefault();
+            if ($("#LyDoNghi_I").val() == '') {
+                showErrorMessage('@T("Bạn phải nhập diễn giải lý do nghỉ phép !").Text');
+                return;
+            }
+            var form = $("#frmDangKyNghiPhep");
+            OOSDialog.ShowLoadingPanelText('Saving...');
+            OOSCore.Call_Ajax_Function_POST(
+                '@Url.Action("DangKyNghiPhep", "QTNghiPhep", new { Area = "HRIS" })',
+                form.serialize(),
+                function (res) {
+                    OOSDialog.HideLoadingPanel();
+                    if (res.errtype !== -1) {
+                        $('#nghiphepInfo').modal('hide');
+                        showSuccessMessage("@T("Đăng ký nghỉ thành công!")");
+                        window.setTimeout(function () {
+                            LoadModule('Leave');
+                        }, 500);
+                    }
+                    else {
+                        showErrorMessage(res.mess);
+                    }
+                });
+        });
+    });
+</script>
+<div class="portlet light" style="max-width:1024px">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            <i class="fa fa-plane" style="font-size:20px"></i>
+            <span class="caption-subject font-blue-madison bold uppercase">@T("THEO DÕI NGHỈ")</span>
+        </div>
+        <div style="float:right; padding-top:5px">
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div style="padding-bottom:10px; padding-left:10px; font-weight:500">
+            <table cellpadding="2" cellspacing="2">
+                <tr>
+                    <td width="120px">@T("Phép năm:")</td>
+                    <td width="50px">@Model.Info.GetProfileInfo("SoPhepTheoQuyDinh", 0, "n1")</td>
+                    <td>@T("Phép tồn năm trước:")</td>
+                    <td>@Model.Info.GetProfileInfo("SoPhepChuyenTuNamTruoc", 0, "n1")</td>
+                </tr>
+                <tr>
+                    <td>@T("Phép đã nghỉ:")</td>
+                    <td>@Model.Info.GetProfileInfo("SoPhepDaNghi", 0, "n1")</td>
+                    <td width="130px">@T("Phép còn lại:")</td>
+                    <td>@Model.Info.GetProfileInfo("SoPhepConLai", 0, "n1")</td>
+                </tr>
+            </table>
+        </div>
+        <button type="button" id="btThemMoi" onclick="ShowNewItemDialog();" class="btn blue-steel"><i class='fa fa-file-o'></i> @T("Đăng ký nghỉ")</button>
+        <h3>@T("Danh sách nghỉ trong năm")</h3>
+        <div class="OOSScroller" style="height: @(OOS.GHR.Core.DisplayInfo.ScreenHeight-320)px; width: auto;">
+            <table class="table table-striped table-bordered table-advance table-hover">
+                <thead>
+                    <tr>
+                        <th>@T("Ngày / Lý do")</th>
+                        <th>@T("Thông tin chi tiết")</th>
+                        <th>@T("Người duyệt (Chờ)")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int Index = 0; Index < Model.List.RowCount; Index++)
+                    {
+                        int XetDuyet = Model.List.GetInt("XetDuyet", Index);
+                        int ID = Model.List.GetInt("QTNghiPhepID", Index);
+                        <tr>
+                            <td width="190px">
+                                <div style="text-align:center">
+                                    <div class="timeline-body-title font-blue-madison">
+                                        <a href="javascript: OOSDialog.PrintForms(@ID,'HSNS_NGHIPHEP',0)">@Model.List.GetProfileInfo("LyDo", Index)</a>
+                                    </div>
+                                    <div class="timeline-body-time font-grey-cascade">@Model.List.GetProfileInfo("NgayBatDau", Index)</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="NghiPhep_Item_Style">@T("Từ ngày") : @Model.List.GetProfileInfo("NgayBatDau", Index, "dd/MM/yyyy HH:mm") - @T("Tới ngày:") @Model.List.GetProfileInfo("NgayKetThuc", Index, "dd/MM/yyyy HH:mm")</div>
+                                <div class="NghiPhep_Item_Style">@T("Số ngày nghỉ") : @Model.List.GetProfileInfo("SoNgayNghi", Index, "n2")</div>
+                                <div class="NghiPhep_Item_Style">@T("Lý do nghỉ") : @Model.List.GetProfileInfo("DienGiai", Index)</div>
+                                <div class="NghiPhep_Item_Style">
+                                    @Html.Raw(OOS.GHR.Master.Models.DataTableSource.GetHTMLStatus(XetDuyet))
+                                    @if (XetDuyet == 0)
+                                    {
+                                        <div style="float:right">
+                                            <button onclick="ShowNewItemDialog(@ID);" class="btn blue btn-sm"><i class="fa fa-edit"></i> @T("Sửa")</button>
+                                            <button onclick="Delete(@ID);" class="btn red btn-sm"><i class="fa fa-times"></i> @T("Xóa")</button>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        if (XetDuyet == 1 && Model.PheDuyetHuy)
+                                        {
+                                            <div style="float:right">
+                                                <button onclick="CancelRegistration(@ID);" class="btn red btn-sm"><i class="fa fa-times"></i> @T("Hủy đăng ký")</button>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </td>
+                            <td width="190px">
+                                <div style="text-align:center">
+                                    <div class="timeline-body-title font-blue-madison">@Model.List.GetProfileInfo("NguoiDangChoDuyet", Index)</div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="nghiphepInfo" class="modal fade draggable-modal ui-draggable">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn default" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">@T("Đăng ký nghỉ")</h4>
+            </div>
+            <div class="modal-body">
+                <p>Loading...</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger pull-left" id="btnTuChoi"><i class="fa fa-times"></i> @T("Bỏ qua")</button>
+                <button class="btn btn-success" id="btnDangKy"><i class="fa fa-check-circle"></i> @T("Đăng ký")</button>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("UserForm\\XForm", OOS.GHR.Master.Models.XFormModel.InputStringModel(T("Lý do hủy đăng ký:").Text, "frmLyDoTuChoi"))

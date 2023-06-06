@@ -1,0 +1,103 @@
+﻿@using System.Data
+@model OOS.GHR.SelfService.Models.SS_ProfilePreviewModel
+@{
+    Layout = "~/Views/Shared/_portalLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $(".clickMore").on("click", function () {
+            var id = $(this).attr('id');
+            $('#' + id).css("display", "inline");
+            $(this).remove();
+        });
+    });
+</script>
+<style type="text/css">
+    /*nhỏ hơn 2014 -> collase left panael*/
+    @@media (min-width: 1024px)
+    {
+        .page-sidebar-closed .page-sidebar {
+            left: -350px;
+        }
+    }
+    @@media (min-width: 991px) {
+        .page-content-wrapper .page-content {
+            padding-top: 0px !important;
+            background-color: #E5E5E5 !important;
+            padding-left: 10px;
+        }
+        .col-lg-12 {
+            padding-right: 10px;
+        }
+    }
+    @@media (max-width: 991px) {
+        .page-content-wrapper .page-content {
+            padding-top: 0px !important;
+            padding-left: 0px;
+            text-align: center;
+        }
+        .col-lg-12 {
+            padding-right: 0px;
+        }
+    }
+
+    @@media (max-width: 825px) {
+        .toolbox {
+            display: none;
+        }
+    }
+
+    .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover, .page-sidebar {
+        width: 330px !important;
+    }
+
+    .page-content-wrapper .page-content {
+        margin-left: 330px;
+        transition: margin-left 0.3s;
+    }
+
+    html, body {
+        background: #E5E5E5 !important;
+    }
+
+    .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover, .page-sidebar {
+        background-color: #E5E5E5 !important;
+        color: #5a7391 !important;
+    }
+
+    .dxeBinImgPreviewContainerSys img {
+        vertical-align: middle;
+        max-width: 100%;
+        max-height: 100%;
+        float: none;
+        margin: 0 auto;
+        width: 160px !important;
+        height: 160px !important;
+        border-radius: 50% !important;
+        border: 4px solid #fff;
+        border: 2px solid #bec2c9;
+        border-top-color: rgb(190, 194, 201);
+        border-right-color: rgb(190, 194, 201);
+        border-bottom-color: rgb(190, 194, 201);
+        border-left-color: rgb(190, 194, 201);
+        border-color: #4080ff;
+        padding: 2px 2px;
+    }
+</style>
+@section SideBar
+{
+    <div class="OOSScroller" style="height:@(OOS.GHR.Core.DisplayInfo.ScreenHeight-50)px">
+        @Html.Partial("_OverviewInfo", Model)
+    </div>
+}
+<div style="padding-top:10px; display:flex; text-align:left">
+    <div style="display:inline-block; margin:0 auto">
+        @foreach (OOS.GHR.HRIS.Models.FeedInfo fi in Model.feedList)
+        {
+            Html.RenderPartial("Template/" + fi.Template.ToString(), fi);
+        }
+    </div>
+    <div class="toolbox" id="rightCol" style="min-height:300px; float:right;">
+        @Html.Partial("NotifyTemplate/_NotifyBox", Model.AI)
+    </div>
+</div>

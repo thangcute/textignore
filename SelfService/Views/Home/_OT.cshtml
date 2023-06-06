@@ -1,0 +1,168 @@
+﻿@model OOS.GHR.HRIS.Models.OTInfo
+<style type="text/css">
+    .NghiPhep_Item_Style {
+        padding-bottom: 5px;
+    }
+
+    .OTItem {
+        padding-top: 5px;
+    }
+</style>
+<script type="text/javascript">
+    function ShowNewItemDialog(id) {
+        var url = '@Url.Action("OTInfo", "Home")';
+        $('#otInfo').modal('show').find('.modal-body').load(url+'?NhanVienID='+NhanVienID+'&DangKyCongID='+id);
+    }
+
+    var ciID = 0;
+    function CancelRegistration(id) {
+        ciID = id;
+        val_frmLyDoTuChoi.SetText('');
+        frmLyDoTuChoi.Show();
+    }
+    function frmLyDoTuChoi_Submit() {
+        var lydo = val_frmLyDoTuChoi.GetText();
+        if (lydo == '') {
+            showErrorMessage('@T("Bạn phải nhập lý do hủy đăng ký !").Text');
+            return;
+        }
+        var url = '@Url.Action("Delete_RegistrationTime", "RegistrationTime", new { Area = "Payroll"})';
+        var params = { id: ciID, LyDo: lydo };
+
+        OOSCore.Call_Ajax_Function_POST(url, params, function (res) {
+            showSuccessMessage(res.mess);
+            window.setTimeout(function () {
+                LoadModule('OT');
+            }, 500);
+        });
+    }
+
+    function Delete(id) {
+        OOSDialog.ShowQuestion_WID('@T("Bạn có chắc chắn muốn hủy ?").Text','OnPopupQ_DongY',id);
+    }
+    function OnPopupQ_DongY(npid) {
+        OOSDialog.ClosePopupMessage();
+
+        var url = '@Url.Action("Delete_RegistrationTime", "RegistrationTime", new { Area = "Payroll"})';
+        var params = { id: npid };
+
+        OOSCore.Call_Ajax_Function_POST(url, params, function (res) {
+            showSuccessMessage(res.mess);
+            window.setTimeout(function () {
+                LoadModule('OT');
+            }, 500);
+        });
+    }
+
+    $(document).ready(function () {
+        $('#btnOTTuChoi').on('click', function (e) {
+            e.preventDefault();
+            $('#otInfo').modal('hide');
+        });
+
+        $('#btnOTPheDuyet').on('click', function (e) {
+            e.preventDefault();
+            var form = $("#frmDangKyOT");
+            OOSDialog.ShowLoadingPanelText('Saving...');
+            OOSCore.Call_Ajax_Function_POST('@Url.Action("DangKyOT", "Home")',form.serialize(),
+                function (res) {
+                    OOSDialog.HideLoadingPanel();
+                    if (res.errtype != -1) {
+                        $('#otInfo').modal('hide');
+                        showSuccessMessage("@T("Đăng ký OT thành công!")");
+                        window.setTimeout(function () {
+                            LoadModule('OT');
+                        }, 500);
+                    }
+                    else
+                        showErrorMessage(res.mess);
+                });
+        });
+    })
+</script>
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            <i class="fa fa-clock" style="font-size:20px"></i>
+            <span class="caption-subject font-blue-madison bold uppercase">@T("THEO DÕI LÀM THÊM GIỜ")</span>
+        </div>
+        <div style="float:right; padding-top:5px">
+        </div>
+    </div>
+    <div class="portlet-body">
+        <button type="button" id="btThemMoi" onclick="ShowNewItemDialog();" class="btn blue-steel"><i class='fa fa-clock'></i> @T("Đăng ký OT")</button>
+        <h3>@T("Danh sách đăng ký OT trong tháng")</h3>
+        <div class="OOSScroller" style="height: @(OOS.GHR.Core.DisplayInfo.ScreenHeight-270)px; width: auto;">
+            <table class="table table-striped table-bordered table-advance table-hover">
+                <thead>
+                    <tr>
+                        <th>@T("Ngày tháng")</th>
+                        <th>@T("Đăng ký")</th>
+                        <th>@T("Người duyệt (Chờ)")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (OOS.GHR.HRIS.Models.OTRegistrationModel DI in Model.OTList)
+                    {
+                        <tr>
+                            <td width="90px">
+                                <div style="text-align:center;">
+                                    <div style="text-align:center; font-weight:600">@DI.Thu</div>
+                                    <div style="text-align:center">@DI.NgayChamCong.ToShortDateString()</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>@Html.Raw(DI.InfoDetails)</div>
+                                <div style="padding-top:5px; vertical-align:central">
+                                    @Html.Raw(OOS.GHR.Master.Models.DataTableSource.GetHTMLStatus(DI.XetDuyet))
+                                </div>
+                                <div class="NghiPhep_Item_Style">
+                                    @if (DI.XetDuyet == 0)
+                                    {
+                                        <div style="float:right">
+                                            <button onclick="ShowNewItemDialog(@DI.DangKyCongID);" class="btn blue btn-sm"><i class="fa fa-edit"></i> @T("Sửa")</button>
+                                            <button onclick="Delete(@DI.DangKyCongID);" class="btn red btn-sm"><i class="fa fa-times"></i> @T("Xóa")</button>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        if (DI.XetDuyet == 1 && Model.PheDuyetHuy)
+                                        {
+                                            <div style="float:right">
+                                                <button onclick="CancelRegistration(@DI.DangKyCongID);" class="btn red btn-sm"><i class="fa fa-times"></i> @T("Hủy đăng ký")</button>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </td>
+                            <td width="190px">
+                                <div style="text-align:center">
+                                    <div class="timeline-body-title font-blue-madison">@DI.NguoiDangChoDuyet</div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="otInfo" class="modal fade draggable-modal ui-draggable">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn default" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">@T("Đăng ký làm thêm giờ")</h4>
+            </div>
+            <div class="modal-body">
+                <p>Loading...</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger pull-left" id="btnOTTuChoi"><i class="fa fa-times"></i> @T("Bỏ qua")</button>
+                <button class="btn btn-success" id="btnOTPheDuyet"><i class="fa fa-check-circle"></i> @T("Đăng ký OT")</button>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("UserForm\\XForm", OOS.GHR.Master.Models.XFormModel.InputStringModel(T("Lý do hủy đăng ký:").Text, "frmLyDoTuChoi"))

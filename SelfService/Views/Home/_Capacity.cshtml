@@ -1,0 +1,35 @@
+﻿@using System.Drawing;
+@Html.DevExpress().Chart(settings =>
+{
+    settings.Name = "chart";
+    settings.BorderOptions.Visibility = DefaultBoolean.False;
+    settings.Height = 400;
+    settings.Width = 400;
+    settings.SeriesTemplate.ChangeView(DevExpress.XtraCharts.ViewType.RadarArea);
+    settings.SeriesTemplate.ArgumentDataMember = "Date";
+    settings.SeriesTemplate.ValueDataMembers[0] = "Temperature";
+    settings.SeriesDataMember = "DayPart";
+    RadarPointSeriesView view = ((RadarPointSeriesView)settings.SeriesTemplate.View);
+    ((ISupportTransparency)view).Transparency = 155;
+    RadarDiagram diagram = (RadarDiagram)settings.Diagram;
+    diagram.AxisX.DateTimeScaleOptions.MeasureUnit = DateTimeMeasureUnit.Month;
+    diagram.AxisX.DateTimeScaleOptions.GridAlignment = DateTimeGridAlignment.Month;
+    diagram.AxisX.Label.TextPattern = "{A:MMMM}";
+    diagram.AxisX.Label.TextDirection = RadarAxisXLabelTextDirection.BottomToTop;
+    diagram.DrawingStyle = RadarDiagramDrawingStyle.Polygon;
+    settings.Titles.Add(new ChartTitle()
+    {
+        Font = new Font("Tahoma", 18),
+        Text = "Average temperature in London"
+    });
+    settings.Titles.Add(new ChartTitle()
+    {
+        Alignment = StringAlignment.Far,
+        Dock = ChartTitleDockStyle.Bottom,
+        Font = new Font("Tahoma", 8),
+        TextColor = Color.Gray,
+        Text = "From www.weather.com"
+    });
+    settings.SeriesTemplate.ArgumentScaleType = ScaleType.DateTime;
+    settings.Legend.AlignmentHorizontal = LegendAlignmentHorizontal.Right;
+}).GetHtml()

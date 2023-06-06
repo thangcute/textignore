@@ -1,0 +1,48 @@
+﻿@model OOS.GHR.HRIS.Models.SelfService_ActivityInfo
+<div class="notify_box">
+    <div class="notify_box_caption">
+        <span>@T("Tính năng mở rộng").Text</span>
+    </div>
+    <div class="notify_box_content">
+        <ul class="nav" style="list-style:square">
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_REPORT", false))
+            {
+                <li>
+                    <a target="_blank" href="@Url.Action("Index", "Report", new { Area = "Admin" })">
+                        <i class="fa fa-area-chart" style="font-size:18px"></i>
+                        @T("Báo cáo")
+                    </a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_ORG", false))
+            {
+                <li>
+                    <a target="_blank" href="@Url.Action("Index", "OrganizationChart", new { Area = "Master" })">
+                        <i class="fa fa-sitemap"style="font-size:18px"></i>
+                        @T("Sơ đồ tổ chức")
+                    </a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_Request", false))
+            {
+                <li>
+                    <a target="_self" href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "Request" })">
+                        <i class="fas fa-file-invoice" style="font-size:18px"></i>
+                        @T("Đề Xuất")
+                    </a>
+                </li>
+            }
+            @if (OOS.GHR.Library.DatabaseCache.IsOKPermission("PORTAL_eContract", false))
+            {
+                <li>
+                <a target="_self" href="@Url.Action("Profile", "Home", new { Area = "SelfService", Ac = "eContract" })">
+                        <i class="fa fa-signature"style="font-size:18px"></i>
+                        @T("Hợp đồng điện tử")
+                    </a>
+                </li>
+            }
+        </ul>
+        @Html.Raw(OOS.GHR.Admin.Models.DesktopModel.GetExtraFunctions_UL(Model.DM.PlugINSList))
+        @Html.Raw(OOS.GHR.Admin.Models.DesktopModel.GetReportViewer_UL(Model.DM.ReportViewerList))
+    </div>
+</div>

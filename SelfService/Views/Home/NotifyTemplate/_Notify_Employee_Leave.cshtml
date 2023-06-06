@@ -1,0 +1,47 @@
+﻿@model OOS.GHR.HRIS.Models.SelfService_ActivityInfo
+<script>
+    $(document).ready(function() {
+        $('#leave_today').showMore({
+                    minheight: 230,
+            buttontxtmore: 'Xem tất cả',
+            buttontxtless: 'Ẩn bớt',
+            animationspeed: 250
+            });
+        $('#leave_tomorrow').showMore({
+                minheight: 230,
+                buttontxtmore: 'Xem tất cả',
+                buttontxtless: 'Ẩn bớt',
+                animationspeed: 250
+            });
+        });
+</script>
+<div class="notify_box">
+    <div class="notify_box_caption">
+        <span>
+            <i class="fa fa-bell" style="color:indianred"></i>
+            @T("Vắng mặt hôm nay:") @(Model.LeaveList.Count.ToString()) @T("nhân sự")
+        </span>
+    </div>
+    <div class="notify_box_content">
+        @if (Model.LeaveList.Count > 0)
+        {
+            <div id="@(Model.LeaveList.Count>3?"leave_today":"")" style="height:auto; max-height:none; min-height:unset; overflow:hidden">
+                <div style="font-weight:600; padding:5px; color:green !important" class="qtns-form-section"><i class="fa fa-plane"></i> @T("Hôm nay").Text (@Model.LeaveList.Count.ToString() @T("Nhân sự").Text)</div>
+                @foreach (OOS.GHR.Core.HRIS.PersonalAvatar PI in Model.LeaveList)
+                {
+                    Html.RenderPartial("UserControl\\Avatar_Image", PI);
+                }
+            </div>
+        }
+        @if (Model.LeaveTomorrowList.Count > 0)
+        {
+            <div id="@(Model.LeaveTomorrowList.Count>3?"leave_tomorrow":"")" style="height:auto; max-height:none; min-height:unset; overflow:hidden">
+                <div style="font-weight:600; padding:5px; color:green !important" class="qtns-form-section"><i class="fa fa-plane"></i> @T("Ngày mai").Text (@Model.LeaveTomorrowList.Count.ToString() @T("Nhân sự").Text)</div>
+                @foreach (OOS.GHR.Core.HRIS.PersonalAvatar PI in Model.LeaveTomorrowList)
+                {
+                    Html.RenderPartial("UserControl\\Avatar_Image", PI);
+                }
+            </div>
+        }
+    </div>
+</div>

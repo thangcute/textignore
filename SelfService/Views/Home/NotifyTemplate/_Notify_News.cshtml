@@ -1,0 +1,17 @@
+﻿@model OOS.GHR.HRIS.Models.SelfService_ActivityInfo
+@if (Model.HotNews.Count > 0)
+{
+<div class="notify_box">
+    <div class="notify_box_caption" style="padding-bottom:5px">
+            <span>@T("Thông báo").Text</span>
+    </div>
+    <div class="notify_box_content">
+        @foreach(OOS.GHR.Library.NS_News_Article news in Model.HotNews)
+        {
+            <div style="padding:5px">
+                <a href="/SelfService/Home/News/?NewsID=@(news.ArticleId)"><i class="fa fa-arrow-right" style="color:gray"></i> @news.Title</a>
+            </div>
+        }
+    </div>
+</div>
+}

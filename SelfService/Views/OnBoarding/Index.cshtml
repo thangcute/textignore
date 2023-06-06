@@ -1,0 +1,218 @@
+﻿@using OOS.GHR.Library
+@model OOS.GHR.SelfService.Models.OnBoardingModel
+@{ 
+    Layout = "_emptyLayout";
+}
+<style type="text/css">
+    html, body {
+        background-color: #999 !important;
+    }
+    .wizzard_content {
+        margin-left: 20px;
+    }
+    .wizzard_bottom {
+        border-top: 2px solid #eeeef4;
+        display:inline-block;
+        padding:15px;
+        width:100%;
+    }
+    .onboarding_content {
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        box-shadow: 0 10px 20px 5px rgba(0,0,0,.1);
+        -webkit-box-shadow: 0 10px 20px 5px rgba(0,0,0,.1);
+        width: 100%;
+        max-width: 1024px;
+        text-align: left;
+        background-color: white;
+        border-radius: 5px;
+        margin-top: 30px;
+    }
+    .wizzard_item_name {
+        font-weight: bold;
+        font-size: 14px;
+        padding-bottom: 3px;
+        padding-left: 5px;
+    }
+    .wizzard_item_desc {
+        display: block;
+        padding: 5px 10px 5px 37px;
+    }
+    .wizzard_header {
+        padding: 10px;
+        border-bottom: 2px solid #eeeef4;
+        border-radius: 5px 5px 0px 0px;
+        background-color:@(BaseColor);
+        color:white;
+        text-align:center;
+    }
+    .onboarding_tablecontent{
+        display:none;
+    }
+    .onboarding_tablecontent h5{
+        font-weight:500;
+        padding-bottom:10px;
+    }
+    .onboarding_tablecontent h4 {
+        font-weight: 600;
+        color: @(BaseColor);
+        padding-bottom:15px;
+    }
+    .onboarding_tablecontent h3 {
+        font-weight: 600;
+        color: @(BaseColor);
+    }
+    .onboarding_tablecontent i {
+        font-size: 20px;
+        color: @(BaseColor);
+        padding-right:5px;
+    }
+    .onboarding_tablecontent p {
+        margin-bottom:3px;
+    }
+    .onboarding_tablecontent label {
+        margin:0px;
+        font-weight:500;
+    }
+    .employee-photo-onboarding {
+        height: 66px;
+        width: 66px;
+        background-size: cover;
+        border-radius: 50% !important;
+    }
+    .tt_name {
+        font-weight: 500;
+    }
+    .tt_value {
+        font-weight: 400;
+    }
+    .tt_job {
+        font-weight: 400;
+    }
+    .tt_i {
+        font-size: 14px !important;
+        color:gray !important;
+    }
+</style>
+<script type="text/javascript">
+    var CatID = 0;
+    var StepIndex = 0;
+    var StepCount = @Model.Items.Count;
+    var Items = ['Wellcome', 'EditInfo', 'JobInfo', 'CareerPath', 'Asset', 'Finished'];
+
+    function Validate(code) {
+        if (code == 'EditInfo') {
+            if (chkDongYTT.GetChecked() == 'False');
+            {
+                showErrorMessage('@T("Bạn phải check vào ô cam kết !")');
+                return 0;
+            }
+        }
+        return 1;
+    }
+
+    function NextStep(xx) {
+
+        if (xx > 0) {
+            if (Validate(Items[StepIndex]) == 0) {
+                return;
+            }
+        }
+
+        $('li[name ="navItem"]').removeClass("active");
+
+        StepIndex = StepIndex + xx;
+
+        if (StepIndex >= Items.length)
+            StepIndex = Items.length - 1;
+
+        if (StepIndex < 0)
+            StepIndex = 0;
+
+        for (i = 0; i < Items.length; i++) {
+            $("#" + Items[i]).hide();
+        }
+
+        $("#" + Items[StepIndex]).show();
+        $("#LI_" + Items[StepIndex]).addClass("active");
+
+        if (StepIndex == 0) {
+            $("#prevButton").hide();
+        }
+        else {
+            $("#prevButton").show();
+        }
+        if (StepIndex == Items.length - 1) {
+            $("#nextButton").html('@T("Xác nhận & Hoàn Thành")');
+        }
+        else {
+            $("#nextButton").html('@T("Tiếp Theo") <i class="fa fa-arrow-right"></i>');
+        }
+    }
+    $(document).ready(function () {
+        $("#nextButton").on('click', function (e) {
+            NextStep(1);
+        });
+        $("#prevButton").on('click', function (e) {
+            NextStep(-1);
+        });
+        $('.menuItemLink').on('click', function (e) {
+            $(".items > div").removeClass("active");
+            $(this).parent().addClass("active");
+
+            CatID = $(this).attr('href');
+            return false;
+        });
+        $("#Wellcome").show();
+        $("#prevButton").hide();
+    });
+</script>
+<table width="100%">
+    <tr>
+        <td align="center">
+            <div class="onboarding_content">
+                <div class="wizzard_header">
+                    <span style="font-size:15px; font-weight:600;">Wellcome joinning OOS !</span>
+                </div>
+                <div style="display:inline-flex; width:100%; padding: 10px;">
+                    <div style="width:350px;">
+                        <ul id="tuyen-dung-list" class="ver-inline-menu tabbable margin-bottom-10" style="width:335px">
+                            @foreach (ObjectID PI in Model.Items)
+                            {
+                                <li id="LI_@PI.StrID" name="navItem" class="@(PI.ID==1?"active":"")">
+                                    <a class="dot-tuyendung" href="#">
+                                        <div style="display:inline-table; width:100%; margin:5px;">
+                                            <div>
+                                                <button class="btn blue-hoki btn-sm default btn-circle">
+                                                    <span style="font-weight:600;">
+                                                        @PI.ID
+                                                    </span>
+                                                </button>
+                                                <span class="wizzard_item_name">@PI.Name</span>
+                                            </div>
+                                            <div class="wizzard_item_desc">
+                                                <span>@Html.Raw(PI.Desc)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="OOSScroller" style="width:100%; margin-left:10px; height:530px; position:relative; border-left: 1px solid #eeeef4">
+                        <div id="content" class="wizzard_content">
+                            @foreach (ObjectID id in Model.Items)
+                            {
+                                @Html.Partial("_" + id.StrID, Model)
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="wizzard_bottom">
+                    <button class="btn yellow pull-left" id="prevButton"><i class="fa fa-arrow-left"></i> @("Quay Lại")</button>
+                    <button class="btn blue pull-right" id="nextButton">@T("Tiếp Theo") <i class="fa fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,2 @@
+﻿@model OOS.GHR.Payroll.Models.OTInfoModel
+@Html.Partial("_RTInfo", Model)

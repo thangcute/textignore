@@ -1,0 +1,104 @@
+﻿@model OOS.GHR.SelfService.Models.ExamOnlineItemModel
+@using OOS.GHR.Framework.DynamicUI;
+@if (!Model.IsReadOnly)
+{
+    @Html.Hidden("TraLoiTracNghiemID", Model.ID);
+    @Html.Hidden("Index", Model.QuestionIndex);
+    @Html.Hidden("TotalAnswers", Model.TotalAnswers);
+    @Html.Hidden("TotalCount", Model.TotalCount);
+}
+@if (Model.ID != 0)
+{
+    <div style="padding-top:20px;">
+        <div style="float:left">
+            @if (Model.IsReadOnly)
+            {
+                if (Model.DapAn == Model.DapAnDung)
+                {
+                    <span class="status_badge success" style="padding:5px;">
+                        <i class="fa fa-check"></i> @T("CÂU HỎI") @Model.QuestionIndex.ToString() / @Model.TotalCount.ToString()
+                    </span>
+                }
+                else
+                {
+                    <span class="status_badge fail"><i class="fa fa-exclamation"></i> @T("CÂU HỎI") @Model.QuestionIndex.ToString() / @Model.TotalCount.ToString()</span>
+                }
+            }
+            else
+            {
+                <span class="exam_base_text statusinfo">@T("CÂU HỎI") @Model.QuestionIndex.ToString() / @Model.TotalCount.ToString()</span>
+            }
+        </div>
+        <div style="padding-left:10px;">
+            <span class="exam_base_text" style="font-weight:600; padding:5px;">@Model.Ten</span>
+            @switch (Model.Type)
+            {
+                //CheckBoxList
+                case 0:
+                    {
+                        @Html.DevExpress().CheckBoxList(st =>
+                        {
+                            st.Width = Unit.Percentage(100);
+                            if (Model.IsReadOnly)
+                                st.Name = "cbExamItem" + Model.ID.ToString();
+                            else
+                                st.Name = "cbExamItem";
+                            st.Properties.TextField = "Name";
+                            st.Properties.ValueField = "ID";
+                            st.ControlStyle.Border.BorderStyle = BorderStyle.None;
+                            st.ReadOnly = Model.IsReadOnly;
+                        }).BindList(Model.CauHoiList).Bind(Model.DapAn).GetHtml();
+                        break;
+                    }
+                //Multi Checkbox List
+                case 1:
+                    {
+                        @Html.DevExpress().RadioButtonList(st =>
+                   {
+                       st.Width = Unit.Percentage(100);
+                       if (Model.IsReadOnly)
+                           st.Name = "cbExamItem" + Model.ID.ToString();
+                       else
+                           st.Name = "cbExamItem"; st.Properties.TextField = "Name";
+                       st.Properties.ValueField = "ID";
+                       st.ControlStyle.Border.BorderStyle = BorderStyle.None;
+                       st.Properties.ValueType = typeof(int);
+                       st.ReadOnly = Model.IsReadOnly;
+                       st.PreRender = (s, e) =>
+                       {
+                           DevExpress.Web.Mvc.MVCxRadioButtonList lst = (DevExpress.Web.Mvc.MVCxRadioButtonList)s;
+                       };
+                   }).BindList(Model.CauHoiList).Bind(Model.DapAn).GetHtml();
+                        break;
+                    }
+
+                //Memo
+                case 2:
+                    {
+                        <div style="padding-top:50px;">
+                            @Html.DevExpress().Memo(st =>
+                       {
+                           if (Model.IsReadOnly)
+                               st.Name = "cbExamItem" + Model.ID.ToString();
+                           else
+                               st.Name = "cbExamItem"; st.Width = Unit.Percentage(90);
+                           st.Height = Unit.Pixel(250);
+                           st.ReadOnly = Model.IsReadOnly;
+                       }).Bind(Model.DapAnStr).GetHtml()
+                        </div>
+                    }
+                    break;
+            }
+            @if (Model.IsReadOnly)
+            {
+                <div style="float:right"><span class="status_badge success">@T("Đáp án đúng:") <span> @Model.DapAnDung</span></span></div>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div style="text-align:center; padding-top:150px; height:400px;">
+        <button type="button" onclick="NextQuestion(0);" class="btn blue">@T("BẮT ĐẦU TRẮC NGHIỆM").Text</button>
+    </div>
+}

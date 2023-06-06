@@ -1,0 +1,55 @@
+Start - 2023-05-26 09:16:09 - 
+20230526091609 - 2023-05-26 09:16:09: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526091609 - 2023-05-26 09:16:09: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092238 - 2023-05-26 09:22:38: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092238 - 2023-05-26 09:22:38: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092301 - 2023-05-26 09:23:01: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092301 - 2023-05-26 09:23:01: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092316 - 2023-05-26 09:23:16: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092316 - 2023-05-26 09:23:16: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092317 - 2023-05-26 09:23:17: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092317 - 2023-05-26 09:23:17: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092317 - 2023-05-26 09:23:17: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092317 - 2023-05-26 09:23:17: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092329 - 2023-05-26 09:23:29: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526092329 - 2023-05-26 09:23:29: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526103943 - 2023-05-26 10:39:43: There is no row at position 0.
+20230526103943 - 2023-05-26 10:39:43: There is no row at position 0.
+20230526105106 - 2023-05-26 10:51:06: There is no row at position 0.
+20230526105106 - 2023-05-26 10:51:06: There is no row at position 0.
+20230526105328 - 2023-05-26 10:53:28: There is no row at position 0.
+20230526105328 - 2023-05-26 10:53:28: There is no row at position 0.
+20230526105609 - 2023-05-26 10:56:09: There is no row at position 0.
+20230526105609 - 2023-05-26 10:56:09: There is no row at position 0.
+20230526110403 - 2023-05-26 11:04:03: There is no row at position 0.
+20230526110403 - 2023-05-26 11:04:03: There is no row at position 0.
+20230526110456 - 2023-05-26 11:04:56: There is no row at position 0.
+20230526110456 - 2023-05-26 11:04:56: There is no row at position 0.
+20230526110723 - 2023-05-26 11:07:23: There is no row at position 0.
+20230526110723 - 2023-05-26 11:07:23: There is no row at position 0.
+20230526111715 - 2023-05-26 11:17:15: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526111715 - 2023-05-26 11:17:15: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526111717 - 2023-05-26 11:17:17: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526111717 - 2023-05-26 11:17:17: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526111718 - 2023-05-26 11:17:18: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item
+20230526111718 - 2023-05-26 11:17:18: The item with identity 'TSK_DuAn_NguoiTheoDoi' already exists in the metadata collection.
+Parameter name: item

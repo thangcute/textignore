@@ -1,0 +1,15 @@
+﻿@model OOS.GHR.HRIS.Models.SelfService_ActivityInfo
+@if (Model.LeaveList.Count > 0 || Model.LeaveTomorrowList.Count > 0)
+{
+    Html.RenderPartial("Template/_Feed_Leave", Model);
+}
+
+@if (Model.NewEmployeeList.Count > 0)
+{
+    Html.RenderPartial("Template/_Feed_NewEmployee", Model);
+}
+
+@if (Model.DM.PlugINSList.Count > 0 || Model.DM.ReportViewerList.Count > 0)
+{
+    Html.RenderPartial("Template/_Feed_PlugINS", Model);
+}

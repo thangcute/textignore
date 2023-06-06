@@ -1,0 +1,174 @@
+﻿@model OOS.GHR.SelfService.Models.AttendanceMonthModel
+@{ 
+    var DisableGiaiTrinh = OOS.GHR.Library.CConfig.GetConfigBool("NS_ESS_DISABLE_GIAITRINHCONG");
+}
+<style type="text/css">
+    .badge_info {
+        margin-bottom: 5px;
+        font-size: 13px !important;
+        height: 22px !important;
+        padding-top: 5px !important
+    }
+</style>
+<table width="100%">
+    <tr>
+     <td width="70%">
+        <table class="table table-striped table-bordered table-advance table-hover">
+            <thead>
+                <tr>
+                    <th>@T("Ngày")</th>
+                    <th>@T("Thời gian")</th>
+                    <th>@T("Công/Diễn giải")</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (OOS.GHR.SelfService.Models.DayAttendance_SelfServiceInfo info in Model.DayListInfo)
+                {
+                    <tr>
+                        <td width="70px" style="background-color:@(info.Thu=="Sun"?"#F3565D; color:White":"inherited")">
+                            <div style="text-align:center;">
+                                <div style="text-align:center; font-weight:600">@info.Thu</div>
+                                <div style="text-align:center">@info.NgayThang.ToString("dd/MM")</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="text-align:left;">
+                                <span class="label label-primary">@info.TG_Den</span>
+                                @if (info.TG_Ra != "")
+                                {
+                                    <span class="label label-info">@info.TG_Ra</span>
+                                }
+                                @if (info.TG_Vao != "")
+                                {
+                                    <span class="label label-info">@info.TG_Vao</span>
+                                }
+                                <span class="label label-primary">@info.TG_Ve</span>
+                            </div>
+                            @if (info.NghiPhep_CongTac != "")
+                            {
+                                <div style="padding-top:10px;"><span class="label label-danger" style="font-weight:600;">@info.NghiPhep_CongTac</span></div>
+                            }
+                            else
+                            if (info.DangKy != "")
+                            {
+                                <div style="padding-top:10px;">@T("Đăng ký"): <span style="font-weight:bolder;">@info.DangKy</span></div>
+                            }
+                        </td>
+                        <td>
+                            <div>
+                                @if (info.TG_LamViec > 0)
+                                {
+                                    <div style="padding-bottom:5px;">@T("CLV"): <span style="font-weight:600;">@info.TG_LamViec.ToString("n2")</span></div>
+                                }
+                                @if (info.TG_LamThem > 0)
+                                {
+                                    <div>TG: <span style="font-weight:600;">@info.TG_LamThem.ToString("n2")</span></div>
+                                }
+                                @if (info.DiMuon > 0 || info.VeSom > 0)
+                                {
+                                    <div>
+                                        @if (info.DiMuon > 0)
+                                        {
+                                            <span class="label label-warning">@T("Đi muộn"): <span style="font-weight:600;">@info.DiMuon.ToString("n0") phút</span></span>
+                                        }
+                                        @if (info.VeSom > 0)
+                                        {
+                                            <span class="label label-warning">@T("Về sớm"): <span style="font-weight:600;">@info.VeSom.ToString("n0") phút</span></span>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                            <div>
+                                @if (info.DangKy == "" && info.NghiPhep_CongTac == "" && info.TG_LamViec <= 0 &&
+                                    (info.Thu != "Sat" || (info.Thu == "Sat" && Model.IsDiLamThuBay)) &&
+                                    (info.Thu != "Sun" || (info.Thu == "Sun" && Model.IsDiLamChuNhat)) &&
+                                    (info.TG_Ve == "" && info.TG_Den == "") && !DisableGiaiTrinh)
+                                {
+                                    <div style="padding-top:4px; vertical-align: middle;">
+                                        <a href="@Url.Action("Profile", "Home", new { Ac = "Leave" })">
+                                            <button type="button" class="btn btn-circle green-haze btn-sm"><i class="fa fa-plane"></i> @T("Nghỉ phép")</button>
+                                        </a>
+                                        <a href="@Url.Action("Profile", "Home", new { Ac = "CT" })">
+                                            <button type="button" class="btn btn-circle blue btn-sm"><i class="fa fa-plane"></i> @T("Công tác")</button>
+                                        </a>
+                                        <div style="padding-top:4px; vertical-align: middle;">
+                                            <button type="button" onclick="ShowLostFinger(@info.NhanVienID, @info.TongHopTheoNgayID);" class="btn btn-circle purple btn-sm"><i class="fa fa-clock"></i> @T("Giải trình thiếu giờ")</button>
+                                        </div>
+                                    </div>
+                                }
+                                @if ((info.DiMuon > 0 || info.VeSom > 0) && !DisableGiaiTrinh)
+                                {
+                                    <div style="padding-top:10px;">
+                                        @if (info.GiaiTrinhDiMuon != "")
+                                        {
+                                            string htmlNotify = OOS.GHR.Master.Models.DataTableSource.GetCSSStatus(info.XetDuyet_DiMuon);
+                                            string Notify = OOS.GHR.Master.Models.DataTableSource.GetStatusText(info.XetDuyet_DiMuon);
+                                            <span title="@info.GiaiTrinhDiMuon" style="margin-bottom:5px; font-size:13px !important; height:22px !important; padding-top:5px !important" class='badge badge-@htmlNotify'>@T("Giải trình đi muộn") - @Notify</span>
+                                        }
+                                        else
+                                        if (info.DiMuon > 0 && !Model.IsLocked(info.NgayThang))
+                                        {
+                                            <button type='button' onclick="Show_LyDo('@info.NgayThang.ToString("yyyy-MM-dd")','TGDiMuon',@info.DiMuon);" class='btn btn-circle blue-hoki btn-sm'><i class='fa fa-tag'></i> @T("Giải trình đi muộn")</button>
+                                        }
+                                        @if (info.GiaiTrinhVeSom != "")
+                                        {
+                                            string htmlNotify = OOS.GHR.Master.Models.DataTableSource.GetCSSStatus(info.XetDuyet_VeSom);
+                                            string Notify = OOS.GHR.Master.Models.DataTableSource.GetStatusText(info.XetDuyet_VeSom);
+                                            <span title="@info.GiaiTrinhVeSom" style="margin-bottom:5px;font-size:13px !important; height:22px !important; padding-top:5px !important" class='badge badge-@htmlNotify'>@T("Giải trình về sớm") - @Notify</span>
+                                        }
+                                        else
+                                        if (info.VeSom > 0 && !Model.IsLocked(info.NgayThang))
+                                        {
+                                            <button type='button' onclick="Show_LyDo('@info.NgayThang.ToString("yyyy-MM-dd")','TGVeSom',@info.VeSom);" class='btn btn-circle blue-hoki btn-sm'><i class='fa fa-tag'></i> @T("Giải trình về sớm")</button>
+                                        }
+                                    </div>
+                                }
+                                @if (info.MustAddTime && info.DangKy == "")
+                                {
+                                    if (info.GiaiTrinhThemGio != "")
+                                    {
+                                        string htmlNotify = OOS.GHR.Master.Models.DataTableSource.GetCSSStatus(info.XetDuyet_ThemGio);
+                                        string Notify = OOS.GHR.Master.Models.DataTableSource.GetStatusText(info.XetDuyet_ThemGio);
+                                        <span title="@info.GiaiTrinhThemGio" style="margin-bottom:5px; font-size:13px !important; height:22px !important; padding-top:5px !important" class='badge badge-@htmlNotify'>@T("Giải trình thiếu giờ") - @Notify</span>
+                                    }
+                                    else
+                                    {
+                                        if (!Model.IsLocked(info.NgayThang) && !DisableGiaiTrinh)
+                                        {
+                                            <div style="padding-top:4px; vertical-align: middle;">
+                                                <button type="button" onclick="ShowLostFinger(@info.NhanVienID, @info.TongHopTheoNgayID);" class="btn btn-circle purple btn-sm"><i class="fa fa-clock"></i> @T("Giải trình thiếu giờ")</button>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </td>
+        <td valign="top">
+            @if (Model.TongHopCong != null && Model.TongHopCong.Rows.Count > 0)
+            {
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>@T("Tổng Công")</th>
+                            <th>@T("Số lượng")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int iCol = 5; iCol <= Model.TongHopCong.Columns.Count-4; iCol++)
+                        {
+                            <tr>
+                                <td>@Model.TongHopCong.Columns[iCol].ColumnName</td>
+                                <td>@(Model.TongHopCong.Rows[0][iCol].ToString())</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </td>
+</table>
+

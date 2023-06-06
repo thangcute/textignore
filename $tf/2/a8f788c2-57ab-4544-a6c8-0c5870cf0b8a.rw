@@ -1,0 +1,2 @@
+﻿@model object 
+@Html.TextBoxFor(model => model, new { @class = "input-sm form-control", type = "url" })

@@ -1,0 +1,63 @@
+﻿@using System.Data
+@model OOS.GHR.HRIS.Models.ProfilePreviewModel
+@{
+    Layout = "~/Views/Shared/_portalLayout.cshtml";
+}
+<style type="text/css">
+    @@media (min-width: 991px) {
+        .page-content-wrapper .page-content {
+            padding-top: 0px !important;
+            background-color: #E5E5E5 !important;
+            padding-left: 10px;
+        }
+
+        .col-lg-12 {
+            padding-right: 10px;
+        }
+    }
+
+    @@media (max-width: 991px) {
+        .page-content-wrapper .page-content {
+            padding-top: 0px !important;
+            padding-left: 0px;
+        }
+        .col-lg-12 {
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+    }
+    .newsContent img {
+        max-width: 100% !important;
+        height:unset !important;
+    }
+    .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover, .page-sidebar {
+        width: 330px !important;
+    }
+
+    .page-content-wrapper .page-content {
+        margin-left: 330px;
+        transition: margin-left 0.3s;
+    }
+
+    html, body {
+        background: #E5E5E5 !important;
+    }
+
+    .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover, .page-sidebar {
+        background-color: #E5E5E5 !important;
+        color: #5a7391 !important;
+    }
+</style>
+@section SideBar
+{
+    @Html.Partial("_OverviewInfo", Model)
+}
+<div style="background-color:#E5E5E5; padding-top:5px; max-width:1024px;">
+    <div class="col-lg-12">
+        <div class="profile-content">
+            <div class="row">
+                @Html.Partial("_NewDetails", Model.Article)
+            </div>
+        </div>
+    </div>
+</div>

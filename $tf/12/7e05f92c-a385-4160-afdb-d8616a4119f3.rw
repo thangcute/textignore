@@ -1,0 +1,3 @@
+﻿@using OOS.GHR.Admin.Models
+@model XetDuyetModel
+@Html.Partial("XetDuyetPopup", Model)

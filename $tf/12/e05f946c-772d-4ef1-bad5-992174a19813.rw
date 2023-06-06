@@ -1,0 +1,4 @@
+﻿@model OOS.GHR.SelfService.Models.OnBoardingModel
+<div class="portlet light" id="JobInfo" style="display:none">
+    JOBINFO
+</div>

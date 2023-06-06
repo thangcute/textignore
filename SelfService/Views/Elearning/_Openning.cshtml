@@ -1,0 +1,44 @@
+﻿@model OOS.GHR.SelfService.Models.ElearningModel
+<script type="text/javascript">
+    $(document).ready(function () {
+        // initiate layout and plugins
+        Metronic.init(); // init metronic core components
+        UIConfirmations.init(); // init page demo
+    });
+    var last_clicked_id = null;
+    $('.dangky').click(function () {
+        last_clicked_id = $(this).data("id");
+    });
+    $('.dangky').confirmation({
+        singleton: true,
+        onConfirm: function (event) {
+            var url = '@Url.Action("Register_TrainningCourse", "Elearning", new { Area = "SelfService" })';
+            var data = { "DotDaoTaoID": last_clicked_id };
+            OOSCore.Call_Ajax_Function_POST(url, data, function (result) { AddNewTab('Openning'); });
+        }
+});
+</script>
+<div style="margin-bottom:10px; padding-top:20px;">
+    <div class="tabbable-line">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a style="padding:0px 15px 5px 15px;" href="#trainnning_joinning" data-toggle="tab" aria-expanded="true">
+                    <span id="recruit_tab_name">@T("Khóa đào tạo bắt buộc tham gia")</span>
+                </a>
+            </li>
+            <li>
+                <a style="padding:0px 15px 5px 15px;" href="#trainnning" data-toggle="tab" aria-expanded="true">
+                    <span id="recruit_tab_name">@T("Khóa đào tạo được tham gia")</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="tab-content">
+    <div class="tab-pane active" id="trainnning_joinning" name="thong-tin">
+        @Html.Partial("_OpenningList", Model.BatBuocDangKyList, new ViewDataDictionary { { "Required", "1" } })
+    </div>
+    <div class="tab-pane" id="trainnning" name="thong-tin">
+        @Html.Partial("_OpenningList", Model.DuocPhepDangKy)
+    </div>
+</div>

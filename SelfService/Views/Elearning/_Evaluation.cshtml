@@ -1,0 +1,99 @@
+﻿@model OOS.GHR.Trainning.Models.TrainningCourseContentInfoModel
+@using OOS.GHR.Library
+@using System.Data
+@using OOS.GHR.Trainning.Models
+<div class="trainning_evaluation">
+    <form id="EvaluationForm@(Model.NoiDungDaoTaoID)" class="form-horizontal" method="post" enctype="multipart/form-data">
+        @Html.HiddenFor(m => m.NoiDungDaoTaoID)
+        @Html.HiddenFor(m => m.DotDaoTaoID)
+        <table width="100%">
+            @foreach (string strGroup in Model.NhomDanhGia)
+            {
+                <tr class="trainning_evaluation tr_group">
+                    <td colspan="2" class="trainning_evaluation group">@strGroup</td>
+                </tr>
+                foreach (TrainningEvaluationInfo dr in Model.CreteriaList)
+                {
+                    if (dr.Nhom == strGroup)
+                    {
+                        <tr>
+                                @switch (dr.KieuDuLieu)
+                                {
+                                    case "Textbox":
+                                        <td colspan="2">                                            
+                                            <div style="padding-bottom:3px">
+                                                <span style="font-weight:500">@dr.Ten:</span>
+                                            </div>
+                                            @Html.DevExpress().TextBox(st =>
+                                            {
+                                                st.Name = "Hrate_gv_" + dr.IDD;
+                                                st.Width = Unit.Percentage(100);
+                                            }).Bind(dr.DanhGia).GetHtml()
+                                        </td>
+                                        break;
+                                    case "Memo":
+                                        <td colspan="2" style="border:none">
+                                            <div style="padding-bottom:3px">
+                                                <span style="font-weight:500">@dr.Ten:</span>
+                                            </div>
+                                                @Html.DevExpress().Memo(st =>
+                                                {
+                                                    st.Name = "Hrate_gv_" + dr.IDD;
+                                                    st.Width = Unit.Percentage(100);
+                                                    st.Height = 100;
+                                                }).Bind(dr.DanhGia).GetHtml()
+                                            </td>
+                                        break;
+                                    case "Select":
+                                        <td colspan="2">
+                                            <div style="padding-bottom:3px">
+                                                <span style="font-weight:500">@dr.Ten:</span>
+                                            </div>
+                                            @Html.DevExpress().ComboBox(st =>
+                                            {
+                                                st.Name = "Hrate_gv_" + dr.IDD;
+                                                st.Width = Unit.Percentage(100);
+                                                st.Properties.ValueField = "ID";
+                                                st.Properties.TextField = "Name";
+                                                st.Properties.ValueType = typeof(int);
+                                            }).BindList(dr.GetDataSource()).Bind(OOS.GHR.Library.Database.ToIntPtr(dr.GetIntValue())).GetHtml()
+
+                                            @Html.Hidden("Hrate_gv_cb_" + dr.IDD, "1")
+                                        </td>
+                                        break;
+                                    default:
+                                        <td class="trainning_evaluation.item">
+                                            @dr.Ten
+                                        </td>
+                                        <td class="trainning_evaluation item_rate">
+                                            @Html.DevExpress().RatingControl(
+                                            settings => {
+                                                settings.Name = "rate_gv_" + dr.IDD;
+                                                settings.FillPrecision = RatingControlItemFillPrecision.Full;
+                                                if (!Model.IsReadOnly)
+                                                    settings.ClientSideEvents.ItemClick = "myRating_ItemClick"
+                                                settings.ReadOnly = Model.IsReadOnly;
+                                                settings.ClientSideEvents.Init = "myRating_ItemClick";
+                                            }
+                                            ).Bind(dr.GetIntValue()).GetHtml()
+                                            <label id="lbrate_gv_@(dr.IDD)"></label>
+                                            @Html.Hidden("Hrate_gv_" + dr.IDD, dr.GetIntValue())
+                                        </td>
+                                        break;
+                                }
+                        </tr>
+                    }
+                }
+            }
+        </table>
+    </form>
+</div>
+@if (!Model.IsReadOnly)
+{
+    <div style="padding-top:10px">
+        <button type="button" class="btn blue btn-sm pull-left"
+                onclick="SaveRating('EvaluationForm@(Model.NoiDungDaoTaoID)')">
+            <i class="far fa-save"></i> @T("Lưu đánh giá").Text
+        </button>
+    </div>
+}

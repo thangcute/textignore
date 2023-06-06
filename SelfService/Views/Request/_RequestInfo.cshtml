@@ -1,0 +1,81 @@
+﻿@using OOS.GHR.SelfService.Models
+@using OOS.GHR.Framework.DynamicUI
+@model RequestModel
+@using (Ajax.BeginForm("AddAndEdit", "Request", new AjaxOptions { OnSuccess = "OnSuccessSave", OnBegin = "OOSDialog.ShowLoadingPanel();" },
+new { id = "frmRequest", name = "frmRequest" }))
+{
+    @Html.HiddenFor(m => m.DeXuatID)
+    <div class="form-horizontal form-bordered">
+        <div class="form-body">
+            <div class="form-group">
+                <label class="col-md-3 control-label required">@T("Loại đề xuất").Text</label>
+                <div class="col-md-9">
+                    @Html.DevExpress().ComboBoxFor(m => m.LoaiDeXuatID, i =>
+                {
+                    i.Width = Unit.Percentage(100);
+                    i.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                    i.Properties.ValueField = "ID";
+                    i.Properties.TextField = "Ten";
+                    i.Properties.ValueType = typeof(int);
+                    i.Properties.ClientSideEvents.ValueChanged = "OnLoaiDeXuatChanged";
+                    i.ReadOnly = Model.LoaiDeXuatID > 0;
+                }).BindList(OOS.GHR.Master.Models.UtilityDatasource.LoaiDeXuatList()).GetHtml()
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label required">@T("Tiêu đề").Text</label>
+                <div class="col-md-9">
+                    @Html.DevExpress().TextBoxFor(m => m.TieuDe, st=> { st.Width = Unit.Percentage(100); }).GetHtml()
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label required">@T("Ngày đề xuất").Text</label>
+                <div class="col-md-9">
+                    @Html.DevExpress().DateEditFor(m => m.NgayDeXuat).GetHtml()
+                </div>
+            </div>
+            @if (Model.LoaiDeXuatID <= 0)
+            {
+                <div id="requestField"></div>
+            }
+            else
+            {
+                foreach (ControlModel CM in Model.Controls.alControls)
+                {
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">
+                            <span style="color:black;" class="@(CM.AllowNull?"":"required")">@CM.Caption</span>
+                            @if (CM.Helper != "")
+                            {
+                                <div class="status_desc">@CM.Helper</div>
+                            }
+                        </label>
+                        <div class="col-md-9">
+                            @Html.OOSUIControl(CM)
+                        </div>
+                    </div>
+                }
+            }
+            <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-9">
+                    @Html.Partial("UserControl/FileStoreViewer", "DX_DEXUAT|" + Model.DeXuatID.ToString())
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">@T("File Upload").Text</label>
+                <div class="col-md-9">
+                    @Html.Partial("UserControl/UploadMultiFiles", "DX_DeXuat_FileStore")
+                </div>
+            </div>
+            @if (Model.DeXuatID > 0)
+            {
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.EditorFor(m => m.cm)
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

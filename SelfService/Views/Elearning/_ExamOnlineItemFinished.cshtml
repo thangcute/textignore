@@ -1,0 +1,20 @@
+﻿@model List<OOS.GHR.Library.ObjectID>
+@if (Model != null)
+{
+    foreach (OOS.GHR.Library.ObjectID ID in Model)
+    {
+        string name = (ID.Name.Length <= 1 ? '0' + ID.Name : ID.Name);
+        if (ID.StrID == "" || ID.StrID == "0")
+        {   
+            <div style="padding:5px; display:inline-flex">
+                <button type="button" onclick="ViewOldQuestion(@ID.ID);" class="btn btn-sm default">@(name)</button>
+            </div>
+        }
+        else
+        {   <div style="padding:5px; display:inline-flex">
+                <button type="button" onclick="ViewOldQuestion(@ID.ID);" class="btn btn-sm purple">@name</button>
+            </div>
+        }
+    }
+}
+@Html.Hidden("IsFinished", ViewData["IsFinished"])

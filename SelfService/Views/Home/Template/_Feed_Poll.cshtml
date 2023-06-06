@@ -1,0 +1,16 @@
+﻿@model OOS.GHR.HRIS.Models.FeedInfo
+<div class="feed_box">
+    <div class="feed_box_caption">
+        <span>Thăm dò ý kiến - @Model.Title</span>
+        <div class="feed_box_date">@Model.CreatedDate.ToShortDateString() - @Model.CreatedDate.ToShortTimeString()</div>
+    </div>
+    <div class="feed_box_desc">
+        <span>@Model.Description</span>
+    </div>
+    <div class="feed_box_content">
+       @Html.Action("Poll_Partial", "Poll", new { Area = "Master", PollID = Model.ID })
+    </div>
+    <div class="feed_box_title">
+        <h4>Ngày hết hạn: @Model.DueDate.ToShortDateString()</h4>
+    </div>
+</div>

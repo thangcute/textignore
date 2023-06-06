@@ -1,0 +1,16 @@
+﻿@model OOS.GHR.HRIS.Models.SelfService_ActivityInfo
+<div class="feed_box">
+    <div class="feed_box_caption">
+        <span>@T("Chức năng khác")</span>
+    </div>
+    <div class="feed_box_content">
+        <div>
+            @Html.Raw(OOS.GHR.Admin.Models.DesktopModel.GetExtraFunctions(Model.DM.PlugINSList))
+            @Html.Raw(OOS.GHR.Admin.Models.DesktopModel.GetReportViewer(Model.DM.ReportViewerList))
+        </div>
+    </div>
+    <div class="feed_box_title">
+        <h4>Tổng số : @{ @Html.Raw((Model.DM.PlugINSList.Count + Model.DM.ReportViewerList.Count).ToString("n0")); }</h4>
+    </div>
+</div>
+
